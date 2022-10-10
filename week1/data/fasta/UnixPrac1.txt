@@ -1,5 +1,0 @@
-Download the files first by: #anqiwang@qishidakeqipadepas-MacBook-Pro ~ % cd Documents/CMEECourseWork/Week1/data, then create a new directory by: # mkdir fasta, download the files by: anqiwang@qishidakeqipadepas-MacBook-Pro data % cd fasta, wget https://github.com/mhasoba/TheMulQuaBio/tree/master/content/data/fast/407228326.fasta, wget https://github.com/mhasoba/TheMulQuaBio/blob/master/content/data/fasta/407228412.fasta and wget https://github.com/mhasoba/TheMulQuaBio/blob/master/content/data/fasta/E.coli.fasta
-#1 nqiwang@qishidakeqipadepas-MacBook-Pro fasta % ls (base) anqiwang@qishidakeqipadepas-MacBook-Pro fasta % wc -l 407228326.fasta (base) anqiwang@qishidakeqipadepas-MacBook-Pro fasta % wc -l 407228412.fasta (base) anqiwang@qishidakeqipadepas-MacBook-Pro fasta % wc -l E.coli.fasta
-#2 % tail +2 E.coli.fasta
-#3 grep -c ">" E.coli.fasta 
-#3 awk '/^>/{if (l!=) print l; print; l=0; next}{l+=length(-zsh)}END{print l}' E.coli.fasta
