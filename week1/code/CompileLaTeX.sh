@@ -22,3 +22,7 @@ rm *.aux
 rm *.log
 rm *.bbl
 rm *.blg
+rm *.dvi
+rm *.nav
+rm *.out
+rm *.toc

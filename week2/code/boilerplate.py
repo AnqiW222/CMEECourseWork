@@ -18,3 +18,7 @@ if __name__ == "__main__":
     sys.exit(status)
 
 if (__name__ == "__main__"):
+    def main(argv):
+    print('This is a boilerplate') # NOTE: indented using two tabs or four spaces
+    sys.exit(status)
+        

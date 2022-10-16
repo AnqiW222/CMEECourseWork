@@ -6,16 +6,16 @@
 #Use $ls to make sure in the right place Documents/CMEECourseWork or make sure all the FASTA files are put into fasta folder in week1/data;
 
 #1 Count how many lines there are in each file
-Answer: $ wc -l ../week1/data/fasta/*.fasta #wc refers to words count, -l means count the lines, *.fasta contains all three files from FASTA files;
+Answer: $ wc -l ../data/fasta/*.fasta #wc refers to words count, -l means count the lines, *.fasta contains all three files from FASTA files;
 
 #2 Print everything starting from the second line for the E. coli genome
-Answer: $ tail +2 ../week1/data/fasta/E.coli.fasta #tail [option] filename refers read the tail of the file from the n^th lines;
+Answer: $ tail +2 ../data/fasta/E.coli.fasta #tail [option] filename refers read the tail of the file from the n^th lines;
 
 #3 Count the sequence length of this genome
-Answer: $ tail +2 ../week1/data/fasta/E.coli.fasta | tr -d '\n' | wc -m #read the file except first two lines, transform all strings in the newline, and display the number of characters in a file
+Answer: $ tail +2 ../data/fasta/E.coli.fasta | tr -d '\n' | wc -m #read the file except first two lines, transform all strings in the newline, and display the number of characters in a file
 
 #4 Count the matches of a particular sequence, “ATGC” in the genome of E. coli (hint: Start by removing the first line and removing newline characters)
-Answer: $ tail -n+2 ../week1/data/fasta/E.coli.fasta | tr -d '\n'| grep -o ATGC | wc -l  #start from the line 2 onwards, removes all new lines, grep command finds every ATGC, '-o' function of grep prints every result of ATGC on a new line and wc -l counts the number of new lines, and therefore the number of ATGC's.
+Answer: $ tail -n+2 ../data/fasta/E.coli.fasta | tr -d '\n'| grep -o ATGC | wc -l  #start from the line 2 onwards, removes all new lines, grep command finds every ATGC, '-o' function of grep prints every result of ATGC on a new line and wc -l counts the number of new lines, and therefore the number of ATGC's.
 
 #5 Compute the AT/GC ratio. That is, the (A+T)/(G+C) ratio (as a single number). This is a summary measure of base composition of double-stranded DNA. DNA from different organisms and lineages has different ratios of the A-to-T and G-to-C base pairs 
 Answer: $ tail -n+2 ../week1/data/fasta/E.coli.fasta | tr -d "\n" | grep -o [A,T] | wc -l
