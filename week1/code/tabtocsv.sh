@@ -40,7 +40,7 @@ then
     echo " Oops, something goes wrong, please enter a file to begin "
 else 
     echo "Creating a comma demited version of $1 ..."
-    cat  $1 | tr -s "\t" "," >> $1.csv
+    cat  $1 | tr -s "\t" "," >> ${1%txt}csv
 
 echo "The file is ready to view"
 
