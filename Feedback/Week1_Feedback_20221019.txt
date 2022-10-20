@@ -1,0 +1,803 @@
+Starting code feedback for Anqi, Week1
+
+Current Points = 100
+
+Note that: 
+(1) Major sections begin with a double "====" line 
+(2) Subsections begin with a single "====" line 
+(3) Code output or text file content are printed within single "*****" lines 
+
+======================================================================
+======================================================================
+Your Git repo size this week is about 1.61 MiB on disk 
+
+PART 1: Checking project workflow...
+
+Found the following directories in parent directory: week2, .git, week1, Feedback
+
+Found the following files in parent directory: .gitignore, README.md
+
+Checking for key files in parent directory...
+
+Found .gitignore in parent directory, great! 
+
+Printing contents of .gitignore:
+
+**********************************************************************
+*.tmp
+*.log
+.DS_Store
+*/sandbox
+
+**********************************************************************
+
+Found README in parent directory, named: README.md
+
+Printing contents of README.md:
+
+**********************************************************************
+# Anqi's CMEE Coursework Repository
+This README file contains details about the modules within Anqi Wang's (aw222@ic.ac.uk) CMEE Coursework. This coursework contributes towards the fulfilment of MSc Computational Methods in Ecology and Evolution (CMEE) at Imperial College London. <br />
+
+Many of the task requirements can be found at https://mhasoba.github.io/TheMulQuaBio/intro.htm
+
+
+## Contents
+### Week 1: UNIX, Shell scription, LaTeX and Version Control with Git
+**Summary:** A brief introduction of the Multilingual Quantitative Biological Methods, UNIX basic knowledge, Introductory shell scripting exercises, Produce scientific documents with LaTeX, and Use version control (Git) to share the files with others<br />
+**Language Use:** Bash, LaTex
+
+---
+
+
+## Language Versions
+**Python:** 3.9.12 <br />
+**R:** 4.2.1 <br />
+**bash:** 3.2 <br />
+**LaTeX:** 3.141592653-2.6-1.40.24 (TeX Live 2022) <br />
+**Jupyter:** Notebook 6.4.8 <br />
+
+All code has been written on a MacOS version 12.6 and any dependencies are detailed below the script names within weekly README files
+
+**********************************************************************
+
+======================================================================
+Looking for the weekly directories...
+
+Found 2 weekly directories: week1, week2
+
+The Week1 directory will be assessed 
+
+======================================================================
+======================================================================
+PART 2: Checking weekly code and workflow...
+
+======================================================================
+Assessing WEEK1...
+
+Found the following directories: code, data, results
+
+Found the following files: README.md
+
+Checking for readme file in weekly directory...
+
+Found README in parent directory, named: README.md
+
+Printing contents of README.md:
+
+**********************************************************************
+# CMEE Coursework - week 1:
+
+This README file contains details about the scripts from in-classwork and practicals for the first week.
+
+## Description
+More information about the shell scripts for coursework in **shell scripting** and scientific documents with **LaTeX** section can be found in the Computing Chapter of the book [The Mulitilingual Quantitative Biologist](https://mhasoba.github.io/TheMulQuaBio/intro.html)
+
+## Language
+
+Bash
+
+## Dependencies
+
+For some scripts (e.g. tiff2png.sh) in this directory requires [imagemagick](https://imagemagick.org/index.php), it can be installed by:
+
+```bash
+brew install imagemagick
+```
+
+For the scientific document editing, [LaTeX](https://www.latex-project.org/) installation is required by:
+
+```bash
+sudo perl install-tl -gui text
+```
+
+_The installation commands are used for MacOS, may varied with the different operating system._
+
+## UNIX and LINUX
+
+#### UnixPrac1.txt
+
+<font size=2>**Summary:** Contains commands which manipulate the FASTA files.<br />
+**Input:** FASTA files from data.<br />
+**Output:** Results prints to terminal.<br />
+**Running Instructions:** bash UnixPrac1.txt (Or open the file, copy and paste the command into terminal)<br /><br /></font>
+
+
+## Shell Scripting
+
+#### boilerplate.sh:
+<font size=2>**Summary:** Simple boilerplate for shell scripts.<br />
+**Input:** n/a <br />
+**Output:** Results prints to terminal.<br />
+**Running Instructions:** bash boilerplate.sh <br /><br /></font>
+
+
+#### ConcatenateTwoFiles.sh:
+<font size=2>**Summary:** Concatenates the contents of two files.<br />
+**Input:** Two files to be concatenated followed by the new name of the output file which the script creates.<br />
+**Output:** Concatenated file in results.<br />
+**Running Instructions:** bash ConcatenateTwoFiles.sh (valid *.txt filename)<br /><br /></font>
+
+#### CountLines.sh:
+<font size=2>**Summary:** Counts and displays the number of lines in a file.<br />
+**Input:** 1 File (e.g. test.txt in data).<br />
+**Output:** Results print to terminal.<br />
+**Running Instructions:** bash CountLines.sh (valid *.txt filename)</font>
+
+#### csvtospace.sh:
+<font size=2>**Summary:** Substitutes the commas in a file with spaces.<br />
+**Input:** 1 comma delimited file.<br />
+**Output:** .txt version of the input file, saved into results.<br />
+**Running Instructions:** bash csvtospace.sh ../data/Temperatures/1800.csv (Or any valid *.csv filename from ../data/Temperatures/)<br /><br /></font>
+
+#### MyExampleScript.sh:
+<font size=2>**Summary:** Introduction to the $USER variable.<br />
+**Input:** n/a<br />
+**Output:** A welcome message prints out Hello $User(user name). to terminal.<br />
+**Running Instructions:** bash MyExampleScript.sh<br /><br /></font>
+
+#### tabtocsv.sh:
+<font size=2>**Summary:** Substitutes the tabs in a file for commas.<br />
+**Input:** 1 File with tab separated values.<br />
+**Output:** csv version of file in Results(separate to original).<br />
+**Running Instructions:** bash tabtocsv.sh (vaild *.txt filename)<br /><br /></font>
+
+#### tiff2png.sh:
+<font size=2>**Summary:** Converts .tiff files in directory where it is run to .png format and create a new file.<br />
+**Input:** n/a <br />
+**Output:** .png versions of the files into the current directory<br />
+**Running Instructions:** bash tiff2png.sh (valid .tiff filename)<br />
+**Dependencies:** imagemagick<br /><br /></font>
+
+#### variables.sh
+<font size=2>**Summary:** Illustrates the different types of shell variables.<br />
+**Input:** (OPTIONAL) two random arguments (strings/numbers etc.). <br />
+**Output:** Results prints to terminal <br />
+**Running Instructions:** bash variables.sh arg1 arg2 OR bash variables.sh.<br /><br /></font>
+
+## Scientific Documents with LaTeX
+
+#### FirstBiblio.bib:
+<font size=2>**Summary:** Bibliography for example LaTeX document<br />
+**Running Instructions:** Not to be run. Source code only. Is referenced when the FirstExample.tex code is compiled.<br /><br /></font>
+
+#### FirstExample.tex:
+<font size=2>**Summary:** Example LaTeX code document<br />
+**Running Instructions:** Not to be run. Source code only. Is used as an argument when CompileLaTeX.sh is called.<br /><br /></font>
+
+#### CompileLaTeX.sh:
+<font size=2>**Summary:** Compiles LaTeX with bibtex.<br />
+**Input:** One argument, a latex source code file.<br />
+**Output:** Produces the pdf of the latex source code and opens the pdf.<br />
+**Running Instructions:** bash CompileLaTeX.sh FirstExample.tex<br /><br /></font>
+
+## Author & Contact
+
+<font size=2>**Name:** ANQI WANG<br />
+**Email:** aw222@ic.ac.uk</font>
+**********************************************************************
+
+Found following files in results directory: 1800.txt, 1802.txt, 1803.txt, 1801.txt...
+
+Ideally, Results directory should be empty other than, perhaps a .gitkeep. 
+
+ 0.5 pts deducted per results file 
+
+Current Points = 98.0
+
+Found 12 code files: ConcatenateTwoFiles.sh, CountLines.sh, FirstExample.tex, variables.sh, tiff2png.sh, CompileLaTeX.sh, MyExampleScript.sh, tabtocsv.sh, csvtospace.sh, UnixPrac1.txt, boilerolate.sh, FirstBiblio.bib
+
+Found the following extra files: FirstExample.pdf
+0.5 pt deducted per extra file
+
+Current Points = 97.5
+
+======================================================================
+Testing script/code files...
+
+======================================================================
+Inspecting script file ConcatenateTwoFiles.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/bash
+# Author: ANQI WANG aw222@ic.ac.uk
+# Script: Concatenate.sh
+# Desc: Concatenate two files
+# Arguements: 1 + 2 > 3
+# Date: Oct.2022
+
+#####################################
+#cat $1 > $3
+#cat $2 >> $3
+#echo "Merged File is"
+#cat $3
+#####################################
+
+#Improve
+
+if [ -z "$1" ] #Check whether the first file is entered, if not,
+then
+    echo "Oops, seems something went wrong, please enter a valid filename to start."
+elif [ -z "$2" ] #If the first file is entered, check whether the secon file is entered, if not
+then 
+    echo "Please enter the other filename to start."
+elif [ -z "$3" ] #Check whether the output file is named, if not
+then
+    echo "Please give the output filename to start."
+else #If all the valid filename is entered
+    cat $1 > $3 #Import the first file into the concatenate file
+    cat $2 >> $3 #Append the second file into the output file
+    echo "Merged File is"
+    cat $3 #Give the result
+fi
+
+exit
+
+**********************************************************************
+
+Testing ConcatenateTwoFiles.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Oops, seems something went wrong, please enter a valid filename to start.
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00522s
+
+======================================================================
+Inspecting script file CountLines.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/bash
+# Author: ANQI WANG aw222@ic.ac.uk
+# Script: CountLines.sh
+# Desc: Count the lines of the file
+
+# Arguements: none
+# Date: Oct.2022
+
+##########################################
+#NumLines=`wc -l < $1`
+#echo "The file $1 has $NumLines lines"
+#echo
+###########################################
+
+# Improving
+if [ -!f "$1"] #if there is no input file
+then
+    echo "Please choose a valid file to start"
+fi
+
+if [ -f "$1" ] #if there is an input .csv file 
+then
+    echo "Counting..."
+    NumLines=`wc -l < $1`
+    echo "The file $1 has $NumLines lines"
+    echo "Done!"
+fi
+**********************************************************************
+
+Testing CountLines.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Please choose a valid file to start
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00473s
+
+======================================================================
+Inspecting script file FirstExample.tex...
+
+File contents are:
+
+**********************************************************************
+\documentclass [12pt] {article}   
+
+\title{A Simple Document}
+
+\author{Anqi Wang}
+
+\date{Oct 10, 2022}							% Activate to display a given date or no date
+
+\begin{document}
+    \maketitle
+    
+    \begin{abstract}
+    This paper analysis a seminal equation in  population biology.
+    \end{abstract}
+    
+    \section{Introduction}
+    Blah Blah
+    
+    \section{Materials \& Methods}
+    A foundational equation of population biology is:
+    
+    \begin{equation}
+        \frac{dN}{dt} = r N (1 - \frac{N}{K})
+    \end{equation}
+
+It was first proposed by Verhulst in 1838 \cite{verhulst1838notice}.
+
+    \bibliographystyle{plain}
+    
+    \bibliography{FirstBiblio}
+    
+\end{document}  
+**********************************************************************
+
+Testing FirstExample.tex...
+
+======================================================================
+Inspecting script file variables.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/bash
+# Author: ANQI WANG aw222@ic.ac.uk
+# Script: variables.sh
+# Desc: Illustrates the use of variables
+# Arguements: none
+# Date: Oct.2022
+
+
+# Special variables
+
+echo "This script was called with $# parameters"
+echo "The script's name is $0"
+echo "The arguements are $@"
+echo "The first arguement is $1"
+echo "The second arguement is $2"
+
+# Assigned Variables; Explicit declaration:
+MY_VAR='some string'
+echo 'the current value of the variblr is:' $MY_VAR
+echo
+echo 'Please enter a new string'
+read MY_VAR
+echo
+echo 'the current value of the variable is:' $MY_VAR
+echo
+
+## Assigned Variables; Reading (multiple values) from user input:
+echo 'Enter two numbers separated by space(s)'
+read a b
+echo
+echo 'you entered' $a 'and' $b ';Their sum is:'
+
+## Assigned Variables; Command substitution
+MY_VAR=$(expr $a + $b)
+echo $MY_VAR
+
+**********************************************************************
+
+Testing variables.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+This script was called with 0 parameters
+The script's name is variables.sh
+The arguements are 
+The first arguement is 
+The second arguement is 
+the current value of the variblr is: some string
+
+Please enter a new string
+
+the current value of the variable is:
+
+Enter two numbers separated by space(s)
+
+you entered and ;Their sum is:
+
+
+**********************************************************************
+
+Encountered error (or warning):
+expr: syntax error: missing argument after ‘+’
+
+======================================================================
+Inspecting script file tiff2png.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/bash
+# Author: ANQI WANG aw222@ic.ac.uk
+# Script: tiff2png.sh
+# Desc: Convert tiff to png
+# Arguements: none
+# Date: Oct.2022
+
+#################################################
+#for f in *.tiff
+#   do
+#        echo "Converting $f";
+#        convert "$f" "$(basename "$f".tif).png";
+#   done
+#################################################
+
+#Improve
+
+if [ -z "$1" ] #Check whether there is a input file, if not
+then
+    echo "Oops, seems something went wrong, please enter a valid file to start."
+else
+    for f in $1/*.tiff
+        do
+            echo "Converting $f";
+            convert "$f" "$(basename "$f".tif).png";
+        done
+    
+fi
+
+exit
+**********************************************************************
+
+Testing tiff2png.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Oops, seems something went wrong, please enter a valid file to start.
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.01182s
+
+======================================================================
+Inspecting script file CompileLaTeX.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/bash
+# Author: Anqi Wang aw222@ic.ac.uk
+# Script: CompileLaTeX.sh
+# Description: Compiles latex with bibtex
+#
+# Outputs: pdf latex file
+# Arguments: 1 (.tex latex code)
+# Date: Oct 11th 2022
+
+#set a variable so that it can be manipulated to remove the suffix
+#remove the suffix and use it as a new input x
+x=${1%.tex}
+
+pdflatex $x.tex
+bibtex $x
+pdflatex $x.tex
+pdflatex $x.tex
+# evince $x.pdf &
+
+## Cleanup
+rm *.aux
+rm *.log
+rm *.bbl
+rm *.blg
+rm *.dvi
+rm *.nav
+rm *.out
+rm *.toc
+**********************************************************************
+
+Testing CompileLaTeX.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(/usr/share/texlive/texmf-dist/tex/latex/tools/.tex
+LaTeX2e <2021-11-15> patch level 1
+L3 programming layer <2022-01-21> File ignored)
+*
+! Emergency stop.
+<*> .tex
+        
+!  ==> Fatal error occurred, no output PDF file produced!
+Transcript written on .log.
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded 
+**********************************************************************
+
+Encountered error (or warning):
+bibtex: Need exactly one file argument.
+Try `bibtex --help' for more information.
+rm: cannot remove '*.aux': No such file or directory
+rm: cannot remove '*.log': No such file or directory
+rm: cannot remove '*.bbl': No such file or directory
+rm: cannot remove '*.blg': No such file or directory
+rm: cannot remove '*.dvi': No such file or directory
+rm: cannot remove '*.nav': No such file or directory
+rm: cannot remove '*.out': No such file or directory
+rm: cannot remove '*.toc': No such file or directory
+
+======================================================================
+Inspecting script file MyExampleScript.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/bash
+# Author: ANQI WANG aw222@ic.ac.uk
+# Script: MyExampleScript.sh
+# Desc: The first piece of bash script exercise
+# Arguements: none
+# Date: Oct.2022
+
+MSG1="Hello"
+MSG2=$USER
+echo "$MSG1 $MSG2"
+echo "Hello $USER"
+echo
+**********************************************************************
+
+Testing MyExampleScript.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Hello mhasoba
+Hello mhasoba
+
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00589s
+
+======================================================================
+Inspecting script file tabtocsv.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/sh
+#Author: ANQI WANG. aw222@ic.ac.uk
+# Script: tabtocsv.sh
+# Description: substitute the tabs in the files with commas
+
+# Saves the output into a .csv file
+# Arguements: 1 -> tab delimited file
+# Date: 5 Oct 2022
+
+####################################################Origin
+#echo "Creating a comma deimited version of $1 ..."
+#cat $1 | tr -s "\t" "," >> $1.csv
+#echo "Done!"
+#exit
+####################################################
+
+#Improve
+
+#################################################### Test example
+#if [ -z $1 ]
+#then 
+#    echo " Oops, something goes wrong, please enter a file to begin "
+#fi
+#
+#else
+#    if [ -n $1 ]
+#    then 
+#    echo "Creating a comma demited version of $1 ..."
+#    cat  $1 | tr -s "\t" "," >> $1.csv
+#    fi
+#
+#echo "The file is ready to view"
+#
+#fi
+##################### Run error due to the incorrect format of using elif
+
+
+if [ -z $1 ]
+then 
+    echo " Oops, something goes wrong, please enter a file to begin "
+else 
+    echo "Creating a comma demited version of $1 ..."
+    cat  $1 | tr -s "\t" "," >> ${1%txt}csv
+
+echo "The file is ready to view"
+
+fi
+**********************************************************************
+
+Testing tabtocsv.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+ Oops, something goes wrong, please enter a file to begin 
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00525s
+
+======================================================================
+Inspecting script file csvtospace.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/bash
+# Author: Anqi Wang aw222@ic.ac.uk
+# Script: csvtospace.sh
+# Description: Shell script exercise of converting a comma separated values.csv file to a space separated values.txt
+#
+# Arguments: comma delimited.csv file
+# Date: Oct 10th 2022
+
+if [ -e "$1" ] #if there is an input .csv file 
+then
+    echo "Converting the space separed version .txt file..."
+    # output="../results/${1%.csv}.txt"
+    output="../results/${1%.csv}.txt"
+    cat $1 | tr -s "," " " >> $output
+    mv $output ../results
+    echo "Done!"
+else
+    echo "Please provide a file to process"
+fi
+    
+**********************************************************************
+
+Testing csvtospace.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Please provide a file to process
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00508s
+
+======================================================================
+Inspecting script file UnixPrac1.txt...
+
+File contents are:
+
+**********************************************************************
+#Change Directory to the correct place by: % cd Documents/CMEECourseWork/Week1/data
+#Then create a new directory by: % mkdir fasta
+#Download the data files from GitHub by: % wget https://raw.githubusercontent.com/mhasoba/TheMulQuaBio/master/content/data/fasta/407228326.fasta; 
+                                         % wget https://raw.githubusercontent.com/mhasoba/TheMulQuaBio/master/content/data/fasta/407228412.fasta;
+                                     and % wget https://raw.githubusercontent.com/mhasoba/TheMulQuaBio/master/content/data/fasta/E.coli.fasta
+#Use $ls to make sure in the right place Documents/CMEECourseWork or make sure all the FASTA files are put into fasta folder in week1/data;
+
+#1 Count how many lines there are in each file
+Answer: $ wc -l ../data/fasta/*.fasta #wc refers to words count, -l means count the lines, *.fasta contains all three files from FASTA files;
+
+#2 Print everything starting from the second line for the E. coli genome
+Answer: $ tail +2 ../data/fasta/E.coli.fasta #tail [option] filename refers read the tail of the file from the n^th lines;
+
+#3 Count the sequence length of this genome
+Answer: $ tail +2 ../data/fasta/E.coli.fasta | tr -d '\n' | wc -m #read the file except first two lines, transform all strings in the newline, and display the number of characters in a file
+
+#4 Count the matches of a particular sequence, “ATGC” in the genome of E. coli (hint: Start by removing the first line and removing newline characters)
+Answer: $ tail -n+2 ../data/fasta/E.coli.fasta | tr -d '\n'| grep -o ATGC | wc -l  #start from the line 2 onwards, removes all new lines, grep command finds every ATGC, '-o' function of grep prints every result of ATGC on a new line and wc -l counts the number of new lines, and therefore the number of ATGC's.
+
+#5 Compute the AT/GC ratio. That is, the (A+T)/(G+C) ratio (as a single number). This is a summary measure of base composition of double-stranded DNA. DNA from different organisms and lineages has different ratios of the A-to-T and G-to-C base pairs 
+Answer: $ tail -n+2 ../week1/data/fasta/E.coli.fasta | tr -d "\n" | grep -o [A,T] | wc -l
+        $ tail -n+2 ../week1/data/fasta/E.coli.fasta | tr -d "\n" | grep -o [G,C] | wc -l
+**********************************************************************
+
+Testing UnixPrac1.txt...
+
+======================================================================
+Inspecting script file boilerolate.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/zsh
+# Author: ANQI WANG aw222@ic.ac.uk
+# Script: boilerplate.sh
+# Desc: simple boierplate for shell scripts
+# Arguements: none
+# Date: 5 Oct 2022
+
+echo -e "\n This is a shell script!\n"
+
+#exit
+
+
+**********************************************************************
+
+Testing boilerolate.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+
+ This is a shell script!
+
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.00711s
+
+======================================================================
+Inspecting script file FirstBiblio.bib...
+
+File contents are:
+
+**********************************************************************
+@article{verhulst1838notice,
+  title={Notice sur la loi que la population suit dans son accroissement},
+  author={Verhulst, Pierre-Fran{\c{c}}ois},
+  journal={Corresp. Math. Phys.},
+  volume={10},
+  pages={113--126},
+  year={1838}
+}
+**********************************************************************
+
+Testing FirstBiblio.bib...
+
+======================================================================
+======================================================================
+Finished running scripts
+
+Ran into 2 errors
+
+======================================================================
+======================================================================
+
+FINISHED WEEKLY ASSESSMENT
+
+Current Points for the Week = 97.5
+
+NOTE THAT THESE ARE POINTS, NOT MARKS FOR THE WEEK!
