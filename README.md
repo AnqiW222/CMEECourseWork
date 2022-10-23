@@ -12,6 +12,10 @@ Many of the task requirements can be found at https://mhasoba.github.io/TheMulQu
 ---
 
 ### Week 2: 
+**Summary:** Introduction to writing Python scripts/programs<br />
+**Language Use:** Python, Bash
+
+---
 
 ## Language Versions
 **Python:** 3.9.12 <br />
