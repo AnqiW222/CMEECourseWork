@@ -11,6 +11,7 @@ Many of the task requirements can be found at https://mhasoba.github.io/TheMulQu
 
 ---
 
+### Week 2: 
 
 ## Language Versions
 **Python:** 3.9.12 <br />
@@ -20,3 +21,4 @@ Many of the task requirements can be found at https://mhasoba.github.io/TheMulQu
 **Jupyter:** Notebook 6.4.8 <br />
 
 All code has been written on a MacOS version 12.6 and any dependencies are detailed below the script names within weekly README files
+

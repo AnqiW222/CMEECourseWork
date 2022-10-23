@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-__appname__ = 'boilerplate'
+__appname__ = 'control_flow'
 __author__ = 'ANQI WANG (aw222@ic.ac.uk)'
 __version__ = '3.10.7'
 __license__ = "None"
