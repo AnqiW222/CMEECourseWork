@@ -1,0 +1,46 @@
+\documentclass[12]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[a4paper,
+            left=1in,
+            right=1in,
+            top=0.5in,
+            bottom=1in,]{geometry}
+
+
+
+\title{Is Florida Getting Warmer?}
+\author{Anqi Wang}
+\date{Oct, 2022}
+
+\begin{document}
+	\maketitle
+
+	\section{Results}
+	The Pearson correlation coefficient was used to determine whether there was a positive correlation 		between Year and Temperature in Key West, Florida. The correlation coefficient of the Temperature 		data throughout the years in the 20th century was 0.53317 (to 5 s.f.), and a permutation analysis (		Figure 1) of 1000 shuffled populations was used to determine the approximate, asymptotic, one-		tailed P-value of 0.
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.75]{../results/atsplot.pdf}
+		\caption{Raw data of Temperature over time}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.75]{../results/allcoeffs.pdf}
+		\caption{Coefficients}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.75]{../results/AsymptoticPValue.pdf}
+		\caption{Histogram of Coefficients}}
+	\end{figure}
+
+	\section{Discussion}
+	The null hypothesis that there is no relationship between Time and Temperature in Key West, Florida, 	USA can be reject due to the small P-value below 0.05, and instead there is a statistically significant 		positive correlation between the two variables.\\
+	The positive correlation indicated between Year and Temperature in Key West is statistically 			significant. \\
+	Moreover, these results suggest that the temperature was increasing over time in Key West, Florida, 	USA, in the 20th century.
+
+\end{document}

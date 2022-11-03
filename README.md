@@ -17,6 +17,10 @@ Many of the task requirements can be found at https://mhasoba.github.io/TheMulQu
 
 ---
 
+### Week 3:
+**Summary:** Biological Computing in R, Data management amd Visualization with R.<br />
+**Language Use** R, LaTeX, Bash
+
 ## Language Versions
 **Python:** 3.9.12 <br />
 **R:** 4.2.1 <br />
