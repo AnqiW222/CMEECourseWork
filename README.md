@@ -18,8 +18,14 @@ Many of the task requirements can be found at https://mhasoba.github.io/TheMulQu
 ---
 
 ### Week 3:
-**Summary:** Biological Computing in R, Data management amd Visualization with R.<br />
+**Summary:** Biological Computing in R, Data management and Visualization with R.<br />
 **Language Use** R, LaTeX, Bash
+
+---
+
+### Week 8+9: MiniProject
+**Summary:** MSc CMEE Miniproject: i) What mathematical models best fit to an empirical dataset; ii) Based upon bacteria growth, mechanistic vs. phenomenological models, which is the best fit. Using all biological computing tools learned so far, from data pre-processing, model fitting, plotting and analysis results, to coding and academic report writing, solve the ecological modelling question.<br />
+**Language Use:** Python, R, LaTeX, Bash
 
 ## Language Versions
 **Python:** 3.9.12 <br />

@@ -1,0 +1,305 @@
+\documentclass[a4paper]{report}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage{setspace}  % for 1.5 line spacing
+\onehalfspacing
+
+%% Useful packages
+\usepackage{lineno} % for line nums
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage[round]{natbib}  % for better biblio
+\usepackage{subcaption} % defining subfigure
+\captionsetup{compatibility=false}
+\setcounter{secnumdepth}{3}
+
+
+\begin{document}
+    \begin{titlepage}
+
+    \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+    %	LOGO SECTION
+    \includegraphics[width=8cm]{../data/logo.pdf}\\[1cm]
+    
+
+    \center % Center everything on the page
+
+    %	HEADING SECTIONS
+    \textsc{\LARGE MSc CMEE MiniProject Report}\\[1.5cm]
+    \textsc{\Large Imperial College London}\\[0.5cm] 
+    \textsc{\large Department of Lifescience}\\[0.5cm] 
+
+    %	TITLE SECTION
+    \makeatletter
+    \HRule \\[0.4cm]
+    { \huge \bfseries Model Selection: Using Hybrid Model for Bacterial Growth Data}\\[0.5 cm] % Title of your document
+    \HRule \\[1.75cm]
+
+    %	AUTHOR SECTION
+    \begin{minipage}{0.4\textwidth}
+    \begin{flushleft} \large
+    \emph{Author: Anqi Wang} \\[1.2em]
+    \emph{ID: 02275073} \\
+    \end{flushleft}
+    \end{minipage}
+    ~
+    \begin{minipage}{0.4\textwidth}
+    \begin{flushright} \large
+    \emph{Supervisor:}\\
+    Prof. Dr. Samraat Pawar\\
+    \end{flushright}
+    \end{minipage}\\[2cm]
+    \makeatother
+
+    %	DATE AND WORD COUNT SECTION
+    {\large Word Count: 3210}\\[2cm]
+    {\large Nov, 2022}\\[2cm] 
+
+    \vfill % Fill the rest of the page with whitespace
+
+    \end{titlepage}
+    
+
+\begin{linenumbers}
+\renewcommand\thesection{\arabic{section}}
+\newcommand{\keywords}[1]{\par\addvspace\baselineskip
+\noindent\keywordname\enspace\ignorespaces#1}
+\begin{abstract}
+Knowing bacterial growth helps researchers control and anticipate their spread, modelling as an important tool helps widen the understanding of the processes. This project is aimed to identify the best fit model to a bacteria growth, further, by grouping the model into phenomenological and mechanistic, to assess the best model type and determine the best mathematical model to an empirical dataset. Cubic, Logistic, Generalised Logistic and Gompetza Models as individual models and a hybrid model combining four of them were chose to fit into 61 datasets of 285 initial datasets of bacteria growth, using $AIC_c$ and $BIC$, Akaike and Schwarz weights to compare their relative success of best fit. According to the criteria, Logistic Model outperform all other models, however, it did not achieve overwhelming support from the data that mechanistic models perform better than phenomenological models. Hybrid model shown a potential in future study, a mathematical model should be informed by modelling purpose, combine the single model through weighted average to best fit an empirical dataset. 
+
+\textbf{\textit{Keywords}}: \textit{Model Selection; Logistic Model; Akaike information criterion; Hybrid Model; Bacteria Growth}
+
+\end{abstract}
+
+    \section{Introduction}
+    It has been recognised that the growth rate as one of the fundamental traits of microbes has a significant impact on the operation of communities and ecosystems function. The fluctuation of single population density may affect the ecosystem dynamics and emergent functional characteristics. Based on the obvious relevance of the high latitude oceans to models and budgets of biogenic carbon, a study analysed temperatures and growth rates for bacteria in the World Ocean, assuming a low-temperature environment would suppress bacterial growth, thus reducing the activity of the microbial food web, providing insight into the seasonal patterns of energy flow through the lower food web in that region \citep{rivkin1996microbial}. The importance of understanding microbial growth extends beyond this; it contributes to topics such as water treatment and carbon fixation, and even has a significant influence on commercial applications \citep{esser2015modeling}. Consequently, numerous mathematical models have been developed to describe microbial growth patterns and what influences them.
+
+    By and large, based on most of the research articles, reviews, and book chapters, in a batch culture, under a 'perfectly closed habitat', bacterial growth has four discernible stages referred to respectively as “lag phase,” “exponential growth phase,” a “stationary phase,” and a “mortality phase” \citep{zwietering1990modeling, mckellar2004primary}. In microbiology, an ideal growth curve is a plot of the number of living cells over time. The most common growth models are of two types: empirical algebraic expressions, of which the Gompertz is the most well-known and widely used, and growth rate models, which are almost all forms of the continuous logistic equation, the Verhulst model \citep{peleg2011microbial}. Largely, in a biological research scale, primary models are phenomenological or mechanistic. Phenomenological or empirical models represent data patterns quantitatively. These don't need knowledge of unseen patterns, but try to anticipate output \citep{vlazaki2019integrating}. Mechanistic models are theory-based and try to discover and quantify the processes that drive observable events \citep{lopez2004statistical, ferrer2009mathematical}. 
+    
+    Researchers in numerous subfields of ecology and evolution have recently begun using the model selection as an alternative to the standard practice of using the null hypothesis to analyse data and draw biological conclusions. This enables us to use a quantitative measurement to weigh the models and pick the single best one or draw conclusions from a plethora of competing theories based on their relative strengths of support \citep{johnson2004model}. In this report, I utilise to apply five models to characterise the bacteria growth curve based on a range of datasets provided by Prof. Samraat Pawar. The candidate models are Cubic Model, Logistic Model, Generalised Logistic Model, Gompetza Model and Hybrid Model. The models are grouped as phenomenological and mechanistic, and each of them is calculated Small sample unbiased Akaike information criterion ($AIC\textsubscript{c}$) and Bayesian information criterion ($BIC$), by comparing the criterion results, I could determine which model type is better at predicting the functional responses of the bacteria. Furthermore, based on the model selection results, a general concept of how to choose a best fit mathematical models of an empirical dataset could be summarised. And also aimed to develop a combined model based on the four model information criterion expressions to get a better prediction of a biological empirical dataset.
+    
+    \section{Methods}
+    
+        \subsection{Data Pre-processing}
+        The data comprised of 285 bacterial growth records from 10 sources, contains the species or strain names and their population or biomass measurement  over time (h), which units population or biomass are measured directly in counts (cells/ml) \citep{phillips1987relation, gill1991growth, zwietering1994modeling, bernhardt2018metabolic, silva2018modelling} or indirectly in the optical density at 595nm (OD595) \citep{bae2014growth}, Colony Forming Units (CFUs) \citep{stannard1985temperature, roth1962continuity, galarz2016predicting} and dry weight (mg/ml) \citep{sivonen1990effects}; the temperature at which the microbe was grown (degrees Celsius); the medium in which the microbe was grown (or considered as experiment types); the replications times within the experiment, and the citations for the paper in which the study was recorded. 
+
+        In order to avoid the false conclusion or incorrect analyses caused by errors and missing values of the data, and to efficient the model, data pre-processing was applied before they were employed to models. The processes are followed as : 1) All data containing missing values and negative values of PopBio were deleted; 2) The negative time values were re-defined as time 0 (starting point); 3) Grouping and reversed-ordered the data, only containing Species, Time and PopBio, to make the biological meaning that different bacteria start growth at certain population units or biomass from time 0; 4) Considered the model requirement (details shown below in Generalized Logistic model), the grouped data contains less than seven values were deleted, so far, 61 groups of data with two scales were prepared to fit the model.
+
+        \subsection{Models and Equations}
+        In contrast to empirical models, which are generated through data analysis to quantify correlations between variables of interest, phenomenological models are based on an understanding of the processes behind the behaviour of the system under investigation. The main benefit of the phenomenological modelling technique for understanding biological systems is that it provides a framework with variables and parameters that have physical meaning, improving the model's interpretability and its subsequent application for decision making \citep{lema2018parameter}. However, with very few exceptions, the models given and discussed in the literatures of ecological microbiology exclusively address the first three stages (the "lag phase," "exponential growth phase," and "stationary phase") and ignore the death phase \citep{peleg2011microbial}. This make good sense as the death phase could be hard to define, a condition in bacterial culture known as viable but not cultivable (VBNC) cells indicate that instead of death after stationary phase, the VNBC microbes tends to resume growth  under an appropriate conditions \citep{1114732503}. Here, one linear phenomenological and three mechanistic models were chosen to fit each dataset to represent the bacterial growth over time. 
+
+        %\textbf{Cubic Model}\\
+        \subsubsection{Cubic Model}
+        Depending on the Malthusian principle, during bacterial growth, once the carrying capacity has been achieved, the population begins to drop which refers to the "death phase" of population increase. The polynomial model may be able to reflect this phenomenon, therefore, a simple, robust primary model \citep{article} -- three-phase linear model or the cubic model (Equation 1) was chosen here:
+        \begin{equation}
+                N_t = B_0 + B_1 t + B_2 t^2 + B_3 t^3
+                \label{eq:cubic}
+        \end{equation}
+        Where $N_t$ is the population size over time ‘t'. All original data could fit into this model.
+
+        %\textbf{Logistic Model}\\
+        \subsubsection{Logistic Model}
+        In a theory, the bacterial growth will not be continuously rising, instead, it will be a levelling off of the growth rate at some point, resulting in an S-shaped curve \citep{zwietering1990modeling}. Therefore, based on basic exponential growth, the logistic growth model could be defined (Equation 2): 
+        \begin{equation}
+                N_t = \frac{N_0 K e^{rt}}{K + N_0 (e^{rt} - 1)}
+                \label{eq:logistic}
+        \end{equation}
+        where $N_0$ is the initial population size, $r$ is the maximum growth rate and $K$ is the carrying capacity, which is the population size at which the curve flattens; it represents the maximum population that a given ecosystem can support. Due to the model restrictions, after data pre-processing, 76 groups of data were left to fit the model, however, when attempting the Logistic model fit, 15 groups of data contained errors and failed to fit. Therefore, these 15 invalid pre-processed datasets were deleted. 
+        
+        %\textbf{Generalised Logistic Model}\\
+        \subsubsection{Generalised Logistic Model}
+        The generalised Logistic model, also known as Richards' curve (Equation 3), is a generalisation of the logistic or sigmoid functions that allows for more accurate S-shaped curves. As the model includes additional parameters and initial values, in certain circumstances, the Richards model is better suited for explaining the bacterial growth curve.
+        \begin{equation}
+                log(N_t) = A + \frac{K - A}{1 + Q (e^{-Bt})^{1/µ}}
+                \label{eq:Genlogistic}
+        \end{equation}
+        Where $A$ represents the lower asymptote, $K$ represents the higher asymptote. If $A = 0$, the carrying capacity will be K. B is the growth rate, and the location of asymptotic maximum growth depends on whether $µ > 0$. Q is associated with the value $N_0$. In this model, the amount of data must be greater than the number of parameters, and to avoid the undefined model when computing $AIC_c$, since the numerator cannot equal to 0, the data size must be greater than 7.
+
+        %\textbf{Gompetza Model}\\
+         \subsubsection{Gompetza Model}
+        The Gompertz model is one of the most frequently used sigmoid models fitted to growth data, it is a four-parameter model (Equation 4) to analyse the growth curve of bacterial counts:
+        \begin{equation}
+                log(N_t) = N_0 + (K - N_0) e^{-e^{r \cdot e(1) \frac{t_lag - t}{(K - N_0) log(10)}+1}}
+                \label{eq:gompertz}
+        \end{equation}
+        Where $r_{max}$ is the maximum growth rate which tangent to the inflection point, $t_lag$ is the duration of the delay before the population starts growing exponentially, $log\frac{N_max}{N_0} $ is the asymptote of the log-transformed population growth trajectory. $N_{max}$ is the carrying capacity and $N_0$ is the initial population density. Residuals need to be calculated in this model.
+
+        %\textbf{Hybrid Model}\\
+        \subsubsection{Hybrid Model}
+        Hybrid  models combine the advantages of individual models to improve the goodness of fit. In general, the combination approach can be expressed as:
+        \begin{equation}
+                \hat{x}_t=\sum_{i=1}^m{w_i}x_{it},t=1,2,\cdots T
+                \label{eq:Hybrid}
+        \end{equation}
+        Where $W=\left( w_1,w_2,\cdots ,w_m \right) ^T$ refers to the weigh vector, and $\varSigma_{i=1}^{m}w_i=1$. $x_{it}$ refers to the fitted value of the $i^{th}$ monomial model at period t; $\hat{x}_t$ refers to the fitted value of the hybrid model at period t, $m$ denotes the numbers of combined models, $m = 4$ refers there are four individual models combined.
+                
+        In the combination process, the setting of weights is crucial and directly affects the combination effect. The Weighted Average (WA) method has been shown to be an effective way to improve the goodness of fit by minimising the combined fit error under constraints and assigning different weights to different models. This can be expressed as:
+        \begin{equation}
+            \begin{split}
+            \min J=\sum_{t=1}^T{e_{t}^{2}}=\sum_{i=1}^m{\sum_{j=1}^m{w_i}}w_j\left( \sum_{t=1}^T{e_{it}}e_{jt} \right),
+            \\
+            s.t.\left\{ \begin{array}{l}
+            \sum_{i=1}^m{w_i}=1\\
+            w_i\geq 0,\quad i=1,2,...,m\\
+            \end{array} \right.
+            \end{split}
+            \label{Weigh vector}
+        \end{equation}
+        Where $e_{it}$ represents to the error of the $i^{th}$ individual model in period t, which can be written as $e_{it}=x_t-x_{it}$; $e_t$ refers to the error of the hybrid model fitting in period t, which can be written as:
+        \begin{equation}
+                e_t=x_t-\hat{x}_t=x_t-\sum_{i=1}^m{w_i}x_{it}=\sum_{i=1}^m{w_i}\left( x_t-x_{it} \right) =\sum_{i=1}^m{w_i}e_{it}
+                \label{eq:errors}
+        \end{equation}
+        Set E as the hybrid model fitting error information matrix with the following expression:
+        \begin{equation}
+            E=\left( E_{ij} \right) _{m\times m}=\left( \begin{matrix}
+            e_{1}^{T}e_1&     e_{1}^{T}e_2&     ...&       e_{1}^{T}e_m\\
+            e_{2}^{T}e_1&     e_{2}^{T}e_2&     ...&       e_{2}^{T}e_m\\
+            \vdots&       \vdots&       ...&      \vdots\\
+            e_{m}^{T}e_1&    e_{m}^{T}e_2&    ...&       e_{m}^{T}e_m\\
+            \end{matrix} \right)
+            \label{error_infro_matrix}
+        \end{equation}
+        Set $R=\left( 1,1,\cdots ,1 \right) _{1\times m}^T$, Equation 7 could be modified into a matrix form:
+        \begin{equation}
+            \begin{split}
+            \min J=W^TEW,
+            \\
+            s.t.\left\{ \begin{array}{l}
+            R^TW=1\\
+            W\geq 0\\
+            \end{array} \right.
+            \end{split}
+            \label{Weigh vector}
+        \end{equation}
+        By solving the above model, the optimal weight vector can be obtained, therefore, could have the best-combined hybrid model.
+        
+        \subsection{Models Fitting}
+        Non-linear models were fitted using non-linear least squares (NLLS), the Python package \emph{lmfit} package \citep{matt_newville_2022_7370358} was applied to compute and visualise the model fitting. The three factors to perform NLLS fitting successfully in Python are the data, model specification and initial values for parameters in the model.  For each model, I created a minimiser object through residuals, then perform the minimisation. 
+        
+        Since the models produce a non-unified estimate of $N_t$ and $log(N_t)$, log transformation was applied to calculate the same scales of residuals, therefore, to ensure the selection criteria computations were equivalent to be compared. The not-log space was also reserved for calculation and determining the possible log transformation impact on choosing the best model.
+
+        The three common statistical approaches to compare models are minimising fit, null hypothesis test, and model selection criteria. In order to have quantitative criteria to compare the model fit and complexity, Adjusted $R^2$ (Equation 10) was calculated: 
+        \begin{equation}
+                R_{adj}^{2} = 1 - \frac{RSS/n - p - 1}{\sum(y_{i} - \bar{y})^{2}/n - 1}
+                \label{eq:R^2}
+        \end{equation}        
+        
+        And visualised the model fit. $AIC_c$ (Equation 11) containing a bias correction term benefits to our data which the sample size is smaller than 40 and Bayesian information criterion ($BIC$) also known as Schwarz criterion (Equation 12) were also chosen to compare the model fit and complexity \citep{johnson2004model}. 
+        \begin{equation}
+            AIC_{c} = -2ln [L(\hat{\theta_{p}}\mid{y} ] + 2p (\frac{n}{n - p - 1})
+            \label{AIC_c}
+        \end{equation}
+        \begin{equation}
+            BIC = -2ln\lfloor{L(\hat{\theta_{p}}\mid{y}}\rfloor + p \cdot ln(n)
+            \label{BIC}
+        \end{equation}
+        
+        Finally, based on $AIC_c$ and $BIC$ results, the dataset will be counted, all models containing the lowest value or any other model with less than 2 higher than this model would be selected to be the best model. Akaike and Schwarz weights (Equation 13) \citep{johnson2004model} were also calculated to estimate the likelihood that each analysed model is considered to be the optimal model.
+         \begin{equation}
+            W_i\ =\ \frac{\exp \left( -1/2\bigtriangleup _i \right)}{\sum_{j=i}^R{\exp \left( -1/2\bigtriangleup _j \right)}}
+            \label{Akaike and Schwarz weights}
+        \end{equation}
+        
+         All the criteria calculations were computed under \emph{fitResult} from \emph{lmfit} Python package.
+
+        \subsection{Computing Tools}
+        Python (version 3.9.12, \citealt{10.5555/1593511}) was used for data manipulation, model fitting and analysis. Packages \emph{NumPy} \citep{2020NumPy-Array}, \emph{Pandas} \citep{mckinney2010data} and \emph{SciPy} \citep{2020SciPy-NMeth} were used throughout the project and benefit from its ease of use for data frame manipulation and math operations. \emph{Minimizer}, \emph{Parameters} and \emph{report\_fit} from \emph{lmfit} package \citep{matt_newville_2022_7370358} were used for model fitting computation. R (version 4.2.1, \citealt{R}) packages \emph{dplyr} \citep{dplyr} and \emph{ggplot2} \citep{ggplot2} containing less code but good quality of data visualization were used for plotting and results analysis. Bash (version 3.2, \citealt{gnu2007free}) was used to run all project scripts, capture outputs and compile LaTeX (version 3.141592653-2.6-1.40.24 (TeX Live 2022)).
+
+    \section{Results}
+    The cubic linear model was successfully fitted to all datasets. For non-linear models, due to the high restriction of parameters of GenLogistic Models and the failure fit of some data sets of Logistic Model, after data cleanser, 61 datasets were left to ensure the set of models was consistent and included all five. The log transformation was calculated but discarded, because the PopBio data are too small leads to a negative log-space value, make little sense to analyse. 
+        \subsection{Model Fitting}
+        The Figure~\ref{fig:model_fit_plot} shows two datasets which were randomly selected with all five models fitted. The line graph demonstrates how the five model fit to the same dataset. 
+        \begin{figure}
+            \centering
+            \begin{subfigure}[b]{0.45 \textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{../results/plot1.pdf}
+                \caption{shows all five model good fit to the dataset}
+                \label{modelfitting_1}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}[b]{0.45 \textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{../results/plot2.pdf}
+                \caption{shows Gompetza is failed to fit the model}
+                \label{modelfitting_2}
+            \end{subfigure}
+            \caption{Line graph of 5 model fit in same dataset. [a] illustrate 5 models are good predictors; [b] illustrate Gompetza models failed to fit the data.}
+            \label{fig:model_fit_plot}
+        \end{figure}
+
+        \subsection{$AIC_c$ and $BIC$}
+        The histogram (Figure~\ref{fig:AIC_c and BIC count}) shows the count of lowest $AIC_c$ and $BIC$ values indicate that the Logistic model was the most often superior model in this set ($AIC_c$: 25 times, $BIC$: 28 times). Using these criteria, the hybrid model was second best ($AIC_c$: best 22 times, $BIC$: 21). The Generalised Model and Gomptza Model fared similarly, however the cubic model was counted as the best the least amount of times. 
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.9\textwidth]{../results/AICc_BIC_count.pdf}
+            \caption{The number of model counts for the lowest $AIC_c$ and $BIC$ values. The more count for the lowest $AIC_c$ and $BIC$ or models which are less than 2 higher than this, the best the model.}
+            \label{fig:AIC_c and BIC count}
+        \end{figure}
+
+        Akaike weights and Schwarz weights concurred that the Logistic Model is most likely the best model among the others in this set (Figure~\ref{fig: AICc weight}, Figure~\ref{fig: BIC weight}. Hybrid Model ranked the next while Generalised Logistic Model and Gomptza are likely performed the worst (the weights values close to 0, Table~\ref{table: Akaike and Schwarz weights}).%\ref{table: AIC_c and BIC weights}).  (\ref{fig:AIC_c weight, BIC weight}
+        \begin{table}[ht!]
+        \caption{Mean and standard deviation of Akaike and Schwarz weights for each model.}
+        \begin{center}
+        \begin{tabular}{c||c|c|c|c|c}
+             & Cubic & Logistic & Generalised Logistic & Gompertz & Hybrid\\
+            \hline
+            \hline
+            Akaike weight & 0.239 (0.30) & 0.355 (0.37) & 0.028 (0.10) & 0.010 (0.05) & 0.366 (0.34) \\
+            Schwarz weight & 0.221 (0.29) & 0.413 (0.39) & 0.022 (0.07) & 0.008 (0.04) & 0.334 (0.34)
+        \end{tabular}
+        \end{center}
+        \label{table: Akaike and Schwarz weights}
+        \end{table}
+
+        The box plots in Figure~\ref{fig: AICc weight} and Figure~\ref{fig: BIC weight} shown a similar best model selection but different results. In $AIC_c$ weight box plots (Figure~\ref{fig: AICc weight}), Logistic Model and Hybrid Model have similar median of probability at ca. 0.3. The $BIC$ (Figure~\ref{fig: BIC weight}) shows a higher probability in Logistic Model.
+        \begin{figure}[ht!]
+            \centering
+            \includegraphics[width=0.75\linewidth]{../results/AIC_c_weight.pdf}
+            \caption{Akaike weights based on $AIC_c$ for each model; likelihood that each model is the best given the 61 included datasets and the set of comparison models.}
+            \label{fig: AICc weight}
+        \end{figure}
+
+        \begin{figure}[ht!]
+            \centering
+            \includegraphics[width=0.7\linewidth]{../results/BIC_weight.pdf}
+            \caption{Schwarz weights based on $BIC$ for each model; likelihood that each model is the best given the 61 included datasets and the set of comparison models.}
+            \label{fig: BIC weight}
+        \end{figure}
+
+        \subsection{$R^2$}
+        Cubic ($R^2$ 0.9, IQR 0.5), Logistic ($R^2$ 0.8, IQR 0.55) and Hybrid ($R^2$ 0.85, IQR 0.6) models explained nearly 90\% of the observed data (Figure~\ref{fig: R^2}). The Generalised Logistic models also explained around 80\% of the data. The overall $R^2$ represent a high model fit of each candidate model except Gompetza Model.
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=0.7\linewidth]{../results/R^2.pdf}
+            \caption{$R^2$ values for each of the five models for the 61 datasets .}
+            \label{fig: R^2}
+        \end{figure}
+
+    \section{Discussion}
+    In this project, both phenomenological and mechanistic models were fitted to the bacterial growth datasets, a hybrid model combined the two types of model was also calculated and fitted. Cubic model is purely phenomenological which attempt to recreate the experimental findings without requiring the variables, parameters, or mathematical relationships to correlate the underlying in real biological or ecological content \citep{van2011using}. Therefore, this cubic model could fit all initial datasets successfully without any data manipulation. Contrariwise, the mechanistic models (e.g. Logistic, Generalised Logistic and Gompertz) tend to use mathematical equations to reflect biological constituents and their operations in a direct manner and to reveal the behaviours of the systems by solving it \citep{van2011using, ferrer2009mathematical}. In this bacterial growth data, these three models all determined a certain value of exponential growth rate and carrying capacity. Generalised Logistic Model contains more parameters to quantify the growth processes. Therefore, the three chosen mechanistic models required more restrictions on data use. Although mechanistic models are typically seen as preferable, both sorts of models can be instructive \citep{van2011using}, Hybrid model used in this project proved this. Hybrid model was defined by calculating the weighted average to quantify the importance of the individual models, therefore, a better model contains the advantages from both phenomenological and mechanistic. It aimed to improve the goodness of fit, although when taken into model comparison, it perform a bit worse than Logistic model.
+    
+    In theory, the optimal model among a collection of models is the one that successfully explains the data while minimising the number of parameters \citep{johnson2004model}. Both minimising fit and model selection criteria are calculated. The $R^2$ (Figure~\ref{fig: R^2}) show a different results, the higher $R^2$ the better model fit, which Gompetza Model is the best fit and next comes to Hybrid Model and Cubic Model. However it doesn't take model complexity into computation, and ignore the the principle of Parsimony which the best explanation is the simplest, containing the fewest entities, assumptions, or alterations \citep{johnson2004model, coelho2019parsimonious}. Considering this clear limitation in minimising fit, selection criteria (the $AIC_c$ and $BIC$ values) were still treated as the main selection standard among five models. Therefore, the selection result highly relies on $AIC_c$ and $BIC$ calculation. The lower the $AIC_c$ and $BIC$ value, the better the model fit. The histogram (Figure~\ref{fig:AIC_c and BIC count}) shows the count of the candidate model was considered best with the lowest $AIC_c$ and $BIC$ value. Here all data were used in non-log-linear space, as the initial data value is too small, the results after log transformation become negative. Based on the histogram, the number of lowest $AIC_c$ and $BIC$ values of Logistic Model counts higher than all other models, recognised as the best model. The Hybrid model was surprise ranked as the second best model. Akaike and Schwarz weights were calculated to identify the probability of the model being selected as the best model for the datasets from all five models \citep{johnson2004model}. 
+
+    Akaike and Schwarz weights as shown in Figure~\ref{fig: AICc weight} and Figure~\ref{fig: BIC weight} show the same results that Logistic Model and Hybrid Model perform the top 2, and in Figure~\ref{fig: AICc weight} there is a slight difference between Logistic and Hybrid. But the Schwarz weights Figure~\ref{fig: BIC weight} show a significant difference in the median value, its median Hybrid value even drops to a similar value as Cubic Model. Generalised Logistic Model and Gompetza Model show a significantly low probability of be chose as the optimal model. However, the outliers show their potential in other datasets. Although the Schwarz weights still show the same model selection results (Logistic Model is the best, the Hybrid is the next best), it is still worth to compare the $AIC_c$ and $BIC$ performance \citep{brewer2016relative, johnson2004model}. According to \citet{brewer2016relative}, any dataset or real data circumstance is heterogeneous according to effect size. The metric choice is unimportant for large effects. With minor effects and moderate sample sizes, and assuming that practically all ecological data sets will have some sort of non-trivial correlation among putative explanatory variables, $BIC$ produced lower prediction error than $AIC_c$. Therefore, the Figure~\ref{fig: BIC weight} on the other hand also proved the rejection of Hybrid Model design in this project with small datasets.
+
+    The ecological model is not a pure mathematical function, instead a mathematical translation of verbal hypothesis \citep{johnson2004model}. The model selection may vary on the purpose of model use. For example, according to \citet{peleg1997modeling}, due to mathematical restrictions and determinism, the original discrete logistic model is rarely used to model genuine microbial communities. It was argued Gompertza model perform the best in food industry \citep{zwietering1990modeling, ross2003modeling, tjorve2017use}, \citet{tsoularis2002analysis} suggested the outperformance and potential of Logistic and Generalised Logistic model in biological growth dynamics. Moreover, the model selection also varies depends on the size of data, ideally, the model sets should be chosen before data selection to have better understanding of factors and prepare the correct data \citep{johnson2004model}. 
+    
+    In summary, based on the bacterial datasets, Logistic Model outperforms than other four model or the phenomenological and hybrid model. However, in general, model selection for an empirical dataset need to considered the size of data and the purpose of model. Hybrid Model failed to have better goodness of fit on bacteria growth, further study could be investigated on improving by taking training data and evaluation data into fit. It is also worth to examine the model purpose into hybrid model and predict the full process of selected data. 
+    
+
+    \bibliographystyle{apalike}
+    \bibliography{MiniProjectRef.bib}
+    
+\end{linenumbers}
+\end{document}
