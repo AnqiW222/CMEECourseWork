@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """Defining models and model fitting functions for miniproject"""
-__appname__ = 'data_prepro'
+__appname__ = 'model_define'
 __author__ = 'ANQI WANG (aw222@ic.ac.uk)'
 __version__ = '3.10.7'
 __license__ = "None"
