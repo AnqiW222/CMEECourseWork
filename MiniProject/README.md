@@ -3,7 +3,7 @@
 This README file contains details about the Python, R and bash scripts for running model simulations and analysis for CMEE MiniProject.
 
 ## Description
-More information about the MiniProject and Model Fitting in **The Computing Miniproject** section can be found in the Appendices and Advanced Data Ayalyses and Statistics Chapters of the book [The Mulitilingual Quantitative Biologist](https://mhasoba.github.io/TheMulQuaBio/intro.html)
+More information about the MiniProject and Model Fitting in **The Computing Miniproject** section can be found in the Appendices and Advanced Data Ayalyses and Statistics Chapters of the book [The Mulitilingual Quantitative Biologist](https://mhasoba.github.io/TheMulQuaBio/notebooks/Appendix-MiniProj.html)
 
 ## Language
 
@@ -88,4 +88,9 @@ _The installation commands are used for MacOS, may varied with the different ope
 bash CompileReport.sh
 ```
 **Output:** **"DONE! MINIPROJECT IS READY TO BE CHECKED IN RESULTS"** seen in the terminal and MiniProject.pdf<br />
+
+## Author & Contact
+
+<font size=2>**Name:** ANQI WANG<br />
+**Email:** aw222@ic.ac.uk</font>
 

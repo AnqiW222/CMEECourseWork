@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
-__appname__ = 'boilerplate'
+"""Using loops and list comprehensions to create lists of tuples containing monthly rainfall data from tuples"""
+__appname__ = 'lc2'
 __author__ = 'ANQI WANG (aw222@ic.ac.uk)'
-__version__ = '3.10.7'
+__version__ = '0.0.1'
 __license__ = "None"
 
 # Average UK Rainfall (mm) for 1910 by month

@@ -1,4 +1,8 @@
-## Plotting two dataframes together ##
+# Author: Anqi Wang (aw222@ic.ac.uk)
+# Script: ggthemes.R
+# Created: Oct 2020
+# Description: In-class practical: Plotting two dataframes together 
+
 # According to Girko’s circular law, the eigenvalues of a matrix M of size N×N
 # are approximately contained in a circle in the complex plane with radius N. 
 # Let’s draw the results of a simulation displaying this result.

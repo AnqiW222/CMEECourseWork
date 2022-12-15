@@ -1,3 +1,8 @@
+# Author: Anqi Wang (aw222@ic.ac.uk)
+# Script: Vectorize1.R
+# Created: Oct 2020
+# Description: In-class vectorized function 1: comparing the run-time of a non-vectorized
+
 M <- matrix(runif(1000000),1000,1000)
 
 SumAllElements <- function(M) {

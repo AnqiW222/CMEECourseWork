@@ -1,3 +1,12 @@
+#!/usr/bin/env python3
+
+"""Storing Objects for later use, write a binary file containing the contents of a dictionary, 
+read the file and print its contents"""
+__appname__ = 'basic_io3'
+__author__ = 'ANQI WANG (aw222@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = "None"
+
 #############################
 # STORING OBJECTS
 #############################

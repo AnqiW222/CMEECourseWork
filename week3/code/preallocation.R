@@ -1,3 +1,8 @@
+# Author: Anqi Wang (aw222@ic.ac.uk)
+# Script: preallocation.R
+# Created: Oct 2020
+# Description: Preallocation in R
+
 # for loop that resizes a vector repeatedly
 
 NoPreallocFun <- function(x) {

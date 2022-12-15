@@ -1,3 +1,9 @@
+# Author: Anqi Wang (aw222@ic.ac.uk)
+# Script: sample.R
+# Created: Oct 2020
+# Description: Comparing run-times of functions with/without vectorization 
+# and preallocation, some using sapply and lapply
+
 ######### Functions ##########
 
 ## A function to take a sample of size n from a population "popn" and return its mean
@@ -17,7 +23,7 @@ loopy_sample1 <- function(popn, n, num) {
 
 ## To run "num" iterations of the experiment using a FOR loop on a vector with preallocation:
 loopy_sample2 <- function(popn, n, num) {
-  result2 <- vector(,num) #Preallocate expected size
+  result2 <- vector(, num) # Preallocate expected size
   for(i in 1:num) {
     result2[i] <- myexperiment(popn, n)
   }
@@ -71,17 +77,18 @@ print(system.time(lapply_sample(popn, n, num)))
 
 # tapply function
 x <- 1:20 # a vector
-x
+print(x)
 # a factor type variable
 y <- factor(rep(letters[1:5], each = 4)) 
-y
+print(y)
 # add up the values in x
 tapply(x, y, sum)
 
 
 # the by function
 attach(iris)
-iris
+#print(iris)
+
 # colMeans function
 by(iris[,1:2], iris$Species, colMeans)
 by(iris[,1:2], iris$Petal.Width, colMeans)

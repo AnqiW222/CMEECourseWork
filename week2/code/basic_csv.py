@@ -1,3 +1,15 @@
+#!/usr/bin/env python3
+
+"""Read data from testcsv.csv, 
+print species information, 
+and create a new .csv file cointaining species and bodymass"""
+
+__appname__ = 'basic_csv'
+__author__ = 'ANQI WANG (aw222@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = "None"
+
+# import packages
 import csv
 
 # Read a file containing

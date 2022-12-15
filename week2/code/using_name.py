@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
-# Filename: using_name.py
+
+"""Demonstrating how __name__ works"""
+
+__appname__ = 'using_name'
+__author__ = 'ANQI WANG (aw222@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = "None"
 
 if __name__ == '__main__':
     print('This program is being run by itself!')

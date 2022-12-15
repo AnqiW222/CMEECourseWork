@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
+"""Introduction for conditionals and functions"""
 __appname__ = 'cfexercises1'
 __author__ = 'ANQI WANG (aw222@ic.ac.uk)'
-__version__ = '3.10.7'
+__version__ = '0.0.1'
 __license__ = "None"
 
 import sys
@@ -51,6 +52,7 @@ def foo_6(x):
     return facto #Once the loop reached to 1, the value of facto will be returned 
 
 def main(argv):
+    """Main entry point of the program"""
     print(f'The square root of 10 is: {foo_1(10)} ')
     print(f'The bigger number between 7 and 12 is: {foo_2(7, 12)}')
     print(f'The modified sequence of 77, 100 and 3 with the largest number at the end is: {foo_3(77, 100, 3)}')

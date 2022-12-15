@@ -1,3 +1,7 @@
+# Author: Anqi Wang (aw222@ic.ac.uk)
+# Script: DataWrang.R
+# Created: Oct 2020
+
 ################################################################
 ################## Wrangling the Pound Hill Dataset ############
 ################################################################
@@ -86,3 +90,5 @@ tibble::as_tibble(MyWrangledData)
 dplyr::glimpse(MyWrangledData) # dbl means double precision floating point number
 dplyr::filter(MyWrangledData, Count>100)
 dplyr::slice(MyWrangledData,10:15)
+
+# In-class practical, all R script will first import required packages using library() or require()

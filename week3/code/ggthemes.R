@@ -1,3 +1,8 @@
+# Author: Anqi Wang (aw222@ic.ac.uk)
+# Script: ggthemes.R
+# Created: Oct 2020
+# Description: In-class practical: Introduction to ggthemes.
+
 ## ggthemes ##
 
 # clean environment and remove all the previous plots
@@ -5,7 +10,7 @@ rm(list=ls())
 graphics.off()
 
 # install the package
-install.packages("ggthemes")
+#install.packages("ggthemes")
 # load the data
 MyDF = read.csv("../data/EcolArchives-E089-51-D1.csv")
 

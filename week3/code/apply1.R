@@ -1,3 +1,8 @@
+# Author: Anqi Wang (aw222@ic.ac.uk)
+# Script: apply1.R
+# Created: Oct 2020
+# Description: In-class practical script 1
+
 ## Build a random matrix
 M <- matrix(rnorm(100), 10, 10)
 

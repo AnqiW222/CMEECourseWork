@@ -1,3 +1,8 @@
+# Author: Anqi Wang (aw222@ic.ac.uk)
+# Script: browse.R
+# Created: Oct 2020
+# Description: In-class practical running a simulation of expotential growth.
+
 Exponential <- function(N0 = 1, r = 1, generations = 10) {
   # Runs a simulation of exponential growth
   # Returns a vector of length generations

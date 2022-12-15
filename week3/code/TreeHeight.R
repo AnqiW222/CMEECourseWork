@@ -1,3 +1,8 @@
+# Author: Anqi Wang (aw222@ic.ac.uk)
+# Script: TreeHeight.R
+# Created: Oct 2020
+# Description: Calculates tree heights for all trees in the data and save the results in .csv file
+
 # This function calculates heights of trees given distance of each tree 
 # from its base and angle to its top, using  the trigonometric formula 
 #

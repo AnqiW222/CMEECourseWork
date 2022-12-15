@@ -1,8 +1,14 @@
-## Mathematical display ##
+# Author: Anqi Wang (aw222@ic.ac.uk)
+# Script: plotLin.R
+# Created: Oct 2020
+# Description: In-class practical: Mathematical display
 
 # clean environment and remove all the previous plots
 rm(list=ls())
 graphics.off()
+
+# import required package
+library(ggplot2)
 
 # create some linear regression "data"
 x <- seq(0, 100, by = 0.1)
@@ -36,7 +42,7 @@ p <- p + geom_text(aes(x = 60, y = 0,
                    parse = TRUE, size = 6, 
                    colour = "blue")
 
-p
+#p
 
 # Save the plot as pdf file
 ggsave("MyLinReg.pdf", path = "../results/")

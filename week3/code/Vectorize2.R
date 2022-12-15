@@ -1,4 +1,7 @@
-# Runs the stochastic Ricker equation with gaussian fluctuations
+# Author: Anqi Wang (aw222@ic.ac.uk)
+# Script: Vectorize2.R
+# Created: Oct 2020
+# Description: In-class vectorized function 2: Runs the stochastic Ricker equation with gaussian fluctuations
 
 rm(list = ls()) # Clean the workplace
 
@@ -22,10 +25,13 @@ stochrick <- function(p0 = runif(1000, .5, 1.5), r = 1.2, K = 1, sigma = 0.2,num
 
 }
 
+print("Non-Vectorized Stochastic Ricker takes:")
+print(system.time(res1<-stochrick()))
+
 # Now write another function called stochrickvect that vectorizes the above to
 # the extent possible, with improved performance: 
 
-stochrickvetor1 <- function(p0 = runif(1000, .5, 1.5), r = 1.2, K = 1, sigma = 0.2,numyears = 100)
+stochrickvector1 <- function(p0 = runif(1000, .5, 1.5), r = 1.2, K = 1, sigma = 0.2,numyears = 100)
 {
   N <- matrix(NA, numyears, length(p0))
   N[1, ] <- p0
@@ -34,9 +40,9 @@ stochrickvetor1 <- function(p0 = runif(1000, .5, 1.5), r = 1.2, K = 1, sigma = 0
  }
 return(N)
 }
-stochrickvetor1()
+#print(stochrickvector1())
 
-stochrickvetor2 <- function(p0 = runif(1000, .5, 1.5), r = 1.2, K = 1, sigma = 0.2,numyears = 100)
+stochrickvector2 <- function(p0 = runif(1000, .5, 1.5), r = 1.2, K = 1, sigma = 0.2,numyears = 100)
 {
   N <- matrix(NA, numyears, 1000)
   N[1, ] <- p0
@@ -45,11 +51,12 @@ stochrickvetor2 <- function(p0 = runif(1000, .5, 1.5), r = 1.2, K = 1, sigma = 0
   }
 return(N)
 }
-stochrickvetor2()
+#print(stochrickvector2())
 
 print("Vectorized Stochastic Ricker takes:")
 print(system.time(res2<-stochrick()))
 print("Vectorized Stochastic Ricker1 takes:")
-print(system.time(res21<-stochrickvect1()))
+print(system.time(res21<-stochrickvector1()))
 print("Vectorized Stochastic Ricker2 takes:")
-print(system.time(res21<-stochrickvect2()))
+print(system.time(res21<-stochrickvector2()))
+

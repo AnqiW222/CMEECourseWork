@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
 
+"""Populate a dictionary derived from taxa and maps order names to sets of taxa"""
+__appname__ = 'dictionary'
+__author__ = 'ANQI WANG (aw222@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = "None"
+
 taxa = [ ('Myotis lucifugus','Chiroptera'),
          ('Gerbillus henleyi','Rodentia'),
          ('Peromyscus crinitus', 'Rodentia'),

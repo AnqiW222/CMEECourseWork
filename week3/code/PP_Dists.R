@@ -1,7 +1,7 @@
 # Author: Anqi Wang (aw222@ic.ac.uk)
 # Script: PP_Dists.R
 # Created: Oct 2020
-
+# Description: Body mass distributions
 
 # clean environment and remove all the previous plots
 rm(list=ls())

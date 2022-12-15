@@ -1,16 +1,11 @@
 #!/usr/bin/env python3
 
+"""A function with unit testing, '%run test_control_flow.py -v' to run this script."""
+
 __appname__ = 'test_control_flow'
 __author__ = 'ANQI WANG (aw222@ic.ac.uk)'
-__version__ = '3.10.7'
-__license__ = "None"
-
-#!/usr/bin/env python3
-
-"""Some functions exemplifying the use of control statements"""
-
-__author__ = 'Your Name (Your.Name@your.email.address)'
 __version__ = '0.0.1'
+__license__ = "None"
 
 import sys
 import doctest # Import the doctest module
@@ -35,6 +30,7 @@ def even_or_odd(x=0):
     return f"{x} is Odd!"
 
 def main(argv): 
+    """Main entry point of the program"""
     print(even_or_odd(22))
     print(even_or_odd(33))
     return 0

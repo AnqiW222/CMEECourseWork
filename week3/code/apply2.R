@@ -1,3 +1,8 @@
+# Author: Anqi Wang (aw222@ic.ac.uk)
+# Script: apply2.R
+# Created: Oct 2020
+# Description: In-class practical script 2
+
 SomeOperation <- function(v) { # when the sum of v greater than 0, then return 
   # v*100, otherwise return itself
   if (sum(v) > 0) { #note that sum(v) is a single (scalar) value

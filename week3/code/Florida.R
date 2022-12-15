@@ -1,3 +1,8 @@
+# Author: Anqi Wang (aw222@ic.ac.uk)
+# Script: Florida.R
+# Created: Oct 2020
+# Description: R script to answer "Is Florida getting warmer?"
+
 #################################
 ## Is Florida getting warmer? ##
 #################################

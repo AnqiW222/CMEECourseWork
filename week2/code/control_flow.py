@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 
+"""Function examples of using control statements"""
 __appname__ = 'control_flow'
 __author__ = 'ANQI WANG (aw222@ic.ac.uk)'
-__version__ = '3.10.7'
+__version__ = '0.0.1'
 __license__ = "None"
 
 import sys
 
 def even_or_odd(x=0): # if not specified, x should take value 0.
-
     """Find whether a number x is even or odd."""
     if x % 2 == 0: #The conditional if
         return f"{x} is Even!"
@@ -48,6 +48,7 @@ def find_all_primes(x=22):
     return allprimes
       
 def main(argv):
+    """Main entry point of the program"""
     print(even_or_odd(22))
     print(even_or_odd(33))
     print(largest_divisor_five(120))
@@ -58,5 +59,6 @@ def main(argv):
     return 0
 
 if (__name__ == "__main__"):
+    """Makes sure the "main" function is called from command line"""
     status = main(sys.argv)
     sys.exit(status)

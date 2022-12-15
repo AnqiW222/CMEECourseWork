@@ -1,5 +1,10 @@
+# Author: Anqi Wang (aw222@ic.ac.uk)
+# Script: SQLinR.R
+# Created: Oct 2020
+# Description: Build, manipulate, and access databases easily with SQlinR
+
 #install the sqlite package
-install.packages('sqldf')
+#install.packages('sqldf')
 
 # To load the packages
 library(sqldf)

@@ -1,3 +1,11 @@
+#!/usr/bin/env python3
+
+"""Introduction of 'for' and 'while' loops in Python"""
+__appname__ = 'loops'
+__author__ = 'ANQI WANG (aw222@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = "None"
+
 #Loop exmples
 
 # FOR loops
@@ -21,16 +29,18 @@ while z<100:
     print (z)
 
 #Functions
-def foo(x):
-    x *= x # same as x = x*x
-    print (x)
-    return x
+#def foo(x):
+#    """Defining a function for x to calculate x*=x"""
+#    x *= x # same as x = x*x
+#    print (x)
+#    return x
 
 #distinction
-def foo(x):
-    x *= x # same as x = x*x
-    print (x)
-    return x
-y = foo(2)
-y
-type(y)
+#def foo(x):
+#    """Defining a function for x to calculate x*=x"""
+#    x *= x # same as x = x*x
+#    print (x)
+#    return x
+#y = foo(2)
+#y
+#type(y)

@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 
+"""Read the .csv file and determines whether the tree species are oaks or not"""
+
 __appname__ = 'oaks_debugme'
 __author__ = 'ANQI WANG (aw222@ic.ac.uk)'
-__version__ = '3.10.7'
+__version__ = '0.0.1'
 __license__ = "None"
 
 import csv
@@ -28,11 +30,12 @@ def is_an_oak(name):
     True
     >>> is_an_oak('QuercusPetraea')
     True
-     """
+    """
     # use startswith() to catch bugs in spelling/spacing
     return name.lower().startswith('quercus')
 
 def main(argv): 
+    """Read the TestOaksData.csv as input data, and save the only oaks information as results into JustOaksData.csv"""
     #import ipdb; ipdb.set_trace()
     f = open('../data/TestOaksData.csv','r')
     g = open('../data/JustOaksData.csv','w')

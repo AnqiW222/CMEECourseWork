@@ -1,3 +1,12 @@
+#!/usr/bin/env python3
+
+"""Print out lists cotaining infor of birds (latin names, common names, and body masses) from a tuple"""
+
+__appname__ = 'tuple'
+__author__ = 'ANQI WANG (aw222@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = "None"
+
 birds = ( ('Passerculus sandwichensis','Savannah sparrow',18.7),
           ('Delichon urbica','House martin',19),
           ('Junco phaeonotus','Yellow-eyed junco',19.5),

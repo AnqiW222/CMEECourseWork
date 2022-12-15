@@ -1,6 +1,7 @@
 # Author: Anqi Wang (aw222@ic.ac.uk)
 # Script: PP_Regress.R
 # Created: Oct 2020
+# Description: Predator-Prey Regression
 
 # clean environment and remove all the previous plots
 rm(list=ls())

@@ -1,3 +1,8 @@
+# Author: Anqi Wang (aw222@ic.ac.uk)
+# Script: R_conditionals.R
+# Created: Oct 2020
+# Description: Functions with conditionals
+
 # Check if an integer is even
 is.even <- function(n = 2){
   if (n %% 2 == 0) {
@@ -7,7 +12,7 @@ is.even <- function(n = 2){
   }
 }
 
-is.even(6)
+print(is.even(6))
 
 # Checks if a number is a power of 2
 is.power2 <- function(n = 2) {
@@ -18,7 +23,7 @@ is.power2 <- function(n = 2) {
   }
 }
 
-is.power2(4)
+print(is.power2(4))
 
 # Checks if a number is prime
 is.prime <- function(n) {
@@ -37,4 +42,4 @@ is.prime <- function(n) {
   }
 }
 
-is.prime(3)
+print(is.prime(3))

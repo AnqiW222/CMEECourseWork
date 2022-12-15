@@ -1,6 +1,12 @@
+# Author: Anqi Wang (aw222@ic.ac.uk)
+# Script: DataWrangTidy.R
+# Created: Oct 2020
+
 ################################################################
 ################## Wrangling the Pound Hill Dataset ############
 ################################################################
+#rm(list = ls())
+require(tidyverse)
 
 ############# Load the dataset ###############
 # header = false because the raw data don't have real headers
@@ -73,12 +79,11 @@ str(MyWrangledData)
 head(MyWrangledData)
 dim(MyWrangledData)
 
-########################################## In-class practical ##################
-#require(tidyverse)
-#tidyverse_packages(include_self = TRUE) # the include_self = TRUE means list "tidyverse" as well 
+################## In-class practical #####################
+tidyverse_packages(include_self = TRUE) # the include_self = TRUE means list "tidyverse" as well 
 #
 ## convert the dataframe to a "tibble"
-#MyWrangledData <- dplyr::as_tibble(MyWrangledData) 
+MyWrangledData <- dplyr::as_tibble(MyWrangledData) 
 #MyWrangledData
 #
 ## Same as:
@@ -116,8 +121,8 @@ MyWrangledData <- MyWrangledData %>%
   mutate(across(c(Count), as.integer))
 
 ############# Exploring the data (extend the script below)  ###############
-##################################### 
-#require(tidyverse)
+
+#require(tidyverse) # should be put at first begining, here as an example
 #tidyverse_packages(include_self = T)
 #tibble::as_tibble(MyWrangledData)
 #dplyr::glimpse(MyWrangledData) # dbl means double precision floating point number
@@ -140,3 +145,4 @@ dplyr::glimpse(MyWrangledData)
 dplyr::filter(MyWrangledData, Count>100) # ≈ subset(), but nicer!
 
 dplyr::slice(MyWrangledData, 10:15) # Look at an arbitrary set of data rows
+
