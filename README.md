@@ -26,31 +26,31 @@ git clone git@github.com:AnqiW222/CMEECourseWork.git
 
 ### Week 3: R Programming and Data Management & Visualizatio 
 **Summary:** Biological Computing in R, Data management and Visualization with R.<br />
-**Language Use** R, LaTeX, Bash
+**Language Use:** R, LaTeX, Bash
 
 ---
 
 ### Week 4: Statistics in R
 **Summary:** Core Skills Module of PG Life Science, statistical methods that are of wide use in research projects, the different ways of analysing data and the importance of biological interpretation. <br />
-**Language Use** R
+**Language Use:** R
 
 ---
 
 ### Week 5: Spatial Analyses and GIS
 **Summary:** Core Skills Module of PG Life Science, using and handling GIS data, along with core concepts in GIS and remote sensing. <br />
-**Language Use** R
+**Language Use:** R
 
 ---
 
 ### Week 6: Genomics and Bioinformatics
 **Summary:** Core Skills Module of PG Life Science, introduce the types of questions that can be addressed with population genomic data, and the theory and computational methodologies that are available for answering these questions. <br />
-**Language Use** R
+**Language Use:** R
 
 ---
 
 ### Week 7: Advanced Python Programming
 **Summary:** Advanced Python coding skills with introduction of IDE, profiling code, and using computing language flexible. <br />
-**Language Use** Python, R, Bash
+**Language Use:** Python, R, Bash
 
 ---
 
@@ -62,7 +62,7 @@ git clone git@github.com:AnqiW222/CMEECourseWork.git
 
 ### Week 10 + 11: High Performance Computing and Math Primer
 **Summary:** Using Imperial College's HPC cluster as tools and techniques  to solve biological problems, and dealing with the huge data sets through parallel computing. Introduction to the preliminary requirements for the topics that will be covered during the Maths for Biologists module. <br />
-**Language Use** R, Bash, HPC
+**Language Use:** R, Bash, HPC
 
 ## Language Versions
 **Python:** 3.9.12 <br />

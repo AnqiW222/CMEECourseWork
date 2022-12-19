@@ -1,0 +1,601 @@
+Last login: Sun Dec  4 11:40:48 on ttys000
+(base) anqiwang@dyn3254-39 ~ % cd Documents/IC_MSc/CMEECourseWork 
+(base) anqiwang@dyn3254-39 CMEECourseWork % mkdir HPC
+(base) anqiwang@dyn3254-39 CMEECourseWork % cd HPC
+(base) anqiwang@dyn3254-39 HPC % ssh aw222@login.hpc.imperial.ac.uk
+The authenticity of host 'login.hpc.imperial.ac.uk (2a0c:5bc0:89:a01:1e34:daff:fe6c:6976)' can't be established.
+ED25519 key fingerprint is SHA256:yV/FF1yF5bg6EUHC4KGJot07E9PN12XVT4EJ+d15kCQ.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'login.hpc.imperial.ac.uk' (ED25519) to the list of known hosts.
+aw222@login.hpc.imperial.ac.uk's password: 
+                        Imperial College London Research Computing Service
+                        --------------------------------------------------
+#################################################################################################
+#                                                                                               #
+#       Continue ONLY if you are an authorised user, otherwise EXIT now                         #
+#                                                                                               #
+#       Communications, including personal communications, made on or through  Imperial         #
+#       College's computing and telecommunications systems may be monitored or recorded         #
+#       to  secure effective  system operation  and for other lawful purposes.  See the         #
+#       Information Systems Security Codes of Practice for more information.                    #
+#                                                                                               #
+#                       Remember the logins are SHARED RESOURCES.                               #
+#                           Programs that are long-running,                                     #
+#                           I/O intensive,                                                      #
+#                          memory-intensive or multithreaded                                    #
+#                              MUST BE RUN AS BATCH JOBS.                                       #
+#                                                                                               #
+#################################################################################################
+
+        * Service Status:       https://selfservice.rcs.imperial.ac.uk/service-status
+        * RCS Support:          https://www.imperial.ac.uk/admin-services/ict/self-service/research-support/rcs/support/help/
+        * Job Sizing Guide:     https://wiki.imperial.ac.uk/pages/viewpage.action?spaceKey=HPC&title=New+Job+sizing+guidance
+
+-------------------------------------------------------------------------------------------------
+
+ RDS usage at 11:10 on 5/12/2022
+
+
+ Individual allocation /rds/general/user/aw222
+
+   Home       Data:  0GB of 1.00TB (0%)	
+              Files: 0k of 10.00M (0%)	
+   Ephemeral  Data:  0GB of 109.95TB (0%)	
+              Files: 0k of 20.97M (0%)	
+
+
+Creating the cluster key files:
+     /rds/general/user/aw222/home/.ssh/cluster_key
+     /rds/general/user/aw222/home/.ssh/cluster_key.pub
+     /rds/general/user/aw222/home/.ssh/authorized_keys
+
+Generating public/private ed25519 key pair.
+Created directory '/rds/general/user/aw222/home/.ssh'.
+Your identification has been saved in /rds/general/user/aw222/home/.ssh/cluster_key.
+Your public key has been saved in /rds/general/user/aw222/home/.ssh/cluster_key.pub.
+The key fingerprint is:
+SHA256:4OH46qM9NxLrUulz4sg9c4g92hilNxFERHfP0JqZDuo aw222@login-b
+The key's randomart image is:
++--[ED25519 256]--+
+|   += . o.       |
+|   . . . +.      |
+|    . o  =o      |
+|     =.o=        |
+|    +oooS        |
+|   o=o  .        |
+|  o*o+.          |
+| .oOEo=          |
+|  *BO& .         |
++----[SHA256]-----+
+[aw222@login-b ~]$ module load anaconda3/personal
+
+  Run 'anaconda-setup' to set up personal installation
+
+[aw222@login-b ~]$ anaconda setup
+-bash: anaconda: command not found
+[aw222@login-b ~]$ anaconda-setup
+PREFIX=/rds/general/user/aw222/home/anaconda3
+Unpacking payload ...
+Collecting package metadata (current_repodata.json): done                                
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /rds/general/user/aw222/home/anaconda3
+
+  added / updated specs:
+    - _libgcc_mutex==0.1=main
+    - brotlipy==0.7.0=py39h27cfd23_1003
+    - ca-certificates==2020.12.8=h06a4308_0
+    - certifi==2020.12.5=py39h06a4308_0
+    - cffi==1.14.4=py39h261ae71_0
+    - chardet==3.0.4=py39h06a4308_1003
+    - conda-package-handling==1.7.2=py39h27cfd23_1
+    - conda==4.9.2=py39h06a4308_0
+    - cryptography==3.3.1=py39h3c74f83_0
+    - idna==2.10=py_0
+    - ld_impl_linux-64==2.33.1=h53a641e_7
+    - libedit==3.1.20191231=h14c3975_1
+    - libffi==3.3=he6710b0_2
+    - libgcc-ng==9.1.0=hdf63c60_0
+    - libstdcxx-ng==9.1.0=hdf63c60_0
+    - ncurses==6.2=he6710b0_1
+    - openssl==1.1.1i=h27cfd23_0
+    - pip==20.3.1=py39h06a4308_0
+    - pycosat==0.6.3=py39h27cfd23_0
+    - pycparser==2.20=py_2
+    - pyopenssl==20.0.0=pyhd3eb1b0_1
+    - pysocks==1.7.1=py39h06a4308_0
+    - python==3.9.1=hdb3f193_2
+    - readline==8.0=h7b6447c_0
+    - requests==2.25.0=pyhd3eb1b0_0
+    - ruamel_yaml==0.15.80=py39h27cfd23_0
+    - setuptools==51.0.0=py39h06a4308_2
+    - six==1.15.0=py39h06a4308_0
+    - sqlite==3.33.0=h62c20be_0
+    - tk==8.6.10=hbc83047_0
+    - tqdm==4.54.1=pyhd3eb1b0_0
+    - tzdata==2020d=h14c3975_0
+    - urllib3==1.25.11=py_0
+    - wheel==0.36.1=pyhd3eb1b0_0
+    - xz==5.2.5=h7b6447c_0
+    - yaml==0.2.5=h7b6447c_0
+    - zlib==1.2.11=h7b6447c_3
+
+
+The following NEW packages will be INSTALLED:
+
+  _libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main
+  brotlipy           pkgs/main/linux-64::brotlipy-0.7.0-py39h27cfd23_1003
+  ca-certificates    pkgs/main/linux-64::ca-certificates-2020.12.8-h06a4308_0
+  certifi            pkgs/main/linux-64::certifi-2020.12.5-py39h06a4308_0
+  cffi               pkgs/main/linux-64::cffi-1.14.4-py39h261ae71_0
+  chardet            pkgs/main/linux-64::chardet-3.0.4-py39h06a4308_1003
+  conda              pkgs/main/linux-64::conda-4.9.2-py39h06a4308_0
+  conda-package-han~ pkgs/main/linux-64::conda-package-handling-1.7.2-py39h27cfd23_1
+  cryptography       pkgs/main/linux-64::cryptography-3.3.1-py39h3c74f83_0
+  idna               pkgs/main/noarch::idna-2.10-py_0
+  ld_impl_linux-64   pkgs/main/linux-64::ld_impl_linux-64-2.33.1-h53a641e_7
+  libedit            pkgs/main/linux-64::libedit-3.1.20191231-h14c3975_1
+  libffi             pkgs/main/linux-64::libffi-3.3-he6710b0_2
+  libgcc-ng          pkgs/main/linux-64::libgcc-ng-9.1.0-hdf63c60_0
+  libstdcxx-ng       pkgs/main/linux-64::libstdcxx-ng-9.1.0-hdf63c60_0
+  ncurses            pkgs/main/linux-64::ncurses-6.2-he6710b0_1
+  openssl            pkgs/main/linux-64::openssl-1.1.1i-h27cfd23_0
+  pip                pkgs/main/linux-64::pip-20.3.1-py39h06a4308_0
+  pycosat            pkgs/main/linux-64::pycosat-0.6.3-py39h27cfd23_0
+  pycparser          pkgs/main/noarch::pycparser-2.20-py_2
+  pyopenssl          pkgs/main/noarch::pyopenssl-20.0.0-pyhd3eb1b0_1
+  pysocks            pkgs/main/linux-64::pysocks-1.7.1-py39h06a4308_0
+  python             pkgs/main/linux-64::python-3.9.1-hdb3f193_2
+  readline           pkgs/main/linux-64::readline-8.0-h7b6447c_0
+  requests           pkgs/main/noarch::requests-2.25.0-pyhd3eb1b0_0
+  ruamel_yaml        pkgs/main/linux-64::ruamel_yaml-0.15.80-py39h27cfd23_0
+  setuptools         pkgs/main/linux-64::setuptools-51.0.0-py39h06a4308_2
+  six                pkgs/main/linux-64::six-1.15.0-py39h06a4308_0
+  sqlite             pkgs/main/linux-64::sqlite-3.33.0-h62c20be_0
+  tk                 pkgs/main/linux-64::tk-8.6.10-hbc83047_0
+  tqdm               pkgs/main/noarch::tqdm-4.54.1-pyhd3eb1b0_0
+  tzdata             pkgs/main/noarch::tzdata-2020d-h14c3975_0
+  urllib3            pkgs/main/noarch::urllib3-1.25.11-py_0
+  wheel              pkgs/main/noarch::wheel-0.36.1-pyhd3eb1b0_0
+  xz                 pkgs/main/linux-64::xz-5.2.5-h7b6447c_0
+  yaml               pkgs/main/linux-64::yaml-0.2.5-h7b6447c_0
+  zlib               pkgs/main/linux-64::zlib-1.2.11-h7b6447c_3
+
+
+Preparing transaction: done
+Executing transaction: done
+installation finished.
+Warning: 'defaults' already in 'channels' list, moving to the top
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /rds/general/user/aw222/home/anaconda3
+
+  added / updated specs:
+    - conda
+    - python
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    _openmp_mutex-5.1          |            1_gnu          21 KB
+    brotlipy-0.7.0             |py310h7f8727e_1002         712 KB
+    bzip2-1.0.8                |       h7b6447c_0          78 KB
+    ca-certificates-2022.10.11 |       h06a4308_0         124 KB
+    certifi-2022.9.24          |  py310h06a4308_0         154 KB
+    cffi-1.15.1                |  py310h5eee18b_2         234 KB
+    charset-normalizer-2.0.4   |     pyhd3eb1b0_0          35 KB
+    conda-22.11.0              |  py310h06a4308_1         937 KB
+    conda-package-handling-1.9.0|  py310h5eee18b_1         946 KB
+    cryptography-38.0.1        |  py310h9ce1e76_0         1.3 MB
+    idna-3.4                   |  py310h06a4308_0          97 KB
+    ld_impl_linux-64-2.38      |       h1181459_1         654 KB
+    libffi-3.4.2               |       h6a678d5_6         136 KB
+    libgcc-ng-11.2.0           |       h1234567_1         5.3 MB
+    libgomp-11.2.0             |       h1234567_1         474 KB
+    libstdcxx-ng-11.2.0        |       h1234567_1         4.7 MB
+    libuuid-1.41.5             |       h5eee18b_0          27 KB
+    ncurses-6.3                |       h5eee18b_3         781 KB
+    openssl-1.1.1s             |       h7f8727e_0         3.6 MB
+    pip-22.2.2                 |  py310h06a4308_0         2.4 MB
+    pluggy-1.0.0               |  py310h06a4308_1          29 KB
+    pycosat-0.6.4              |  py310h5eee18b_0          82 KB
+    pycparser-2.21             |     pyhd3eb1b0_0          94 KB
+    pyopenssl-22.0.0           |     pyhd3eb1b0_0          50 KB
+    pysocks-1.7.1              |  py310h06a4308_0          28 KB
+    python-3.10.8              |       h7a1cb2a_1        26.8 MB
+    readline-8.2               |       h5eee18b_0         357 KB
+    requests-2.28.1            |  py310h06a4308_0          93 KB
+    ruamel.yaml-0.16.12        |  py310h5eee18b_3         175 KB
+    ruamel.yaml.clib-0.2.6     |  py310h5eee18b_1         139 KB
+    setuptools-65.5.0          |  py310h06a4308_0         1.2 MB
+    sqlite-3.40.0              |       h5082296_0         1.2 MB
+    tk-8.6.12                  |       h1ccaba5_0         3.0 MB
+    toolz-0.12.0               |  py310h06a4308_0         108 KB
+    tqdm-4.64.1                |  py310h06a4308_0         126 KB
+    tzdata-2022f               |       h04d1e81_0         115 KB
+    urllib3-1.26.12            |  py310h06a4308_0         183 KB
+    wheel-0.37.1               |     pyhd3eb1b0_0          33 KB
+    xz-5.2.8                   |       h5eee18b_0         429 KB
+    zlib-1.2.13                |       h5eee18b_0         103 KB
+    ------------------------------------------------------------
+                                           Total:        56.8 MB
+
+The following NEW packages will be INSTALLED:
+
+  _openmp_mutex      pkgs/main/linux-64::_openmp_mutex-5.1-1_gnu
+  bzip2              pkgs/main/linux-64::bzip2-1.0.8-h7b6447c_0
+  charset-normalizer pkgs/main/noarch::charset-normalizer-2.0.4-pyhd3eb1b0_0
+  libgomp            pkgs/main/linux-64::libgomp-11.2.0-h1234567_1
+  libuuid            pkgs/main/linux-64::libuuid-1.41.5-h5eee18b_0
+  pluggy             pkgs/main/linux-64::pluggy-1.0.0-py310h06a4308_1
+  ruamel.yaml        pkgs/main/linux-64::ruamel.yaml-0.16.12-py310h5eee18b_3
+  ruamel.yaml.clib   pkgs/main/linux-64::ruamel.yaml.clib-0.2.6-py310h5eee18b_1
+  toolz              pkgs/main/linux-64::toolz-0.12.0-py310h06a4308_0
+
+The following packages will be REMOVED:
+
+  chardet-3.0.4-py39h06a4308_1003
+  libedit-3.1.20191231-h14c3975_1
+  ruamel_yaml-0.15.80-py39h27cfd23_0
+  six-1.15.0-py39h06a4308_0
+  yaml-0.2.5-h7b6447c_0
+
+The following packages will be UPDATED:
+
+  ca-certificates                      2020.12.8-h06a4308_0 --> 2022.10.11-h06a4308_0
+  certifi                          2020.12.5-py39h06a4308_0 --> 2022.9.24-py310h06a4308_0
+  cffi                                1.14.4-py39h261ae71_0 --> 1.15.1-py310h5eee18b_2
+  conda                                4.9.2-py39h06a4308_0 --> 22.11.0-py310h06a4308_1
+  conda-package-han~                   1.7.2-py39h27cfd23_1 --> 1.9.0-py310h5eee18b_1
+  cryptography                         3.3.1-py39h3c74f83_0 --> 38.0.1-py310h9ce1e76_0
+  idna                     pkgs/main/noarch::idna-2.10-py_0 --> pkgs/main/linux-64::idna-3.4-py310h06a4308_0
+  ld_impl_linux-64                        2.33.1-h53a641e_7 --> 2.38-h1181459_1
+  libffi                                     3.3-he6710b0_2 --> 3.4.2-h6a678d5_6
+  libgcc-ng                                9.1.0-hdf63c60_0 --> 11.2.0-h1234567_1
+  libstdcxx-ng                             9.1.0-hdf63c60_0 --> 11.2.0-h1234567_1
+  ncurses                                    6.2-he6710b0_1 --> 6.3-h5eee18b_3
+  openssl                                 1.1.1i-h27cfd23_0 --> 1.1.1s-h7f8727e_0
+  pip                                 20.3.1-py39h06a4308_0 --> 22.2.2-py310h06a4308_0
+  pycosat                              0.6.3-py39h27cfd23_0 --> 0.6.4-py310h5eee18b_0
+  pycparser                                       2.20-py_2 --> 2.21-pyhd3eb1b0_0
+  pyopenssl                             20.0.0-pyhd3eb1b0_1 --> 22.0.0-pyhd3eb1b0_0
+  python                                   3.9.1-hdb3f193_2 --> 3.10.8-h7a1cb2a_1
+  readline                                   8.0-h7b6447c_0 --> 8.2-h5eee18b_0
+  requests           pkgs/main/noarch::requests-2.25.0-pyh~ --> pkgs/main/linux-64::requests-2.28.1-py310h06a4308_0
+  setuptools                          51.0.0-py39h06a4308_2 --> 65.5.0-py310h06a4308_0
+  sqlite                                  3.33.0-h62c20be_0 --> 3.40.0-h5082296_0
+  tk                                      8.6.10-hbc83047_0 --> 8.6.12-h1ccaba5_0
+  tqdm               pkgs/main/noarch::tqdm-4.54.1-pyhd3eb~ --> pkgs/main/linux-64::tqdm-4.64.1-py310h06a4308_0
+  tzdata                                   2020d-h14c3975_0 --> 2022f-h04d1e81_0
+  urllib3            pkgs/main/noarch::urllib3-1.25.11-py_0 --> pkgs/main/linux-64::urllib3-1.26.12-py310h06a4308_0
+  wheel                                 0.36.1-pyhd3eb1b0_0 --> 0.37.1-pyhd3eb1b0_0
+  xz                                       5.2.5-h7b6447c_0 --> 5.2.8-h5eee18b_0
+  zlib                                    1.2.11-h7b6447c_3 --> 1.2.13-h5eee18b_0
+
+The following packages will be DOWNGRADED:
+
+  brotlipy                          0.7.0-py39h27cfd23_1003 --> 0.7.0-py310h7f8727e_1002
+  pysocks                              1.7.1-py39h06a4308_0 --> 1.7.1-py310h06a4308_0
+
+
+
+Downloading and Extracting Packages
+charset-normalizer-2 | 35 KB     | ############################################## | 100% 
+pycosat-0.6.4        | 82 KB     | ############################################## | 100% 
+requests-2.28.1      | 93 KB     | ############################################## | 100% 
+libstdcxx-ng-11.2.0  | 4.7 MB    | ############################################## | 100% 
+xz-5.2.8             | 429 KB    | ############################################## | 100% 
+libgomp-11.2.0       | 474 KB    | ############################################## | 100% 
+tzdata-2022f         | 115 KB    | ############################################## | 100% 
+python-3.10.8        | 26.8 MB   | ############################################## | 100% 
+tqdm-4.64.1          | 126 KB    | ############################################## | 100% 
+pysocks-1.7.1        | 28 KB     | ############################################## | 100% 
+_openmp_mutex-5.1    | 21 KB     | ############################################## | 100% 
+pycparser-2.21       | 94 KB     | ############################################## | 100% 
+bzip2-1.0.8          | 78 KB     | ############################################## | 100% 
+wheel-0.37.1         | 33 KB     | ############################################## | 100% 
+ruamel.yaml-0.16.12  | 175 KB    | ############################################## | 100% 
+ca-certificates-2022 | 124 KB    | ############################################## | 100% 
+cffi-1.15.1          | 234 KB    | ############################################## | 100% 
+conda-22.11.0        | 937 KB    | ############################################## | 100% 
+sqlite-3.40.0        | 1.2 MB    | ############################################## | 100% 
+pluggy-1.0.0         | 29 KB     | ############################################## | 100% 
+ld_impl_linux-64-2.3 | 654 KB    | ############################################## | 100% 
+ruamel.yaml.clib-0.2 | 139 KB    | ############################################## | 100% 
+pip-22.2.2           | 2.4 MB    | ############################################## | 100% 
+readline-8.2         | 357 KB    | ############################################## | 100% 
+cryptography-38.0.1  | 1.3 MB    | ############################################## | 100% 
+libgcc-ng-11.2.0     | 5.3 MB    | ############################################## | 100% 
+libuuid-1.41.5       | 27 KB     | ############################################## | 100% 
+urllib3-1.26.12      | 183 KB    | ############################################## | 100% 
+pyopenssl-22.0.0     | 50 KB     | ############################################## | 100% 
+libffi-3.4.2         | 136 KB    | ############################################## | 100% 
+tk-8.6.12            | 3.0 MB    | ############################################## | 100% 
+conda-package-handli | 946 KB    | ############################################## | 100% 
+brotlipy-0.7.0       | 712 KB    | ############################################## | 100% 
+setuptools-65.5.0    | 1.2 MB    | ############################################## | 100% 
+certifi-2022.9.24    | 154 KB    | ############################################## | 100% 
+ncurses-6.3          | 781 KB    | ############################################## | 100% 
+openssl-1.1.1s       | 3.6 MB    | ############################################## | 100% 
+toolz-0.12.0         | 108 KB    | ############################################## | 100% 
+idna-3.4             | 97 KB     | ############################################## | 100% 
+zlib-1.2.13          | 103 KB    | ############################################## | 100% 
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+Collecting package metadata (current_repodata.json): done
+Solving environment: done
+
+## Package Plan ##
+
+  environment location: /rds/general/user/aw222/home/anaconda3
+
+  added / updated specs:
+    - numpy
+    - scipy
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    blas-1.0                   |              mkl           6 KB
+    fftw-3.3.9                 |       h27cfd23_1         2.3 MB
+    intel-openmp-2021.4.0      |    h06a4308_3561         4.2 MB
+    libgfortran-ng-11.2.0      |       h00389a5_1          20 KB
+    libgfortran5-11.2.0        |       h1234567_1         2.0 MB
+    mkl-2021.4.0               |     h06a4308_640       142.6 MB
+    mkl-service-2.4.0          |  py310h7f8727e_0         177 KB
+    mkl_fft-1.3.1              |  py310hd6ae3a3_0         567 KB
+    mkl_random-1.2.2           |  py310h00e6091_0        1009 KB
+    numpy-1.23.4               |  py310hd5efca6_0          10 KB
+    numpy-base-1.23.4          |  py310h8e6c178_0         6.7 MB
+    scipy-1.9.3                |  py310hd5efca6_0        23.1 MB
+    six-1.16.0                 |     pyhd3eb1b0_1          18 KB
+    ------------------------------------------------------------
+                                           Total:       182.7 MB
+
+The following NEW packages will be INSTALLED:
+
+  blas               pkgs/main/linux-64::blas-1.0-mkl 
+  fftw               pkgs/main/linux-64::fftw-3.3.9-h27cfd23_1 
+  intel-openmp       pkgs/main/linux-64::intel-openmp-2021.4.0-h06a4308_3561 
+  libgfortran-ng     pkgs/main/linux-64::libgfortran-ng-11.2.0-h00389a5_1 
+  libgfortran5       pkgs/main/linux-64::libgfortran5-11.2.0-h1234567_1 
+  mkl                pkgs/main/linux-64::mkl-2021.4.0-h06a4308_640 
+  mkl-service        pkgs/main/linux-64::mkl-service-2.4.0-py310h7f8727e_0 
+  mkl_fft            pkgs/main/linux-64::mkl_fft-1.3.1-py310hd6ae3a3_0 
+  mkl_random         pkgs/main/linux-64::mkl_random-1.2.2-py310h00e6091_0 
+  numpy              pkgs/main/linux-64::numpy-1.23.4-py310hd5efca6_0 
+  numpy-base         pkgs/main/linux-64::numpy-base-1.23.4-py310h8e6c178_0 
+  scipy              pkgs/main/linux-64::scipy-1.9.3-py310hd5efca6_0 
+  six                pkgs/main/noarch::six-1.16.0-pyhd3eb1b0_1 
+
+
+
+Downloading and Extracting Packages
+                                                                                         
+Preparing transaction: done                                                              
+Verifying transaction: done                                                              
+Executing transaction: done                                                              
+[aw222@login-b ~]$ conda install R                                                       
+Collecting package metadata (current_repodata.json): done                                
+Solving environment: done                                                                
+                                                                                         
+## Package Plan ##                                                                       
+                                                                                         
+  environment location: /rds/general/user/aw222/home/anaconda3                           
+                                                                                         
+  added / updated specs:                                                                 
+    - r
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    _r-mutex-1.0.0             |      anacondar_1           2 KB
+    binutils_impl_linux-64-2.38|       h2a08ee3_1         5.2 MB
+    binutils_linux-64-2.38.0   |       hc2dff05_0          24 KB
+    blas-1.0                   |         openblas          46 KB
+    bwidget-1.9.11             |                1         116 KB
+    c-ares-1.18.1              |       h7f8727e_0         114 KB
+    cairo-1.16.0               |       h19f5f5c_2         1.1 MB
+    curl-7.86.0                |       h5eee18b_0          87 KB
+    fontconfig-2.14.1          |       hef1e5e3_0         284 KB
+    freetype-2.12.1            |       h4a9f257_0         626 KB
+    fribidi-1.0.10             |       h7b6447c_0         103 KB
+    gcc_impl_linux-64-11.2.0   |       h1234567_1        22.2 MB
+    gcc_linux-64-11.2.0        |       h5c386dc_0          25 KB
+    gfortran_impl_linux-64-11.2.0|       h1234567_1        10.2 MB
+    gfortran_linux-64-11.2.0   |       hc2dff05_0          24 KB
+    glib-2.69.1                |       he621ea3_2         1.9 MB
+    graphite2-1.3.14           |       h295c915_1          97 KB
+    gxx_impl_linux-64-11.2.0   |       h1234567_1        10.6 MB
+    gxx_linux-64-11.2.0        |       hc2dff05_0          24 KB
+    harfbuzz-4.3.0             |       hd55b92a_0         1.1 MB
+    icu-58.2                   |       he6710b0_3        10.5 MB
+    jpeg-9e                    |       h7f8727e_0         240 KB
+    kernel-headers_linux-64-2.6.32|      he073ed8_15         707 KB  conda-forge
+    krb5-1.19.2                |       hac12032_0         1.2 MB
+    lerc-3.0                   |       h295c915_0         196 KB
+    libblas-3.9.0              |16_linux64_openblas          13 KB  conda-forge
+    libcblas-3.9.0             |16_linux64_openblas          13 KB  conda-forge
+    libcurl-7.86.0             |       h91b91d3_0         368 KB
+    libdeflate-1.8             |       h7f8727e_5          51 KB
+    libedit-3.1.20210910       |       h7f8727e_0         166 KB
+    libev-4.33                 |       h7f8727e_1         111 KB
+    libgcc-devel_linux-64-11.2.0|       h1234567_1         2.5 MB
+    liblapack-3.9.0            |16_linux64_openblas          13 KB  conda-forge
+    libnghttp2-1.46.0          |       hce63b2e_0         680 KB
+    libopenblas-0.3.21         |       h043d6bf_0         5.4 MB
+    libpng-1.6.37              |       hbc83047_0         278 KB
+    libssh2-1.10.0             |       h8f2d780_0         274 KB
+    libstdcxx-devel_linux-64-11.2.0|       h1234567_1        14.6 MB
+    libtiff-4.4.0              |       hecacb30_2         526 KB
+    libwebp-base-1.2.4         |       h5eee18b_0         347 KB
+    libxcb-1.15                |       h7f8727e_0         505 KB
+    libxml2-2.9.14             |       h74e7548_0         718 KB
+    lz4-c-1.9.3                |       h295c915_1         185 KB
+    make-4.2.1                 |       h1bed415_1         415 KB
+    numpy-1.22.3               |  py310h4ef5377_2         6.8 MB  conda-forge
+    pango-1.50.7               |       h05da053_0         427 KB
+    pcre-8.45                  |       h295c915_0         207 KB
+    pcre2-10.37                |       he7ceb23_1         839 KB
+    pixman-0.40.0              |       h7f8727e_1         373 KB
+    python_abi-3.10            |          2_cp310           4 KB  conda-forge
+    r-4.2                      | r42hd8ed1ab_1006          16 KB  conda-forge
+    r-base-4.2.0               |       h1ae530e_0        25.7 MB
+    r-boot-1.3_28              |    r42h6115d3f_0         612 KB
+    r-class-7.3_20             |    r42h76d94ec_0         106 KB
+    r-cluster-2.1.3            |    r42h640688f_0         547 KB
+    r-codetools-0.2_18         |    r42h6115d3f_0         103 KB
+    r-foreign-0.8_82           |    r42h76d94ec_0         252 KB
+    r-kernsmooth-2.23_20       |    r42h640688f_0          95 KB
+    r-lattice-0.20_45          |    r42h76d94ec_0         1.1 MB
+    r-mass-7.3_57              |    r42h76d94ec_0         1.1 MB
+    r-matrix-1.4_1             |    r42h76d94ec_0         4.2 MB
+    r-mgcv-1.8_40              |    r42h76d94ec_0         2.9 MB
+    r-nlme-3.1_157             |    r42h640688f_0         2.2 MB
+    r-nnet-7.3_17              |    r42h76d94ec_0         129 KB
+    r-recommended-4.2          | r42hd8ed1ab_1005          16 KB  conda-forge
+    r-rpart-4.1.16             |    r42h76d94ec_0         911 KB
+    r-spatial-7.3_15           |    r42h76d94ec_0         151 KB
+    r-survival-3.3_1           |    r42h76d94ec_0         6.3 MB
+    scipy-1.9.3                |  py310heeff2f4_0        23.1 MB
+    sysroot_linux-64-2.12      |      he073ed8_15        31.4 MB  conda-forge
+    tktable-2.10               |       h14c3975_0          86 KB
+    zstd-1.5.2                 |       ha4553b6_0         488 KB
+    ------------------------------------------------------------
+                                           Total:       203.8 MB
+
+The following NEW packages will be INSTALLED:
+
+  _r-mutex           pkgs/main/linux-64::_r-mutex-1.0.0-anacondar_1 
+  binutils_impl_lin~ pkgs/main/linux-64::binutils_impl_linux-64-2.38-h2a08ee3_1 
+  binutils_linux-64  pkgs/main/linux-64::binutils_linux-64-2.38.0-hc2dff05_0 
+  bwidget            pkgs/main/linux-64::bwidget-1.9.11-1 
+  c-ares             pkgs/main/linux-64::c-ares-1.18.1-h7f8727e_0 
+  cairo              pkgs/main/linux-64::cairo-1.16.0-h19f5f5c_2 
+  curl               pkgs/main/linux-64::curl-7.86.0-h5eee18b_0 
+  fontconfig         pkgs/main/linux-64::fontconfig-2.14.1-hef1e5e3_0 
+  freetype           pkgs/main/linux-64::freetype-2.12.1-h4a9f257_0 
+  fribidi            pkgs/main/linux-64::fribidi-1.0.10-h7b6447c_0 
+  gcc_impl_linux-64  pkgs/main/linux-64::gcc_impl_linux-64-11.2.0-h1234567_1 
+  gcc_linux-64       pkgs/main/linux-64::gcc_linux-64-11.2.0-h5c386dc_0 
+  gfortran_impl_lin~ pkgs/main/linux-64::gfortran_impl_linux-64-11.2.0-h1234567_1 
+  gfortran_linux-64  pkgs/main/linux-64::gfortran_linux-64-11.2.0-hc2dff05_0 
+  glib               pkgs/main/linux-64::glib-2.69.1-he621ea3_2 
+  graphite2          pkgs/main/linux-64::graphite2-1.3.14-h295c915_1 
+  gxx_impl_linux-64  pkgs/main/linux-64::gxx_impl_linux-64-11.2.0-h1234567_1 
+  gxx_linux-64       pkgs/main/linux-64::gxx_linux-64-11.2.0-hc2dff05_0 
+  harfbuzz           pkgs/main/linux-64::harfbuzz-4.3.0-hd55b92a_0 
+  icu                pkgs/main/linux-64::icu-58.2-he6710b0_3 
+  jpeg               pkgs/main/linux-64::jpeg-9e-h7f8727e_0 
+  kernel-headers_li~ conda-forge/noarch::kernel-headers_linux-64-2.6.32-he073ed8_15 
+  krb5               pkgs/main/linux-64::krb5-1.19.2-hac12032_0 
+  lerc               pkgs/main/linux-64::lerc-3.0-h295c915_0 
+  libblas            conda-forge/linux-64::libblas-3.9.0-16_linux64_openblas 
+  libcblas           conda-forge/linux-64::libcblas-3.9.0-16_linux64_openblas 
+  libcurl            pkgs/main/linux-64::libcurl-7.86.0-h91b91d3_0 
+  libdeflate         pkgs/main/linux-64::libdeflate-1.8-h7f8727e_5 
+  libedit            pkgs/main/linux-64::libedit-3.1.20210910-h7f8727e_0 
+  libev              pkgs/main/linux-64::libev-4.33-h7f8727e_1 
+  libgcc-devel_linu~ pkgs/main/linux-64::libgcc-devel_linux-64-11.2.0-h1234567_1 
+  liblapack          conda-forge/linux-64::liblapack-3.9.0-16_linux64_openblas 
+  libnghttp2         pkgs/main/linux-64::libnghttp2-1.46.0-hce63b2e_0 
+  libopenblas        pkgs/main/linux-64::libopenblas-0.3.21-h043d6bf_0 
+  libpng             pkgs/main/linux-64::libpng-1.6.37-hbc83047_0 
+  libssh2            pkgs/main/linux-64::libssh2-1.10.0-h8f2d780_0 
+  libstdcxx-devel_l~ pkgs/main/linux-64::libstdcxx-devel_linux-64-11.2.0-h1234567_1 
+  libtiff            pkgs/main/linux-64::libtiff-4.4.0-hecacb30_2 
+  libwebp-base       pkgs/main/linux-64::libwebp-base-1.2.4-h5eee18b_0 
+  libxcb             pkgs/main/linux-64::libxcb-1.15-h7f8727e_0 
+  libxml2            pkgs/main/linux-64::libxml2-2.9.14-h74e7548_0 
+  lz4-c              pkgs/main/linux-64::lz4-c-1.9.3-h295c915_1 
+  make               pkgs/main/linux-64::make-4.2.1-h1bed415_1 
+  pango              pkgs/main/linux-64::pango-1.50.7-h05da053_0 
+  pcre               pkgs/main/linux-64::pcre-8.45-h295c915_0 
+  pcre2              pkgs/main/linux-64::pcre2-10.37-he7ceb23_1 
+  pixman             pkgs/main/linux-64::pixman-0.40.0-h7f8727e_1 
+  python_abi         conda-forge/linux-64::python_abi-3.10-2_cp310 
+  r                  conda-forge/noarch::r-4.2-r42hd8ed1ab_1006 
+  r-base             pkgs/r/linux-64::r-base-4.2.0-h1ae530e_0 
+  r-boot             pkgs/r/noarch::r-boot-1.3_28-r42h6115d3f_0 
+  r-class            pkgs/r/linux-64::r-class-7.3_20-r42h76d94ec_0 
+  r-cluster          pkgs/r/linux-64::r-cluster-2.1.3-r42h640688f_0 
+  r-codetools        pkgs/r/noarch::r-codetools-0.2_18-r42h6115d3f_0 
+  r-foreign          pkgs/r/linux-64::r-foreign-0.8_82-r42h76d94ec_0 
+  r-kernsmooth       pkgs/r/linux-64::r-kernsmooth-2.23_20-r42h640688f_0 
+  r-lattice          pkgs/r/linux-64::r-lattice-0.20_45-r42h76d94ec_0 
+  r-mass             pkgs/r/linux-64::r-mass-7.3_57-r42h76d94ec_0 
+  r-matrix           pkgs/r/linux-64::r-matrix-1.4_1-r42h76d94ec_0 
+  r-mgcv             pkgs/r/linux-64::r-mgcv-1.8_40-r42h76d94ec_0 
+  r-nlme             pkgs/r/linux-64::r-nlme-3.1_157-r42h640688f_0 
+  r-nnet             pkgs/r/linux-64::r-nnet-7.3_17-r42h76d94ec_0 
+  r-recommended      conda-forge/noarch::r-recommended-4.2-r42hd8ed1ab_1005 
+  r-rpart            pkgs/r/linux-64::r-rpart-4.1.16-r42h76d94ec_0 
+  r-spatial          pkgs/r/linux-64::r-spatial-7.3_15-r42h76d94ec_0 
+  r-survival         pkgs/r/linux-64::r-survival-3.3_1-r42h76d94ec_0 
+  sysroot_linux-64   conda-forge/noarch::sysroot_linux-64-2.12-he073ed8_15 
+  tktable            pkgs/main/linux-64::tktable-2.10-h14c3975_0 
+  zstd               pkgs/main/linux-64::zstd-1.5.2-ha4553b6_0 
+
+The following packages will be REMOVED:
+
+  mkl_fft-1.3.1-py310hd6ae3a3_0
+  mkl_random-1.2.2-py310h00e6091_0
+  numpy-base-1.23.4-py310h8e6c178_0
+
+The following packages will be UPDATED:
+
+  blas                                              1.0-mkl --> 1.0-openblas 
+
+The following packages will be SUPERSEDED by a higher-priority channel:
+
+  numpy              pkgs/main::numpy-1.23.4-py310hd5efca6~ --> conda-forge::numpy-1.22.3-py310h4ef5377_2 
+
+The following packages will be DOWNGRADED:
+
+  scipy                               1.9.3-py310hd5efca6_0 --> 1.9.3-py310heeff2f4_0 
+
+
+Proceed ([y]/n)? y
+
+
+Downloading and Extracting Packages
+                                                                                         
+Preparing transaction: done                                                              
+Verifying transaction: done                                                              
+Executing transaction: done                                                              
+[aw222@login-b ~]$ sftp aw222@login.hpc.imperial.ac.uk
+The authenticity of host 'login.hpc.imperial.ac.uk (2a0c:5bc0:89:a01:1e34:daff:fe6c:6976)' can't be established.                                                                  
+ECDSA key fingerprint is SHA256:rL5aK26DgvhEARnyUBOQRCHPI0dW82CsDYZLoqmQnL0.             
+Are you sure you want to continue connecting (yes/no/[fingerprint])? pwd                 
+Please type 'yes', 'no' or the fingerprint:                                              
+Host key verification failed.                                                            
+Connection closed                                                                        
+Connection closed.                                                                       
+[aw222@login-b ~]$ sftp aw222@login.hpc.imperial.ac.uk                                   
+The authenticity of host 'login.hpc.imperial.ac.uk (2a0c:5bc0:89:a01:1e34:daff:fe6c:6976)' can't be established.                                                                  
+ECDSA key fingerprint is SHA256:rL5aK26DgvhEARnyUBOQRCHPI0dW82CsDYZLoqmQnL0.             
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes                 
+Warning: Permanently added 'login.hpc.imperial.ac.uk' (ECDSA) to the list of known hosts.
+Warning: the ECDSA host key for 'login.hpc.imperial.ac.uk' differs from the key for the IP address '2a0c:5bc0:89:a01:1e34:daff:fe6c:6976'                                         
+Offending key for IP in /etc/ssh/ssh_known_hosts:2403                                    
+Are you sure you want to continue connecting (yes/no)? yes                               
+aw222@login.hpc.imperial.ac.uk's password:                                               
+Connected to aw222@login.hpc.imperial.ac.uk.                                             
+sftp> pwd                                                                                
+Remote working directory: /rds/general/user/aw222/home                                   
+sftp>                                                                                    
+                                                                                         
+                      
