@@ -1,0 +1,1229 @@
+Starting code feedback for Anqi, Week6
+
+Current Points = 100
+
+Note that: 
+(1) Major sections begin with a double "====" line 
+(2) Subsections begin with a single "====" line 
+(3) Code output or text file content are printed within single "*****" lines 
+
+======================================================================
+======================================================================
+Your Git repo size this week is about 337.88 MiB on disk 
+
+PART 1: Checking project workflow...
+
+Found the following directories in parent directory: .git, MiniProject, week6, week7, week4, week3, week2, Feedback, HPC, week1, week5
+
+Found the following files in parent directory: README.md, .gitignore
+
+Checking for key files in parent directory...
+
+Found .gitignore in parent directory, great! 
+
+Printing contents of .gitignore:
+
+**********************************************************************
+*.tmp
+*.log
+.DS_Store
+*/sandbox
+.vscode
+**********************************************************************
+
+Found README in parent directory, named: README.md
+
+Printing contents of README.md:
+
+**********************************************************************
+# Anqi's CMEE Coursework Repository
+This README file contains details about the modules within Anqi Wang's (aw222@ic.ac.uk) CMEE Coursework. This coursework contributes towards the fulfilment of MSc Computational Methods in Ecology and Evolution (CMEE) at Imperial College London. <br />
+
+Many of the task requirements and information can be found at [The Mulitilingual Quantitative Biologist](https://mhasoba.github.io/TheMulQuaBio/intro.html)
+
+## Installation
+
+To use scripts in this repository, clone and run.
+
+```bash
+git clone git@github.com:AnqiW222/CMEECourseWork.git
+```
+
+## Contents
+### Week 1: UNIX, Shell scription, LaTeX and Version Control with Git
+**Summary:** A brief introduction of the Multilingual Quantitative Biological Methods, UNIX basic knowledge, Introductory shell scripting exercises, Produce scientific documents with LaTeX, and Use version control (Git) to share the files with others<br />
+**Language Use:** Bash, LaTex
+
+---
+
+### Week 2: Basic Python Programming
+**Summary:** Introduction to writing Python scripts/programs<br />
+**Language Use:** Python, Bash
+
+---
+
+### Week 3: R Programming and Data Management & Visualizatio 
+**Summary:** Biological Computing in R, Data management and Visualization with R.<br />
+**Language Use:** R, LaTeX, Bash
+
+---
+
+### Week 4: Statistics in R
+**Summary:** Core Skills Module of PG Life Science, statistical methods that are of wide use in research projects, the different ways of analysing data and the importance of biological interpretation. <br />
+**Language Use:** R
+
+---
+
+### Week 5: Spatial Analyses and GIS
+**Summary:** Core Skills Module of PG Life Science, using and handling GIS data, along with core concepts in GIS and remote sensing. <br />
+**Language Use:** R
+
+---
+
+### Week 6: Genomics and Bioinformatics
+**Summary:** Core Skills Module of PG Life Science, introduce the types of questions that can be addressed with population genomic data, and the theory and computational methodologies that are available for answering these questions. <br />
+**Language Use:** R
+
+---
+
+### Week 7: Advanced Python Programming
+**Summary:** Advanced Python coding skills with introduction of IDE, profiling code, and using computing language flexible. <br />
+**Language Use:** Python, R, Bash
+
+---
+
+### Week 8 + 9: MiniProject
+**Summary:** MSc CMEE Miniproject: i) What mathematical models best fit to an empirical dataset; ii) Based upon bacteria growth, mechanistic vs. phenomenological models, which is the best fit. Using all biological computing tools learned so far, from data pre-processing, model fitting, plotting and analysis results, to coding and academic report writing, solve the ecological modelling question.<br />
+**Language Use:** Python, R, LaTeX, Bash
+
+---
+
+### Week 10 + 11: High Performance Computing and Math Primer
+**Summary:** Using Imperial College's HPC cluster as tools and techniques  to solve biological problems, and dealing with the huge data sets through parallel computing. Introduction to the preliminary requirements for the topics that will be covered during the Maths for Biologists module. <br />
+**Language Use:** R, Bash, HPC
+
+## Language Versions
+**Python:** 3.9.12 <br />
+**R:** 4.2.1 <br />
+**bash:** 3.2 <br />
+**LaTeX:** 3.141592653-2.6-1.40.24 (TeX Live 2022) <br />
+**Jupyter:** Notebook 6.4.8 <br />
+
+All code has been written on a MacOS version 12.6 and any dependencies are detailed below the script names within weekly README files
+
+
+**********************************************************************
+
+======================================================================
+Looking for the weekly directories...
+
+Found 7 weekly directories: week1, week2, week3, week4, week5, week6, week7
+
+The Week6 directory will be assessed 
+
+======================================================================
+======================================================================
+PART 2: Checking weekly code and workflow...
+
+======================================================================
+Assessing WEEK6...
+
+Found the following directories: code, results, data, Lecture_Material
+
+Found the following files: README.md, .gitignore
+
+Checking for readme file in weekly directory...
+
+Found README in parent directory, named: README.md
+
+Printing contents of README.md:
+
+**********************************************************************
+# CMEE Coursework - week 4:
+
+This README file contains details about the scripts from in-classwork and practicals for the forth week.
+
+## Description
+Genomics and Bioinformatics. Four R scripts exploring different aspects of genomics and bioinformatics; these scripts manipulate and analyse genomics data from the data directory. The results directory will be populated by running the code files. More information about the R scripts and Biological Satistics could be found in [Lecture_Material](https://github.com/AnqiW222/CMEECourseWork/tree/main/week6/Lecture_Material)
+
+## Language
+
+R
+
+## Dependencies
+For some scripts in this directory, packages [ggplot2](https://cran.r-project.org/web/packages/ggplot2/index.html), [dplyr](https://cran.r-project.org/web/packages/dplyr/), and [vegan](https://cran.r-project.org/web/packages/vegan/index.html). 
+Please run the following script in **R/RStudio** for package installation: 
+```R
+install.packages(c("ggplot2", "dplyr", "vegan"))
+```
+
+_The installation commands are used for MacOS, may varied with the different operating system._
+
+## In-class Practicals 
+
+#### prac1_allele_genotype_freq.R
+<font size=2>**Summary:** Allele and genotype frequencies: manually calculating allele and genotype frequencies, and testing for Hardy Weinberg equilibrium in R. Saves summary data to */results/bear_polymorphisms.csv*. <br /><br /></font>
+
+#### prac2_drift_muti_divergence.R
+<font size=2>**Summary:** Genetic drift, mutation and divergence: using the molecular clock concept to calculate time since divergence in gecko species. <br /><br /></font>
+
+#### prac3_coalescence.R
+<font size=2>**Summary:** Coalescence theory: estimating effective population size of killer whale populations using Watterson's and Tajima's estimators; calculating and plotting site frequency spectrum. <br /><br /></font>
+
+#### prac4_demography.R
+<font size=2>**Summary:** Population subdivision and demographic inferences: inferring population structure and assessing isolation by distance in sea turtle populations using FST, a PCA and a dendogram. <br /><br /></font>
+
+
+## Author & Contact
+
+<font size=2>**Name:** ANQI WANG<br />
+**Email:** aw222@ic.ac.uk</font>
+**********************************************************************
+
+Results directory is empty - good! 
+
+Found 4 code files: prac2_drift_muti_divergence.R, prac4_demography.R, prac3_coalescence.R, prac1_allele_genotype_freq.R
+
+======================================================================
+Testing script/code files...
+
+======================================================================
+Inspecting script file prac2_drift_muti_divergence.R...
+
+File contents are:
+
+**********************************************************************
+#### Practical 2 - Genetic drift, mutation and divergence ----
+## Molecular clocks
+
+rm(list=ls())
+require(dplyr)
+
+## Data ----
+
+# western_banded_gecko.csv
+# bent-toed_gecko.csv
+# leopard_gecko.csv
+
+# interested in divergence time of these 3 species of gecko
+# have 20k bp sequences from 10 individuals form each spp (data for 30 diploid
+# indivs)
+
+# want to:
+# obtain divergence time between bent-toed and western banded geckos,
+# assuming that:
+# these 3 spp have a most recent common ancestor 30 million years ago
+# the topology of the spp tree is that... (see prac pdf)
+
+# want to work out which spp on which branch (which diverged first)
+
+# calculate genetic divergence for each pair of spp
+# genetic divergence: proportion of sites which are fixed for diff alleles 
+# between pops/spp
+
+## SEE PRAC 1 PDF FOR INFO/DIAGRAMS!
+
+wb_gecko <- read.csv("../data/western_banded_gecko.csv", header = FALSE, 
+                     stringsAsFactors = FALSE, colClasses = c("character"))
+dim(wb_gecko)
+
+bt_gecko <- read.csv("../data/bent-toed_gecko.csv", header = FALSE, 
+                     stringsAsFactors = FALSE, colClasses = c("character"))
+dim(bt_gecko)
+
+leo_gecko <- read.csv("../data/leopard_gecko.csv", header = FALSE, 
+                      stringsAsFactors = FALSE, colClasses = c("character"))
+dim(leo_gecko)
+
+
+## Divergence rates between species ----
+
+# div_rate_AB <- sites_divergent / sites_total
+# sites divergent:
+#  - fixed within spp
+#  - divergent between spp
+# sites total:
+#  - fixed within spp
+
+
+## WB-BT ----
+# calculate divergence between sequences of western banded and bent-toed
+
+sites_divergent_between_species <- c()
+fixed_sites_within_spp<-c()
+
+for (i in 1:ncol(wb_gecko)) {
+  ## first check if the site in both spp has only one allele (fixed in both spp)
+  if ((length(unique(wb_gecko[,i]))==1) & (length(unique(bt_gecko[,i]))==1)) {
+    fixed_sites_within_spp <- c(fixed_sites_within_spp, i)
+    ## then check if these alleles in these fixed sites are diff in the 2 spp
+    if (unique(wb_gecko[,i]) != (unique(bt_gecko[,i]))) {
+      sites_divergent_between_species <- c(sites_divergent_between_species,i)
+    }
+  }
+}
+
+sites_divergent <- length(sites_divergent_between_species)
+sites_total <- length(fixed_sites_within_spp)
+
+# calculate overall genetic divergence between the 2 spp
+div_rate_wb_bt <- sites_divergent / sites_total
+print(sites_divergent)  # 73 divergent sites between WB-BT
+print(div_rate_wb_bt)  # 0.003672032
+
+
+## WB-LEO ----
+# calculate divergence between sequences of western banded and leopard
+
+sites_divergent_between_species <- c()
+fixed_sites_within_spp<-c()
+
+for (i in 1:ncol(wb_gecko)) {
+  ## first check if the site in both spp has only one allele (fixed in both spp)
+  if ((length(unique(wb_gecko[,i]))==1) & (length(unique(leo_gecko[,i]))==1)) {
+    fixed_sites_within_spp <- c(fixed_sites_within_spp, i)
+    ## then check if these alleles in these fixed sites are diff in the 2 spp
+    if (unique(wb_gecko[,i]) != (unique(leo_gecko[,i]))) {
+      sites_divergent_between_species <- c(sites_divergent_between_species,i)
+    }
+  }
+}
+
+sites_divergent <- length(sites_divergent_between_species)
+sites_total <- length(fixed_sites_within_spp)
+
+# calculate overall genetic divergence between the 2 spp
+div_rate_wb_leo <- sites_divergent / sites_total
+print(sites_divergent)  # 176 divergent sites between WB-LEO
+print(div_rate_wb_leo)  # 0.008846444
+
+
+## BT-LEO ----
+# calculate divergence between sequences of bent-toed and leopard
+
+sites_divergent_between_species <- c()
+fixed_sites_within_spp<-c()
+
+for (i in 1:ncol(bt_gecko)) {
+  ## first check if the site in both spp has only one allele (fixed in both spp)
+  if ((length(unique(bt_gecko[,i]))==1) & (length(unique(leo_gecko[,i]))==1)) {
+    fixed_sites_within_spp <- c(fixed_sites_within_spp, i)
+    ## then check if these alleles in these fixed sites are diff in the 2 spp
+    if (unique(bt_gecko[,i]) != (unique(leo_gecko[,i]))) {
+      sites_divergent_between_species <- c(sites_divergent_between_species,i)
+    }
+  }
+}
+
+sites_divergent <- length(sites_divergent_between_species)
+sites_total <- length(fixed_sites_within_spp)
+
+# calculate overall genetic divergence between the 2 spp
+div_rate_bt_leo <- sites_divergent / sites_total
+print(sites_divergent)  # 181 divergent sites between WB-LEO
+print(div_rate_bt_leo)  # 0.009099593
+
+
+## summary ----
+gecko_pairs <- c("WB-BT", "WB-LEO", "BT-LEO")
+divergence <- c(div_rate_wb_bt, div_rate_wb_leo, div_rate_bt_leo)
+summary <- data.frame(gecko_pairs, divergence)
+print(summary)
+
+
+## conclusions from divergence data ----
+
+# leopard gecko shows most divergence to other 2 spp - diverged earliest
+# western-banded and bent-toed geckos have diverged from each other more recently
+
+# spp tree most likely: LEO:(WB:BT)
+
+# we know that leopard geckos diverged 30mya - now find divergence time of wb-bt
+
+
+## Divergence time between western-banded and bent-toed geckos ----
+
+# first calculate mutation rate based on:
+# mut rate = div between leop and wb or bt / 2 * time since leop diverged from wb or bt (30mya)
+# see notes for full equations
+
+div_time_leo <- 3e7  # 30 million years ago
+
+## these give slightly diff estimates of mu
+# mu <- div_rate_wb_leo / (2*div_time_leo)
+# mu <- div_rate_bt_leo / (2*div_time_leo)
+## instead, take ave of div rates for leo and the other 2
+ave_div_rate_to_leo <- (div_rate_wb_leo + div_rate_bt_leo) / 2
+mu <- ave_div_rate_to_leo / (2 * div_time_leo)
+
+print(paste("Mutaion rate:",mu))  # seems fairly realistic
+
+# based on mutation rate (have to assume it's constant for diff spp...!)
+# can work out divergence time between western-banded and bent-toed geckos
+
+div_time_wb_bt <- div_rate_wb_bt / (2 * mu)
+print(div_time_wb_bt)
+
+# ~12 million years ago, western-banded and bent-toed geckos diverged
+
+## Conclusions ----
+
+print("Leopard geckos diverged from bent-toed and western-banded geckos around 30mya.")
+print("Bent-toed and western-banded geckos diverged more recently, around 12mya.")
+**********************************************************************
+
+Testing prac2_drift_muti_divergence.R...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+
+**********************************************************************
+
+Encountered error (or warning):
+
+***IGNORE IF THIS ERROR IS EXPECTED AS PART OF AN IN-CLASS EXERCISE***
+
+Loading required package: dplyr
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Error in file(file, "rt") : cannot open the connection
+Calls: read.csv -> read.table -> file
+In addition: Warning message:
+In file(file, "rt") :
+  cannot open file '../data/western_banded_gecko.csv': No such file or directory
+Execution halted
+
+======================================================================
+Inspecting script file prac4_demography.R...
+
+File contents are:
+
+**********************************************************************
+#### Population subdivision and demographic inferences ----
+
+rm(list = ls())
+require(vegan)
+
+# quick plot to show how Fst (measure of pop structure) decreases as migration 
+# between pops increases
+# migration rate
+Nm <- seq(0, 10,0.2)
+# FST
+FST <- 1/(1+4*Nm)
+plot(Nm, FST, type="l")
+
+
+## Intro and data ----
+
+# want to infer history of a pop of sea turtles
+# DNA from 40 (diploid) indivs from 4 diff locations (A,B,C,D)
+# (10 indivs from each location)
+
+# for each sample: 2000 SNPs 
+# data on haplotypes (80 rows) stored in turtles.csv
+
+# data on genotypes (40 rows) in turtle.genotypes.csv
+# genotypes encoded as 0/1/2 for homozygous ancestral, heterozygous and 
+# homozygous derived respectively
+
+# in all files, indivs ordered by location (first 10 will be pop A etc)
+
+
+# Aims: 
+
+# test whether there is pop subdivision/structure in this sample and if so to 
+# what extent
+
+# assess whether there has been isolation by distance in this spp, knowing that
+# the geographical distance of each pop from a putative origin is:
+# A (5km), B (10km), C (12km), D (50km)
+
+
+turtles <- as.matrix(read.csv("../data/turtle.csv", stringsAsFactors = F, 
+                              header = FALSE, colClasses = c("numeric")))
+dim(turtles)
+
+
+## Population structure: calculating FST ----
+
+# calculate average FST across all SNPs for each pair of subpops
+# see whether this is larger than 0 and whether it is different when comparing 
+# diff subpops
+
+# populations:
+popA <- turtles[1:20,]
+popB <- turtles[21:40,]
+popC <- turtles[41:60,]
+popD <- turtles[61:80,]
+
+
+# # small example w one snp - practice:
+# first_snp_popA <- popA[,3]
+# first_snp_popA
+# first_snp_popB <- popB[,3]
+# fA1 <- sum(first_snp_popA) / length(first_snp_popA)
+# fA2 <- sum(first_snp_popB) / length(first_snp_popB)
+# 
+# # HT is expected proportion of heterozygous indivs in TOTAL pop 
+# HT <- 2 * ((fA1 + fA2) / 2) * (1 - ((fA1 + fA2) / 2))
+# # HS is expected prop of heterozygous indivs in subpops
+# HS <- fA1 * (1 - fA1) + fA2 * (1 - fA2)
+# 
+# FST_1st_snp <- (HT - HS) / HT
+# # FST is 0 here (HT = HS) - no subpop FOR THIS ONE SNP - now do same for all snps
+
+
+## FST for pops A and B
+
+## method A
+FST_AB <- c()
+# iterate through all snps in both pops
+for (i in 1:ncol(popA)) {
+  snp_popA <- popA[,i]
+  snp_popB <- popB[,i]
+  # calculate allele freq of derived allele in both pops
+  fA1 <- sum(snp_popA) / length(snp_popA)
+  fA2 <- sum(snp_popB) / length(snp_popB)
+  # HT is expected proportion of heterozygous indivs in TOTAL pop 
+  HT <- 2 * ((fA1 + fA2) / 2) * (1 - ((fA1 + fA2) / 2))
+  # HS is expected prop of heterozygous indivs in subpops
+  HS <- fA1 * (1 - fA1) + fA2 * (1 - fA2)
+  
+  FST_snp <- (HT - HS) / HT
+  FST_AB <- c(FST_AB, FST_snp)
+}
+FST_AB
+mean(FST_AB, na.rm=T)
+
+
+## method B
+## does same as above - quicker in R
+fA1 <- as.numeric(apply(X=popA, MAR=2, FUN=sum)/nrow(popA))
+fA2 <- as.numeric(apply(X=popB, MAR=2, FUN=sum)/nrow(popB))
+FST <- rep(NA, length(fA1))
+for (i in 1:length(FST)) {
+  HT <- 2 * ((fA1[i] + fA2[i]) / 2) * (1 - ((fA1[i] + fA2[i]) / 2))
+  # HS is expected prop of heterozygous indivs in subpops
+  HS <- fA1[i] * (1 - fA1[i]) + fA2[i] * (1 - fA2[i])
+  FST[i] <- (HT - HS) / HT
+}
+FST
+mean(FST, na.rm=T)
+
+
+## function to calculate FST between 2 pops
+calculate_FST <- function(pop1, pop2) {
+  
+  fA1 <- as.numeric(apply(X=pop1, MAR=2, FUN=sum)/nrow(pop1))
+  fA2 <- as.numeric(apply(X=pop2, MAR=2, FUN=sum)/nrow(pop2))
+  FST <- rep(NA, length(fA1))
+  
+  for (i in 1:length(FST)) {
+    # HT is expected proportion of heterozygous indivs in TOTAL pop 
+    HT <- 2 * ((fA1[i] + fA2[i]) / 2) * (1 - ((fA1[i] + fA2[i]) / 2))
+    # HS is expected prop of heterozygous indivs in subpops
+    HS <- fA1[i] * (1 - fA1[i]) + fA2[i] * (1 - fA2[i])
+    FST[i] <- (HT - HS) / HT 
+  }
+  
+  FST_ave <- mean(FST, na.rm=TRUE)
+  return(FST_ave)
+}
+
+## FST for pops A and B
+FST_AB <- calculate_FST(popA, popB)
+
+# can do manually for all pairs, or better:
+pops <- list(popA, popB, popC, popD)
+FST <- rep(NA, 6)
+count <- 1
+for (i in 1:(length(pops)-1)) {
+  for (j in (i+1):length(pops)) {
+    FST[count] <- calculate_FST(pops[[i]], pops[[j]])
+    count <- count + 1
+  }
+}
+FST
+
+## summary
+sub_pops <- c("A-B", "A-C", "A-D", "B-C", "B-D", "C-D")
+# FST <- c(FST_AB, FST_AC, FST_AD, FST_BC, FST_BD, FST_CD)
+summary <- data.frame(sub_pops, FST)
+print(summary)
+
+# FST suggests that there is some population structure between these pops
+# seems as though pop A more different from the other 3, 
+# but that pops B, C and D are all quite similar/there is less pop structure (there is mixing)
+
+
+## Can also calculate FST between locations from haplotype ----
+
+# subset the snps w a frequency of > 0.05
+# common to do this in pop genetics to asses pop structure without paying 
+# attention to private mutations/singletons only found in 1 indiv
+snps <- which(apply(FUN=sum, X=turtles, MAR=2)/(nrow(turtles))>0.05)
+
+cat("\nFST value (average):",
+    "\nA vs B: ", calculate_FST(turtles[1:20,snps], turtles[21:40,snps]),
+    "\nA vs C: ", calculate_FST(turtles[1:20,snps], turtles[41:60,snps]),
+    "\nA vs D: ", calculate_FST(turtles[1:20,snps], turtles[61:80,snps]),
+    "\nB vs C: ", calculate_FST(turtles[21:40,snps], turtles[41:60,snps]),
+    "\nB vs D: ", calculate_FST(turtles[21:40,snps], turtles[61:80,snps]),
+    "\nC vs D: ", calculate_FST(turtles[41:60,snps], turtles[61:80,snps]),"\n")
+
+### these values indicate a certain degree of population subdivision
+
+
+## Isolation by distance ----
+# to test fro isolation by distance, need to see if correlation between genetic 
+# distance (FST) and geographical distance 
+
+## matrix of geographic distance
+# A (5km), B (10km), C (12km), D (50km)
+geo_distance <- c(5, 10, 12, 50)
+geo_distances_matrix <- matrix(nrow=length(geo_distance), ncol=length(geo_distance))
+colnames(geo_distances_matrix) <- c("A", "B", "C", "D")
+rownames(geo_distances_matrix) <- c("A", "B", "C", "D")
+
+## a=matrix of genetic distance
+FST_matrix <- matrix(nrow=length(geo_distance), ncol=length(geo_distance))
+colnames(FST_matrix) <- c("A", "B", "C", "D")
+rownames(FST_matrix) <- c("A", "B", "C", "D")
+
+for (i in 1: length(geo_distance)) {
+  for (j in 1:length(geo_distance)) {
+    geo_distances_matrix[i, j] <- abs(geo_distance[i] - geo_distance[j])
+    FST_matrix[i, j] <- calculate_FST(turtles[c((((i-1)*20)+1):(20*i)),snps], turtles[c((((j-1)*20)+1):(20*j)), snps])
+  }
+}
+
+geo_distances_matrix
+FST_matrix
+
+## test for correlation between 2 matrices - mantel test (here using the mantel
+# test from the vegan package - other packages have this test too)
+mantel(geo_distances_matrix, FST_matrix)
+
+# p = 0.46 - not significant 
+# no evidence for isolation by distance
+
+
+## PCA and trees ----
+# also qualitatively evaulate pop structure using dendograms and PCA
+
+turtles2 <- as.matrix(read.csv("../data/turtle.genotypes.csv", 
+                               stringsAsFactors = F, header=F, 
+                               colClasses = c("numeric")))
+dim(turtles2)
+
+# assign name for each location
+locations <- rep(c("A", "B", "C", "D"), each=10)
+
+
+## Tree (see whether any clusters observed)
+# first build a distance matrix
+distance <- dist(turtles2)
+# then a tree
+tree <- hclust(distance)
+plot(tree, labels=locations)
+# A separate to B, C and D
+# admixture between B, C and D (and one indiv of pop A)
+# only qualitative analysis
+
+
+## PCA
+# filter out low-frequency variants first
+colors <- rep(c("#ef6461","#e4b363","#5F0F40","#0eb1d2"), each=10)
+points <- rep(c(15:18), each=10)
+
+index <- which(apply(FUN=sum, X=turtles2, MARGIN =2)/(nrow(turtles2)*2)>0.05)
+
+pca <- prcomp(turtles2[,index], center=T, scale=T)
+
+summary(pca)
+
+## principal components 1 and 2
+plot(pca$x[,1], pca$x[,2], col=colors, pch=points)
+legend("bottomleft", legend=sort(unique(locations)), col=unique(colors), pch=unique(points))
+
+## principal components 2 and 3
+plot(pca$x[,2], pca$x[,3], col=colors, pch=points)
+legend("topleft", legend=sort(unique(locations)), col=unique(colors), pch=unique(points))
+
+## no clear distinction between pops based on genetics - poor clustering
+
+## from correlation, PCA and tree - no clear evidence for isolation by distance
+# instead seems to be admixture (at least between pops B, C and D)
+**********************************************************************
+
+Testing prac4_demography.R...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+
+**********************************************************************
+
+Encountered error (or warning):
+
+***IGNORE IF THIS ERROR IS EXPECTED AS PART OF AN IN-CLASS EXERCISE***
+
+Loading required package: vegan
+Warning message:
+In library(package, lib.loc = lib.loc, character.only = TRUE, logical.return = TRUE,  :
+  there is no package called ‘vegan’
+Error in file(file, "rt") : cannot open the connection
+Calls: as.matrix -> read.csv -> read.table -> file
+In addition: Warning message:
+In file(file, "rt") :
+  cannot open file '../data/turtle.csv': No such file or directory
+Execution halted
+
+======================================================================
+Inspecting script file prac3_coalescence.R...
+
+File contents are:
+
+**********************************************************************
+#### Coalescence theory ----
+
+rm(list = ls())
+
+
+## Intro ----
+
+# Interested in size of 2 pops of Atlantic killer whales
+# one migrating North and the other migrating South
+# these 2 pops share a common ancestor but their current pop size is 
+# hypothesised to be different
+
+# 10 (diploid) samples from Northern pop and 10 from Southern
+# each sample has genomic sequence of 50k bp
+# each allele coded as 0 or 1 for the ancestral and derived states respectively
+
+# Tasks:
+
+# estimate effective op size, Ne, for each pop using Watterson's estimator and 
+# Tajima's estimator of theta, assuming mutation rate of 1e-8
+
+# calculate and plot the (unfolded) site frequency spectrum for each pop
+
+
+## Data ----
+
+data_N <- as.matrix(read.csv("../data/killer_whale_North.csv", 
+                             stringsAsFactors = FALSE, header = FALSE,
+                             colClasses = c("numeric")))
+dim(data_N)
+
+data_S <- as.matrix(read.csv("../data/killer_whale_South.csv", 
+                             stringsAsFactors = FALSE, header = FALSE,
+                             colClasses = c("numeric")))
+dim(data_S)
+
+
+
+
+## Estimates of effective pop size, Ne ----
+
+# Ne = theta / (4 * N * mu)
+# theta is genetic diversity - can be estimated w Tajima's and Watterson's:
+
+## 1. Tajima's ----
+
+# tajima's estimator (pi) - pairwise diffs = sum(d_ij) / (n(n-1)/2)
+# d_ij is num of diffs between sequence i and j
+
+# practice
+# for short seq A and B, d_ij should be 2
+# i = 1
+short_seq_A <- c(0,0,0,1,1)
+# j = 2
+short_seq_B <- c(0,1,0,1,0)
+# method 1
+sum(short_seq_A != short_seq_B)
+# method 2
+# dif_counter = 0
+# for (l in 1:length(short_seq_A)) {
+#     if (short_seq_A[l] != short_seq_B[l]) {
+#         dif_counter <- dif_counter + 1
+#     }
+# }
+# method 3
+# sum(abs(short_seq_A-short_seq_B))
+# method 4
+# sum(abs(short_seq_A-short_seq_B)^2)
+## ALL THESE 4 METHODS ABOVE DO THE SAME
+
+
+# for Northern pop:
+n <- nrow(data_N)  # num samples (chromosomes)
+pi_N = 0  # pairwise diffs for northern pop
+
+for (i in 1:(nrow(data_N)-1)) {
+  for (j in (i+1):nrow(data_N)) {
+    #       diffs <- sum(abs(data_N[i,] - data_N[j,]))  # does the same
+    d_ij <- sum(data_N[i,] != data_N[j,])
+    pi_N <- pi_N + d_ij
+  }
+}  
+# pi_N =  1761
+
+# divide by the nr of comparisons done
+pi_N <- pi_N / ((n*(n-1))/2)
+# Tajima's estimator = 9.26842
+
+len = ncol(data_N)
+Ne_N_pi <- pi_N / (4 * 1e-8 * len)
+# effective pop size of Northern pop = ~4634
+
+
+# for Southern pop:
+n <- nrow(data_S)  # num samples (chromosomes)
+pi_S = 0
+
+for (i in 1:(nrow(data_S)-1)) {
+  for (j in (i+1):nrow(data_S)) {
+    d_ij <- sum(data_S[i,] != data_S[j,])
+    pi_S <- pi_S + d_ij
+  }
+}  
+# pi_S = 292
+
+# divide by the nr of comparisons done
+pi_S <- pi_S / ((n*(n-1))/2)
+# Tajima's estimator = 1.5368
+
+len = ncol(data_S)
+Ne_S_pi <- pi_S / (4 * 1e-8 * len)
+# effective pop size of Southern pop is 768.4211
+
+
+# effective pop size of Southern pop (768) much smaller than 
+# Northern (4634) according to Tajima's estimator
+
+
+## 2. Watterson's ----
+
+# watterson's estimator = S / sum(1/k) (k between 1 and n-1)
+# S = num of segregating sites
+# n samples
+
+# Northern pop
+S_N = 0
+for (i in (1:ncol(data_N))) {
+  if (length(unique(data_N[,i])) > 1) {
+    S_N <- S_N + 1
+  }
+}
+# 33
+
+# # does the same as for loop above!
+# freqs <- apply(data_N, 2, sum) / nrow(data_N)
+# length(which((freqs>0)&(freqs<1)))
+
+n = nrow(data_N)
+watt_N <- S_N / sum(1/seq(1,n-1))
+# Watterson's estimator = 9.3017
+
+Ne_N_watt <- watt_N / (4 * 1e-8 * len)
+# Ne = 4650.8486
+
+
+## Southern pop
+
+S_S = 0
+for (col in (1:ncol(data_S))) {
+  if (length(unique(data_S[,col])) > 1) {
+    S_S <- S_S + 1
+  }
+}
+
+n = nrow(data_S)
+watt_S <- S_S / sum(1/seq(1,n-1))
+# Watterson's estimator = 1.691
+
+Ne_S_watt <- watt_S / (4 * 1e-8 * len)
+# Ne = 845.6088
+
+# Again, effective pop size of Southern pop (845) much smaller than 
+# Northern (4650) according to Watterson's estimator
+
+
+# summary ----
+pop_and_estimator <- c("North (Tajima's)", "North (Watterson's)",
+                       "South (Tajima's)", "South (Watterson's)")
+theta <- c(pi_N, watt_N, pi_S, watt_S)  # genetic diversity
+Ne <- c(Ne_N_pi, Ne_N_watt, Ne_S_pi, Ne_S_watt)  # effective pop size
+summary <- data.frame(pop_and_estimator, theta, Ne)
+print(summary)
+
+
+## Site frequency spectrum ----
+
+# practice!!
+first_row <-  c(1,0,0,1,0)
+second_row <- c(1,0,1,1,1)
+third_row <-  c(1,0,1,0,1)
+fourth_row <- c(1,1,1,0,1)
+rows <- rbind(first_row, second_row, third_row, fourth_row)
+
+apply(rows, 2, sum)   # allele counts
+# based on above:
+# see that 1 allele has freq 0
+# none w freq 1
+# 3 w freq 2
+# 1 w frew 3
+# freq:           0 1 2 3
+# num of alleles: 1 0 3 1
+# (from what printed, want to count how many of each num we get)
+freqs <- apply(rows, 2, sum)   # allele counts
+
+sfs <- rep(NA, nrow(rows)-1)
+for (g in 1:length(sfs)) {
+  sfs[g] <- sum(freqs==g)
+}
+sfs
+##### end practice
+
+
+## Northern pop
+# allele freqs
+derived_freqs <- apply(X=data_N, MAR=2, FUN=sum)
+# compute SFS from the counts of derived allele freq
+n <- nrow(data_N)
+sfs_N <- rep(NA, n-1)
+for (i in 1:length(sfs_N)) {
+  sfs_N[i] <- sum(derived_freqs == i)
+  # sfs_N[i] <- length(which(derived_freqs == i))  # same thing
+}
+sfs_N
+
+
+## Southern pop
+# allele freqs
+derived_freqs <- apply(data_S, 2, sum)
+# compute SFS from the counts of derived allele freq
+n <- nrow(data_S)
+sfs_S <- rep(NA, n-1)
+for (i in 1:length(sfs_S)) {
+  sfs_S[i] <- sum(derived_freqs == i)
+  # sfs_S[i] <- length(which(derived_freqs == i))  # same thing
+}
+sfs_S
+
+
+### plot
+barplot(t(cbind(sfs_N, sfs_S)), beside=T, names.arg=seq(1,nrow(data_S)-1,1),
+        legend=c("North", "South"))
+
+cat("\nThe Northern population with the greater population size has a higher proportion of singletons, as expected.")
+
+# northern - many more singletons than expected
+# southern - fewer
+
+# northern pop getting bigger
+# southern pop getting smaller
+
+
+
+# ### bonus: joint site frequency spectrum
+# 
+# sfs <- matrix(0, nrow=nrow(data_N)+1, ncol=nrow(data_S)+1)
+# for (i in 1:ncol(data_N)) {
+# 
+#     freq_N <- sum(data_N[,i])
+#     freq_S <- sum(data_S[,i])
+# 
+#     sfs[freq_N+1,freq_S+1] <- sfs[freq_N+1,freq_S+1] + 1
+# 
+# }
+# sfs[1,1] <- NA # ignore non-SNPs
+# 
+# image(t(sfs))
+**********************************************************************
+
+Testing prac3_coalescence.R...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+
+**********************************************************************
+
+Encountered error (or warning):
+
+***IGNORE IF THIS ERROR IS EXPECTED AS PART OF AN IN-CLASS EXERCISE***
+
+Error in file(file, "rt") : cannot open the connection
+Calls: as.matrix -> read.csv -> read.table -> file
+In addition: Warning message:
+In file(file, "rt") :
+  cannot open file '../data/killer_whale_North.csv': No such file or directory
+Execution halted
+
+======================================================================
+Inspecting script file prac1_allele_genotype_freq.R...
+
+File contents are:
+
+**********************************************************************
+#### Practical 1 - Allele and genotype frequencies ----
+
+rm(list=ls())
+
+require(dplyr)
+require(ggplot2)
+
+
+## Data ----
+
+# ../data/bears.csv contains 40 DNA sequences of 10k bp from 20 brown bears
+
+# each row corresponds to an individual chromosome
+# each column to a genomic position in the 10k bp locus
+
+# each indiv has 2 chromosomes (diploid) 
+# so indiv 1 will have data on row 1 AND 2 etc
+
+# want to make inferences about how variable the genome of brown bears is and 
+# whether it is an inbred population or not
+
+bears <- as.matrix(read.csv("../data/bears.csv", header = FALSE, stringsAsFactors = FALSE,
+                            colClasses = c("character"),# makes sure that T not interpreted as TRUE
+                            col.names = c(1:10000)))
+
+
+## Tasks ----
+
+# 1. ----
+#    Identify which positions are SNPs (polymorphic, meaning that they have
+#    more than one allele) 
+
+# find the polymorphic sites
+polymorphic_sites <- c()
+for (i in 1:ncol(bears)) {
+  nucleotide_site <- bears[,i]
+  num_alleles <- n_distinct(nucleotide_site)  # count num of alleles in each column (nucleotide site)
+  if (num_alleles > 1) {
+    # print(i)
+    polymorphic_sites <- c(polymorphic_sites, i)
+  }
+}
+
+# subset the data to only include polymorphic sites
+polym_bears <- bears[,polymorphic_sites]
+
+print(paste("Number of SNPs is", length(polym_bears)))
+
+
+# 2. ----
+#    Calculate, print and visualise allele frequencies for each SNP
+
+num_chromosomes = nrow(polym_bears)
+fill_empty <- rep(NA, ncol(polym_bears)) 
+
+site <- c(substring(colnames(polym_bears), 2))  # get rid of the X in front of the numbers
+minor_allele <- fill_empty  # pre-allocate the allele vectors
+other_allele <- fill_empty
+maf <- fill_empty
+homozy_alt_freq <- fill_empty
+hetero_freq <- fill_empty
+homozy_minor_freq <- fill_empty
+heterozygosity <- fill_empty
+homozygosity <- fill_empty
+chi <- fill_empty
+p_value <- fill_empty
+not_HWE <- fill_empty
+F_value <- fill_empty
+
+polym_data <- data.frame(site, minor_allele, other_allele, maf,
+                         homozy_alt_freq, hetero_freq, homozy_minor_freq,
+                         heterozygosity, homozygosity,
+                         chi, p_value, not_HWE, F_value)
+
+for (i in 1:ncol(polym_bears)) {
+  
+  # get alleles for each polymorphic site
+  alleles <- sort(unique(polym_bears[,i]))
+  
+  # get the 2 frequencies
+  freq1 <- length(which(polym_bears[,i]==alleles[1]))/nrow(polym_bears)
+  freq2 <- length(which(polym_bears[,i]==alleles[2]))/nrow(polym_bears)
+  
+  # get minor allele (less freq) by indexing w which freq is smaller
+  minor_allele <- alleles[which.min(c(freq1, freq2))]
+  minor_allele_freq <- c(freq1, freq2)[which.min(c(freq1, freq2))]
+  
+  other_allele <- alleles[which.max(c(freq1, freq2))]
+  
+  polym_data$minor_allele[i] <- minor_allele
+  polym_data$other_allele[i] <- other_allele
+  polym_data$maf[i] <- minor_allele_freq
+  
+}
+
+hist(polym_data$maf)
+plot(polym_data$maf, type="h")
+
+ggplot(polym_data, aes(site, maf)) + 
+  geom_point() +
+  theme_bw()
+# of all 100 polymorphic sites, most have 1 allele that is almost fixed/v freq compared to the other
+# ~ 20ish sites more split frequencies ~50-70%
+
+
+# 3. ----
+#    Calculate and print genotype frequencies for each SNP
+
+# ploidy <- 2
+# bear_id <- rep(1:20, each=ploidy)
+# polym_bears <- as.data.frame(polym_bears) %>%
+#     mutate(bear.id = bear_id)
+
+
+nsamples <- nrow(polym_bears)/2
+for (i in 1:ncol(polym_bears)) {
+  
+  ### genotypes are major/major major/minor minor/minor in counts below
+  # so first position will hold num of genotypes homozygous for alternative allele
+  # middle = heterozygous
+  # last = homozygous for minor allele
+  genotype_counts <- c(0, 0, 0)
+  
+  minor_allele <- polym_data$minor_allele[i]
+  # print(minor_allele)
+  
+  for (j in 1:nsamples) {
+    
+    ### indexes of haplotypes for individual j (haplotype indices)
+    # this gets hold of pairs of chromosomes
+    haplotype_index <- c( (j*2)-1, (j*2) )
+    ### count the minor allele instances
+    genotype <- length(which(polym_bears[haplotype_index, i]==minor_allele))
+    ## so if genotype=0 that means neither allele is the minor allele - so 
+    # homozygous alternative, want to add one to the first position of 
+    # genotype counts
+    genotype_index=genotype+1
+    ### increase the counter for the corresponding genotype
+    genotype_counts[genotype_index] <- genotype_counts[genotype_index] + 1
+  }
+  
+  polym_data$homozy_alt_freq[i] <- genotype_counts[1]/nsamples
+  polym_data$hetero_freq[i] <- genotype_counts[2]/nsamples
+  polym_data$homozy_minor_freq[i] <- genotype_counts[3]/nsamples
+  
+  # 4. ----
+  #    Calculate (observed) homozygosity and heterozygosity for each SNP
+  
+  polym_data$heterozygosity[i] <- polym_data$hetero_freq[i]
+  polym_data$homozygosity[i] <- polym_data$homozy_alt_freq[i] + 
+    polym_data$homozy_minor_freq[i]
+  
+  # 5. ----
+  #    Calculate expected genotype counts for each SNP and test for HWE
+  
+  ### from the frequency, I can calculate the expected genotype counts under HWE p^2,2pq,q^2
+  # genotype_counts_expected <- c( (1-freq_minor_allele)^2, 2*freq_minor_allele*(1-freq_minor_allele), freq_minor_allele^2) * nsamples
+  
+  # p^2 is expected homozygous alternative freq
+  p_sq <- (1-polym_data$maf[i])^2
+  # 2pq is expected het freq
+  two_pq <- 2*polym_data$maf[i]*(1-polym_data$maf[i])
+  # q^2 is expected homozygous minor freq
+  q_sq <- polym_data$maf[i]^2
+  
+  # expected numbers of each genotype frequency for a pop of 20
+  genotype_counts_expected <-c(p_sq, two_pq, q_sq) * nsamples
+  
+  # test for HWE: calculate chi^2 statistic
+  chi <- sum( (genotype_counts_expected - genotype_counts)^2 / genotype_counts_expected )
+  
+  # p value
+  pv <- 1 - pchisq(chi, df=1)
+  
+  polym_data$chi[i] <- chi
+  polym_data$p_value[i] <- pv
+  
+  # retain SNPs with p value < 0.05
+  if (pv < 0.05) {
+    polym_data$not_HWE[i] <- TRUE
+  } 
+  
+  
+  # 6. ----
+  #    Calculate, print and visualise inbreeding coefficient for each SNP 
+  #    deviating from HWE    
+  
+  inbreeding <- (two_pq - polym_data$hetero_freq[i]) / two_pq 
+  polym_data$F_value[i] <- inbreeding 
+  
+}
+
+hist(polym_data$F_value)
+plot(polym_data$F_value, type="h")
+
+# save dataframe of results
+write.csv(polym_data, "../results/bear_polymorphisms.csv", row.names=FALSE)
+**********************************************************************
+
+Testing prac1_allele_genotype_freq.R...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+
+**********************************************************************
+
+Encountered error (or warning):
+
+***IGNORE IF THIS ERROR IS EXPECTED AS PART OF AN IN-CLASS EXERCISE***
+
+Loading required package: dplyr
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Loading required package: ggplot2
+Error in file(file, "rt") : cannot open the connection
+Calls: as.matrix -> read.csv -> read.table -> file
+In addition: Warning message:
+In file(file, "rt") :
+  cannot open file '../data/bears.csv': No such file or directory
+Execution halted
+
+======================================================================
+======================================================================
+Finished running scripts
+
+Ran into 4 errors
+
+======================================================================
+======================================================================
+
+FINISHED WEEKLY ASSESSMENT
+
+Current Points for the Week = 100
+
+NOTE THAT THESE ARE POINTS, NOT MARKS FOR THE WEEK!

@@ -1,0 +1,2898 @@
+Starting code feedback for Anqi, Week4
+
+Current Points = 100
+
+Note that: 
+(1) Major sections begin with a double "====" line 
+(2) Subsections begin with a single "====" line 
+(3) Code output or text file content are printed within single "*****" lines 
+
+======================================================================
+======================================================================
+Your Git repo size this week is about 337.88 MiB on disk 
+
+PART 1: Checking project workflow...
+
+Found the following directories in parent directory: .git, MiniProject, week6, week7, week4, week3, week2, Feedback, HPC, week1, week5
+
+Found the following files in parent directory: README.md, .gitignore
+
+Checking for key files in parent directory...
+
+Found .gitignore in parent directory, great! 
+
+Printing contents of .gitignore:
+
+**********************************************************************
+*.tmp
+*.log
+.DS_Store
+*/sandbox
+.vscode
+**********************************************************************
+
+Found README in parent directory, named: README.md
+
+Printing contents of README.md:
+
+**********************************************************************
+# Anqi's CMEE Coursework Repository
+This README file contains details about the modules within Anqi Wang's (aw222@ic.ac.uk) CMEE Coursework. This coursework contributes towards the fulfilment of MSc Computational Methods in Ecology and Evolution (CMEE) at Imperial College London. <br />
+
+Many of the task requirements and information can be found at [The Mulitilingual Quantitative Biologist](https://mhasoba.github.io/TheMulQuaBio/intro.html)
+
+## Installation
+
+To use scripts in this repository, clone and run.
+
+```bash
+git clone git@github.com:AnqiW222/CMEECourseWork.git
+```
+
+## Contents
+### Week 1: UNIX, Shell scription, LaTeX and Version Control with Git
+**Summary:** A brief introduction of the Multilingual Quantitative Biological Methods, UNIX basic knowledge, Introductory shell scripting exercises, Produce scientific documents with LaTeX, and Use version control (Git) to share the files with others<br />
+**Language Use:** Bash, LaTex
+
+---
+
+### Week 2: Basic Python Programming
+**Summary:** Introduction to writing Python scripts/programs<br />
+**Language Use:** Python, Bash
+
+---
+
+### Week 3: R Programming and Data Management & Visualizatio 
+**Summary:** Biological Computing in R, Data management and Visualization with R.<br />
+**Language Use:** R, LaTeX, Bash
+
+---
+
+### Week 4: Statistics in R
+**Summary:** Core Skills Module of PG Life Science, statistical methods that are of wide use in research projects, the different ways of analysing data and the importance of biological interpretation. <br />
+**Language Use:** R
+
+---
+
+### Week 5: Spatial Analyses and GIS
+**Summary:** Core Skills Module of PG Life Science, using and handling GIS data, along with core concepts in GIS and remote sensing. <br />
+**Language Use:** R
+
+---
+
+### Week 6: Genomics and Bioinformatics
+**Summary:** Core Skills Module of PG Life Science, introduce the types of questions that can be addressed with population genomic data, and the theory and computational methodologies that are available for answering these questions. <br />
+**Language Use:** R
+
+---
+
+### Week 7: Advanced Python Programming
+**Summary:** Advanced Python coding skills with introduction of IDE, profiling code, and using computing language flexible. <br />
+**Language Use:** Python, R, Bash
+
+---
+
+### Week 8 + 9: MiniProject
+**Summary:** MSc CMEE Miniproject: i) What mathematical models best fit to an empirical dataset; ii) Based upon bacteria growth, mechanistic vs. phenomenological models, which is the best fit. Using all biological computing tools learned so far, from data pre-processing, model fitting, plotting and analysis results, to coding and academic report writing, solve the ecological modelling question.<br />
+**Language Use:** Python, R, LaTeX, Bash
+
+---
+
+### Week 10 + 11: High Performance Computing and Math Primer
+**Summary:** Using Imperial College's HPC cluster as tools and techniques  to solve biological problems, and dealing with the huge data sets through parallel computing. Introduction to the preliminary requirements for the topics that will be covered during the Maths for Biologists module. <br />
+**Language Use:** R, Bash, HPC
+
+## Language Versions
+**Python:** 3.9.12 <br />
+**R:** 4.2.1 <br />
+**bash:** 3.2 <br />
+**LaTeX:** 3.141592653-2.6-1.40.24 (TeX Live 2022) <br />
+**Jupyter:** Notebook 6.4.8 <br />
+
+All code has been written on a MacOS version 12.6 and any dependencies are detailed below the script names within weekly README files
+
+
+**********************************************************************
+
+======================================================================
+Looking for the weekly directories...
+
+Found 7 weekly directories: week1, week2, week3, week4, week5, week6, week7
+
+The Week4 directory will be assessed 
+
+======================================================================
+======================================================================
+PART 2: Checking weekly code and workflow...
+
+======================================================================
+Assessing WEEK4...
+
+Found the following directories: code, results, data, Lecture_Material
+
+Found the following files: README.md, .gitignore
+
+Checking for readme file in weekly directory...
+
+Found README in parent directory, named: README.md
+
+Printing contents of README.md:
+
+**********************************************************************
+# CMEE Coursework - week 4:
+
+This README file contains details about the scripts from in-classwork and practicals for the forth week.
+
+## Description
+Statistics in R, mostly using data on sparrows - "Stats with Sparrows"! More information about the R scripts and Biological Satistics could be found in [Lecture_Material](https://github.com/AnqiW222/CMEECourseWork/tree/main/week4/Lecture_Material)
+## Language
+
+R
+
+## Dependencies
+For some scripts in this directory, packages [ggplot2](https://cran.r-project.org/web/packages/ggplot2/index.html), [dplyr](https://cran.r-project.org/web/packages/dplyr/), [WebPower](https://cran.r-project.org/web/packages/WebPower/index.html), and [lme4](https://cran.r-project.org/web/packages/lme4/index.html) are required. 
+Please run the following script in **R/RStudio** for package installation: 
+```R
+install.packages(c("ggplot2", "dplyr", "WebPower", "lme4"))
+```
+
+_The installation commands are used for MacOS, may varied with the different operating system._
+
+## In-class Practicals 
+
+#### Mon_GenStatistics.R 
+##### Topic Covers
+- [x] *Basic Stats* 
+- [x] *Centrality and Spread* 
+- [x] *Data types*
+- [x] *Precision and Standard error*
+- [x] *comparing means*
+
+#### Tue_GenStatistics.R
+##### Topic Covers
+- [x] Errors and Statistcial Power
+- [x] Degrees of Freedom
+- [x] Linear Algebra
+- [x] Linear Models
+
+#### Wed_GenStatistics.R 
+##### Topic Covers
+- [x] R Squared
+- [x] Covariance and Correlation
+- [x] Linear Model 2
+
+#### Thu_GenStatistics.R 
+##### Topic Covers
+- [x] ANOVA
+- [x] Mean Squares and Variances
+- [x] Repeatability
+- [x] Linear Mixed Models
+
+#### Fri_GenStatistics.R 
+##### Topic Covers
+- [x] Variable Practicals
+
+#### Intro_to_DataWrangling.R
+<font size=2>**Summary:** Introduction to Data Wrangling. <br /><br /></font>
+
+#### Intro_to_Coding.R
+<font size=2>**Summary:** Introduction to basic R Coding skills. <br /><br /></font>
+
+#### Intro_to_Graphics.R
+<font size=2>**Summary:** Introduction to R plotting skills. <br /><br /></font>
+
+
+## Author & Contact
+
+<font size=2>**Name:** ANQI WANG<br />
+**Email:** aw222@ic.ac.uk</font>
+
+**********************************************************************
+
+Results directory is empty - good! 
+
+Found 8 code files: Thu_GenStatistics.R, Intro_to_Graphics.R, Wed_GenStatistics.R, Fri_GenStatistics.R, Intro_to_Coding.R, Tue_GenStatistics.R, Intro_to_DataWrangling.R, Mon_GenStatistics.R
+
+======================================================================
+Testing script/code files...
+
+======================================================================
+Inspecting script file Thu_GenStatistics.R...
+
+File contents are:
+
+**********************************************************************
+## SwS 12 - ANOVA (Analysis of Variance) and repeatability ----
+
+# testing of difference of variances between groups
+# categorical variable as explanatory var
+# one expl var = one-way anova, 2 = 2-way etc
+
+# null hypothesis: groups are equal
+# assessing whether variability among groups is bigger/smaller than between groups
+
+# AG + WG = T
+# among group var/between group (BG) (eg extent of boxplot for a group)
+# within group (eg diff between means of the groups)
+# total variance
+
+# different from ttest (diff between means)
+# anova - diff between variance - look at ratio of AG to WG
+# from this can INFER that means differ (but inference NOT actual test like lm or ttest)
+
+## If doing by hand:
+
+# anova table
+# among-group - ASS (sum of squares) - k-1 d.f. - mean squares (MSG) = SSG/(k-1) - F stat = MSG/MST
+# within group - WSS (sum of squares within groups - residuals) - n-k d.f. - mean squares (MSR) = SSR / (n - k)
+# total - TSS (total SS = ASS + WSS) - n-1 d.f.
+
+# k = n of groups (length of j)
+# n = sample size (length of i)
+
+# eg calculate ASS
+# deviation of the means from the overall mean (see slides for equation..!)
+# WSS
+# basically 2 main calculations (ASS and WSS) - use to find mean squares and then F
+
+# eg output w p < 0.05, interpretation:
+# there are difference between the means
+# we don't know where or how big the effect is
+# have to perform POST-HOC tests, eg Tukey, LSD (least-sig. differences), etc
+
+## ANOVA vs linear model
+# both continuous response var
+# anova - can have factorial explanatory w 2/more levels - can't have continuous expl var
+# anova - provides secondary stats only vs lm provides primary
+# anova need post-hoc testing for effect sizes and to see which categories differ
+
+# anova calculated from results of linear model in r
+# anova IS  a linear model, just substandard way to report it
+# because we only get secondry stats (F)
+# MSSs provide info about variance (somewhat primary)
+
+# linear model summary provides primary stats
+# and F-stats
+# but info about variance is missing (but residual descriptives)
+
+# why anovas popular?
+# can calculate easily - less computationally intensive - and used to be done by hand
+
+# could have 2 analyses where means same but variances v diff - would get diff anova results - meaning of anova about variances not means
+# use linear models instead!!!!
+
+
+# if want to know about variances AND mean estimates
+# LINEAR MIXED MODELS - estimate variance components and fixed effects simultaneously  - see sig diffs between groups AND see variances between/within groups
+# still get among group var, within group var, t val, etc BUT no p-values
+
+
+## Hand-out work ----
+rm(list=ls())
+d<-read.table("../data/SparrowSize.txt", header=TRUE)
+
+# going to explore anovas - use wing length from sparrows data
+d1 <- subset(d, d$Wing!="NA")
+summary(d1$Wing)
+hist(d1$Wing)
+# some missing values and some "outliers" - but probably form young/moulting birds
+
+model1 <- lm(Wing ~ Sex.1, data=d1)
+summary(model1)
+boxplot(d1$Wing ~ d1$Sex.1, ylab="Wing length (mm)")
+
+# from the output, the F stat comes from an ANOVA
+anova(model1)  # can see here (F stat = sum of mean squares of between-group estimate / residaul mean squares)
+
+# wing length differs between groups
+# by how much? - do t-test post-hoc
+t.test(d1$Wing ~ d1$Sex.1, var.equal = TRUE)
+
+# fine for 2 groups, what if we have >2
+# let's test for diffs between years
+boxplot(d$Mass ~ d$Year)
+m2 <- lm(Mass ~ as.factor(Year), data = d)
+anova(m2)
+# that's lots of years, could do summary
+summary(m2) # only get diffs between each year compared to ref 2000
+# could work out diff eg between 2004 and 2009 (add their values to ref and then find diff) - but faff
+
+# Tukey's post-hoc
+?TukeyHSD
+# need model fitted w aov()
+?aov
+am2 <- aov(Mass ~ as.factor(Year), data=d)
+summary(am2)
+TukeyHSD(am2)  # get complete table w each combo - diff, up and low CI and 
+# p-val (adjusted for multiple comparisons - stat sig. means 1 in 20 will be 
+# false positive - here running 55 tests - 55/20 = 2.75 wrongly be stat sig - 
+# adjusted here automatically by this percentage) 
+
+
+## what if there are even more levels?
+# use BirdID as factorial now
+# each sparrow measured >1 - is wing length same each time an indiv is caught?
+# or does length vary
+boxplot(d1$Wing ~ d1$BirdID, ylab="Wing length (mm)")
+# LOTS of groups - anova helpful here
+# first get idea of data, how many birds and how often measured?
+require(dplyr)
+as_tibble(d1)
+glimpse(d1)
+
+# count how many diff birds
+## IMPORTANT - to see stucture of data
+d1 %>% 
+  group_by(BirdID) %>% 
+  summarise(count = length(BirdID))
+d1 %>% 
+  group_by(BirdID) %>% 
+  summarise(count = length(BirdID)) %>%  # stop here to see what this done
+  count(count)  # finally summary
+# from dataset of 1695 obs, 222 birds counted once (not v good data for getting
+# within-group estimates)
+# but 147 measured twice, even more measured more than that - good - repeated measures
+
+# run anova w BirdID as factor
+model3 <- lm(Wing ~ as.factor(BirdID), data=d1)
+anova(model3)
+# stat significantly more variation among groups (BirdID) than within (residuals)
+# here a post-hoc test would have TOO many comparisons to consider
+# looking at spread not centrality (variance not means)
+
+# F-stat 8 - means amount of variance between diff birds is 8 times bigger than within birds (residual variance)
+# makes sense (if measure an indiv >1 will be more simialr than measuring diff bird)
+
+
+## Repeatability
+# another way of saying our findings: individual birds have consistent wing length
+# = bird's wing length is REPEATABLE, r, "intraclass correlation coefficient"
+# can also use to assess quality of method - individual observer repeatability
+
+# see Kate Lessell's paper "Unrepeatable repeatabilities: a common mistake" in The Auk journal
+
+# repeatability = ratio of variance of the total variance that is explained by among-group differences
+# see equation (among / total) (diff to F stat which is among/residual)
+# r is directly biologically interpretable
+
+# cannot ignore group size (see paper- this is common mistake) n0
+# calculate n0:
+d1 %>%
+  group_by(BirdID) %>%
+  summarise (count=length(BirdID))
+# gives us ni, eg n1 is 1, n2 is 10 etc
+
+d1 %>%
+  group_by(BirdID) %>%
+  summarise (count=length(BirdID)) %>%
+  summarise (sum(count))
+# 1695 birds in total - denominator of n0 equation
+
+d1 %>%
+  group_by(BirdID) %>%
+  summarise (count=length(BirdID)) %>%
+  summarise (sum(count^2))
+# numerator - 7307
+
+7307/1695
+# 4.310914
+# subtract this from denominator
+1695 - 7307/1695
+# 1690.689
+
+# a is 618 (num of groups)
+# n0 = 
+(1 / (618-1)) * (1695 - 7307/1695)
+# 2.740177
+# close to 3 ~ roughly a centrality measure of how many obs per group 
+# beacuse the difference between num of obs in each group are so extreme:
+# have to use this value n0 rather than mean etc
+
+# finally calculate repeatability:
+anova(model3)
+((13.20-1.62)/2.74)/(1.62+(13.20-1.62)/2.74)
+# r = 0.7229
+# so ~72% of variation in wing length explained by among-individual diffs
+# individuals relatively consistent in their wing length - 
+# only (100-72) 18% of variance from residuals (within birds)
+
+# come back to exercises as revision!
+
+# EASIER WAY TO CALCULATE REPEATABILITY -> WITH LINEAR MIXED MODELS:
+
+
+## SwS 13 - Repeatability with linear mixed models ----
+
+# repeatability - how consistent something is within a group, compared to the whole sample
+# easier stat to understand than F stat from anova
+# ratio of among-group variance / total variance
+
+# observer repeatability
+# eg measuring tarsus consistently is difficult
+# individual behaviour - personality - do birds always behave the same 
+# way? diff from others? use repeatability to test
+
+# in ecology - lots of uses
+# N0 is not sample size (difficult to compute in unbalanced dataset - as above!) - see equations!
+# dependent on num of groups and sample size within a group 
+
+# would rather use LINEAR MIXED MODELS- compare linear models and variance analysis
+# and robust against mixed-size datasets
+# nested data structure - account for repeated measures, pseudoreplication
+# need to know how the data is nested
+
+# LMMs
+# yi,j = b0 + b1xi,j + alphaj + epsiloni,j
+# linear model bit is the same (b0, b1 etc)
+# alpha - random factor for a group j - estimate variance component for each group
+
+# estimate variance components and fixed param estimates simultaneously
+# complicated but V USEFUL
+# BETTER than anova - ditch anova!!!!
+
+
+# fly dataset - repeatability telling us about measurement error
+require(lme4)
+a <- read.table("../data/Wylde_single.mounted.txt", header=TRUE)
+
+lmm1 <- lmer(Tarsus_Length ~ 1 + (1|ID), data=a)
+# instead of 1 in middle ~1 can add any fixed effects
+# 1|ID is the factor that is the random effect
+summary(lmm1)
+# fixed effects - still get estimate, st er and t-val (no p-val - difficult to calculate d.f. in heterogeneous data - don't do it!)
+# from t-val looks like could be significant
+# intercept is mean value of tarsus length
+
+# random effects - 
+# eg variance explained by ID much larger than residual variance (diff groups (individuals) more different than repeated measures of same indiv)
+
+# can calculate repeatability from this
+# have among ID variance and within ID variance
+# AV + WV = total variance
+# divide among variance (ID intercept) by total - will be big percentage here
+
+# LMMs can deal with unbalanced groups - heterogeneous data
+# and estimate variance components and fixed effects at the same time
+
+## hand-out work ----
+
+# investigate repeatability of Femur length
+lmm2 <- lmer(Femur_length ~ 1 + (1|ID), data=a)
+# repsonse var = femur length
+# no fixed effects so 1 + ... (could put sex here or any other fixed effect 
+# - but here want to get repeatability without any other influence)
+# (1|ID) - specify random effects - those we want the model to use to 
+# partition the variance into
+# here, partition the variance into variance explained among ID and residuals
+summary(lmm2)
+# random effects - more varinace explained by among group variance - not much residual variance
+# info about data structure - 180 individuals, each measured twice gives 
+# total sample size of 360 (this dataset v balanced - could have used anova)
+# fixed effects - mean femur length
+
+# calculate repeatability:
+Repeatability <- 1.257 / (1.257 + 0.0003)
+Repeatability
+# >99% variance is among diff individual flies (v little variance within indivs)
+
+# complete exercises as revision!
+
+
+## SwS 14a - more LMMs - beyond repeatability ----
+
+# can account for data structure - nestedness
+# yi,j = b0 + b1xi,j + alphaj + epsiloni,j
+# i and j diff levels of nested data
+# can have more levels of nestedness:
+# yi,j,k = b0 + b1xi,j,k + alpha1j +alpha2k + epsiloni,j,k
+# extended model - second random effect alpha2 account for variance among a set of groups
+# vs alpha1 accounts for variance among other grouping
+
+# data structure - can cloak patterns, can lead to wrong answers
+# NEED to describe data and data structure FIRST, think about:
+# summary of eg mean, variance
+# repeated measures
+# grouping factors
+# then do stats!
+
+
+# sparrow ornament (black bib under bill) increases w age
+# effects within individuals (increase over time) and between
+
+o <- read.table("../data/OrnamentAge.txt", header=TRUE)
+
+# first do normal lm (to compare outputs w LMM)
+summary(lm(Ornament ~ Age, data=o))
+# ave ornament size 34mm, for every year sparrow age increases, ornament 
+# increases by 1, stat sig
+
+summary(lmer(Ornament ~ Age + (1|BirdID), data=o))
+# accounted for multiple measures from same individual by fitting BirdID as 
+# a random effect
+# fixed effect estimate (of age) - still stat sig. and similer num to in lm (1ish)
+# but also random effects - BirdID explains lots of variance too - as much as
+# residual, repeatability of ~50% (this is adjusted repeatability as we have 
+# a fixed effect)
+# BirdID NEEDS to be included - has big effect - otherwise lots of random 
+# noise - potential to affect effect of age
+
+# also want to add in measurement error (observers measure ornament differently)
+# fit additional random effect f observer
+summary(lmer(Ornament ~ Age + (1|BirdID)+(1|Observer), data=o))
+# fixed effect estimate now decreased by ~almost half (age estimate)
+# observer variance accounts for A LOT of the variance
+# variance from BirdID and residuals decreased - gone into observer variance instead
+
+# throughout bird life, same observer measuring same bird (diff observers 
+# measuring diff birds) - without observer included in model - this variance 
+# goes into BirdID (but actually coming form observer)
+
+# still some variance from BirdID - birds still more similar to themselves than 
+# to others
+
+# next, is there an effect of year? eg maybe varies w cold year,etc
+summary(lmer(Ornament ~ Age + (1|BirdID)+(1|Observer)+(1|Year), data=o))
+# observer variance now split between observer and year
+# observers there for set amount of time (eg phd students)
+# so effect from year could be form time OR from the change in observers
+# have to make a decision about which one to use!!!
+# THINK ABOUT BIOLOGY!!!! - which effect driven by biology and which
+# by data structure
+# probably this last model driven more by data structure, maybe publish 
+# previous one- makes more bio sense
+
+# age has ~half the effect compared to the original lm
+# still significance ~same (t-values)
+# LMM better model
+
+
+## SwS 14b - Model selection and simplifications ----
+
+# R^2 not good judge for which model is best (tells how much variance explained by model but if add more variables - fit will increase)
+# MOST IMPORTANT  - use biological justifications
+
+# fitting models to data
+# improving fit costs d.fs and therefore stat power
+# max num of parameters you could fit = num of datapoints -> overfitted
+# need to find compromise
+
+# guidelines:
+# before running model - think!
+# what is question? (eg does climate change affatc growth - but climate change is not good explanatory - lots of effects there - be more specific)
+# what is response, explanatory?
+# other variables that could affect relationship? if so add them. interactions?
+
+# build MAXIMAL model - inc all variables that are biologically relevant (+interactions that are bio meaningful)
+# run this model and examine
+# look at variables - remove interactions that are not significant
+# look at reduced model - remove main terms only IF not biologically required
+# carry on to find final model 
+# - important to keep expl var in regardless of whether stat sig - this is the point of the model! 
+
+# other methods
+# decide ahead which variables important based on bio and keep them all in (good w Bayesian methods) (Julia does this)
+# use model selection info criterion
+# forwards-step-wise model selection (DON'T DO THIS)
+
+
+# when is something a random effect and when fixed?
+# rules of thumb:
+# random effects are factors (grouping factors, cannot be continuous)
+# are you interested in means (fixed) or variance (random)
+# want to correct factorial effect but it's not in your question specifically -> random eg effect of year but not interested vs if want to see diffs between years, have a fixed factor
+# more than 5 levels: random
+# LMM use only w large sample size N (>50)
+
+# model assumptions
+
+# normal residuals - use plot(model) to see residuals
+# outliers - are they wrongfully measured? biologically meaningful? 
+# - if obviously type exclude, but if not leave - try running model with and without
+# what if the plots look terrible? is the response really continuous? if not, non-parametic/GLMs - wrose STICK TO CONTINUOUS VARS
+# consider units - check for typos/outliers
+# use subsets ot see how strong it affects your conclusions
+# data transformation (sometimes unavoidable)
+
+# hypothesis testing
+# can reject/accept null hypothesis (accepting null does not mean alternative hypothesis not true!!!)
+# mutiple hypothesis testing - accpet error of 5% (20/100 are wrong) -can correct
+# for this, eg Bonferroni (don't use blindly!)
+
+# before model:
+# visual inspection of data
+# are there outliers? - boxplots - bio explanations?
+# homogeneity of variances
+# normally distributed data? (consider transformation as last resort)
+# is data zero-inflated? - lots of zeros (v few actual data - use GLMs)
+# collinearity? - use VIF to test (see yesterday)
+# visually inspect relationships of interest
+# consider which/if any interactions to add
+# construct maximal model - consider biology
+# simplify model - make sure you can defend simplification
+# decide on final model
+# run model validation
+# interpret model - think logically, biologically - interpret GIVEN the limitations
+**********************************************************************
+
+Testing Thu_GenStatistics.R...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   60.0    76.0    77.0    77.4    79.0    84.0 
+
+Call:
+lm(formula = Wing ~ Sex.1, data = d1)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-16.0961  -1.0961  -0.0961   1.3683   5.3683 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 76.09611    0.07175 1060.50   <2e-16 ***
+Sex.1male    2.53562    0.09998   25.36   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual sta
+**********************************************************************
+
+Encountered error (or warning):
+
+***IGNORE IF THIS ERROR IS EXPECTED AS PART OF AN IN-CLASS EXERCISE***
+
+Loading required package: dplyr
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Loading required package: lme4
+Loading required package: Matrix
+
+======================================================================
+Inspecting script file Intro_to_Graphics.R...
+
+File contents are:
+
+**********************************************************************
+##Dependencies##
+#install.packages("lattice")
+library(ggplot2)
+data("iris")
+
+## Histograms
+hist1<- ggplot(iris, aes(x=Petal.Length))+
+  geom_histogram()
+print(hist1)
+
+hist2<- ggplot(iris, aes(x=Petal.Length))+
+  geom_histogram(bins=20)
+print(hist2)
+
+hist3<- ggplot(iris, aes(x=Petal.Length, fill=Species))+
+  geom_histogram(bins=20)
+print(hist3)
+
+#Barchart#
+means <- iris%>%group_by(Species)%>%summarise(Petal.Width = mean(Petal.Width))
+bar1<-ggplot(means, aes(y=Petal.Width, x=Species))+
+  geom_bar(stat = "identity")
+print(bar1)
+
+#Dotcharts#
+dot1<- ggplot(iris, aes(y=Petal.Width, x=Species))+
+  geom_dotplot(binaxis = "y", stackdir = "center", binwidth = 1/30)+ 
+  geom_point(means, mapping=aes(y=Petal.Width, x=Species), col="red", size=3)
+print(dot1)
+
+#Boxplot#
+box1<- ggplot(iris, aes(y=Petal.Width, x=Species))+
+  geom_boxplot()
+print(box1)
+
+#Scatterplots#
+scatter1<- ggplot(iris, aes(y=Petal.Width, x=Sepal.Width))+
+  geom_point()
+print(scatter1)
+
+#Scatter with Groups#
+scatter2<- ggplot(iris, aes(y=Petal.Width, x=Sepal.Width, color=Species))+
+  geom_point()
+print(scatter2)
+
+#Scatter with Facets#
+scatter3<- ggplot(iris, aes(y=Petal.Width, x=Sepal.Width))+
+  geom_point()+
+  facet_grid(.~Species) #horizontal 
+print(scatter3)
+
+scatter4<- ggplot(iris, aes(y=Petal.Width, x=Sepal.Width))+
+  geom_point()+
+  facet_grid(Species~.) #vertical 
+print(scatter4)
+
+#Adding Titles#
+scatter5<- ggplot(iris, aes(y=Petal.Width, x=Sepal.Width))+
+  geom_point()+
+  labs(x="Sepal Width (mm)", y="Petal Width (mm)", title="Petal vs Sepal")
+print(scatter5)
+
+#Changing Point Characters#
+scatter6<- ggplot(iris, aes(y=Petal.Width, x=Sepal.Width))+
+  geom_point(size=2, shape=11)+
+  labs(x="Sepal Width (mm)", y="Petal Width (mm)", title="Petal vs Sepal")
+print(scatter6)
+
+**********************************************************************
+
+Testing Intro_to_Graphics.R...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+
+**********************************************************************
+
+Encountered error (or warning):
+
+***IGNORE IF THIS ERROR IS EXPECTED AS PART OF AN IN-CLASS EXERCISE***
+
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+Error in iris %>% group_by(Species) %>% summarise(Petal.Width = mean(Petal.Width)) : 
+  could not find function "%>%"
+Execution halted
+
+======================================================================
+Inspecting script file Wed_GenStatistics.R...
+
+File contents are:
+
+**********************************************************************
+## Stats with sparrows
+
+
+## SwS 10 - R squared, covariance, correlation ----
+
+# covariance - how 2 variables change together
+# product of sums of squares for x and y
+# depends on units etc can be v big/small 
+
+# covariance vs correlation
+# correlation = cov/product of st dev for x and y
+# STANDARDISED version of covariance
+# will be between -1 and 1 - (easier to interpret/more meaningful/generally 
+# applicable/comparable between studies than covar!)
+
+# r squared
+# coefficient of determination
+# proportion of variance in y explained by x
+
+# square of cor coef for 1 expl var
+# >1 expl var: r^2 = 1 - SSresiduals / SStotal (SS=sums of squares=variance)
+
+# cor coef describes relationship between x and y, between -1 and 1
+# r squared describes how strong x and y correlated, between 0 and 1
+
+
+## Hand-out work ----
+
+# First, remember that the	variance is	really	just the sum of	the	deviations	from	the	mean.	
+# That	means, for a given	dataset, we	take the mean,	and	then	subtract that	from	each	
+# datapoint. That deviation then	is	squared,	and	we	add	all	up.	We	then	divide	by	the	sample	
+# size	(minus	one).	We	can	visualize that	neatly:
+rm(list = ls())
+# create three data sets y with different variances (1, 10, 100)
+# rnorm() requires sample size (20), mean and sd
+y1<-rnorm(10, mean=0, sd=sqrt(1))
+var(y1)
+
+y2 <- -rnorm(10, mean=0, sd=sqrt(10))
+var(y2)
+
+y3<-rnorm(10, mean=0, sd=sqrt(100))
+var(y3)
+
+# create x for plotting
+x <- rep(0, 10)
+par(mfrow = c(1, 3))
+plot(x, y1, xlim=c(-0.1,0.1), ylim=c(-12,12), pch=19, cex=0.8, col="red")
+abline(v=0)
+abline(h=0)
+
+plot(x, y2, xlim=c(-0.1,0.1), ylim=c(-12,12), pch=19, cex=0.8, col="blue")
+abline(v=0)
+abline(h=0)
+
+plot(x, y3, xlim=c(-0.1,0.1), ylim=c(-12,12), pch=19, cex=0.8, col="darkgreen")
+abline(v=0)
+abline(h=0)
+
+# clear that y3 has larger variance - all have same mean
+
+# now plot w the squares
+?polygon()
+par(mfrow = c(1, 3))
+
+plot(x, y1, xlim=c(-12,12), ylim=c(-12,12) ,pch=19, cex=0.8, col="red")
+abline(v=0)
+abline(h=0)
+polygon(x=c(0,0,y1[1],y1[1]),y=c(0,y1[1],y1[1],0), col=rgb(1, 0, 0,0.2))
+polygon(x=c(0,0,y1[2],y1[2]),y=c(0,y1[2],y1[2],0), col=rgb(1, 0, 0,0.2))
+polygon(x=c(0,0,y1[3],y1[3]),y=c(0,y1[3],y1[3],0), col=rgb(1, 0, 0,0.2))
+polygon(x=c(0,0,y1[4],y1[4]),y=c(0,y1[4],y1[4],0), col=rgb(1, 0, 0,0.2))
+polygon(x=c(0,0,y1[4],y1[4]),y=c(0,y1[4],y1[4],0), col=rgb(1, 0, 0,0.2))
+polygon(x=c(0,0,y1[5],y1[5]),y=c(0,y1[5],y1[5],0), col=rgb(1, 0, 0,0.2))
+polygon(x=c(0,0,y1[6],y1[6]),y=c(0,y1[6],y1[6],0), col=rgb(1, 0, 0,0.2))
+polygon(x=c(0,0,y1[7],y1[7]),y=c(0,y1[7],y1[7],0), col=rgb(1, 0, 0,0.2))
+polygon(x=c(0,0,y1[8],y1[8]),y=c(0,y1[8],y1[8],0), col=rgb(1, 0, 0,0.2))
+polygon(x=c(0,0,y1[9],y1[9]),y=c(0,y1[9],y1[9],0), col=rgb(1, 0, 0,0.2))
+polygon(x=c(0,0,y1[10],y1[10]),y=c(0,y1[10],y1[10],0), col=rgb(1, 0, 0,0.2))
+
+# for loops for y2 and y3
+plot(x, y2, xlim=c(-12,12), ylim=c(-12,12), pch=19, cex=0.8, col="blue")
+abline(v=0)
+abline(h=0)
+for (i in 1:length(y2)) {
+  polygon(x=c(0,0,y2[i],y2[i]),y=c(0,y2[i],y2[i],0), col=rgb(0, 0, 1,0.2))
+}
+plot(x, y3, xlim=c(-12,12), ylim=c(-12,12), pch=19, cex=0.8, col="darkgreen")
+abline(v=0)
+abline(h=0)
+for (i in 1:length(y3)) {
+  polygon(x=c(0,0,y3[i],y3[i]),y=c(0,y3[i],y3[i],0), col=rgb(0, 1, 0,0.2))
+}
+# evident that green squares MUCH bigger than red, and the sum of them will be much larger
+
+
+## covariance
+# now if we have second variable, x
+# can calculate the covariances between x and y as the product between 
+# deviations of the mean
+
+# simulate that x and y are related (by multiplying x with y but change intensity of association)
+rm(list = ls())
+par(mfrow = c(1, 3))
+
+x<-c(-10:10)
+var(x)
+
+# here the association is 1:1, positive
+y1 <- x*1 + rnorm(21, mean=0, sd=sqrt(1))
+cov(x, y1)
+plot(x, y1, xlim=c(-10,10), ylim=c(-20, 20), col="red", pch=19, cex=0.8,
+     main=paste("Cov=",round(cov(x,y1),digits=2)))
+
+# here there is no association
+y2 <- rnorm(21, mean=0, sd=sqrt(1))
+cov(x, y2)
+plot(x, y2, xlim=c(-10,10), ylim=c(-20, 20), col="blue", pch=19, cex=0.8, 
+     main=paste("Cov=",round(cov(x,y2),digits=2)))
+
+# here the association is negative
+y3 <- x*(-1) + rnorm(21, mean=0, sd=sqrt(1))
+cov(x, y3)
+plot(x, y3, xlim=c(-10,10), ylim=c(-20, 20), col="darkgreen", pch=19, cex=0.8,
+     main=paste("Cov=",round(cov(x,y3),digits=2)))
+
+
+# introduce stronger/weaker associations
+rm(list = ls())
+par(mfrow = c(1, 3))
+
+x<-c(-10:10)
+var(x)
+
+# here the association is very weak, but not 0:
+y1<-x*0.1 + rnorm(21, mean=0, sd=sqrt(1))
+cov(x, y1)
+plot(x, y1, xlim=c(-10,10), ylim=c(-20, 20), col="red", pch=19, cex=0.8, 
+     main=paste("Cov=",round(cov(x,y1),digits=2)))
+
+# here it is 0.5
+y2<-x*0.5+ rnorm(21, mean=0, sd=sqrt(1))
+cov(x, y2)
+plot(x, y2, xlim=c(-10,10), ylim=c(-20, 20), col="blue", pch=19, cex=0.8,
+     main=paste("Cov=",round(cov(x,y2),digits=2)))
+
+# here the association is 2
+y3<- x*2 +rnorm(21, mean=0, sd=sqrt(1))
+cov(x, y3)
+plot(x, y3, xlim=c(-10,10), ylim=c(-20, 20), col="darkgreen", pch=19, cex=0.8,
+     main=paste("Cov=",round(cov(x,y3),digits=2)))
+
+
+# covariance changes the stronger vars are associated
+# BUT not v useful
+# depends on units
+
+# fix this by standardizing 
+# so that response var has st dev of 1
+# OR (more elegant) standardize using the st devs of both vars
+# this cor coef helps gauge strength of association between 2 vars that co-vary
+# between -1 and 1 (0=no association, -1 and 1 strongest possible)
+# without units so comparable to diff datasets
+
+# compare cov and cor:
+cov(x,y1)
+cor(x, y1)
+cov(x,y2)
+cor(x,y2)
+cov(x,y3)
+cor(x,y3)
+
+# introduce variation in y
+rm(list = ls())
+par(mfrow = c(3, 1))
+
+x<-c(-10:10)
+var(x)
+
+# here the association is 1:1, with low variance in y
+y1<-x*1 + rnorm(21, mean=0, sd=sqrt(1))
+cov(x, y1)
+plot(x, y1, xlim=c(-10,10), ylim=c(-20, 20), col="red", pch=19, cex=0.8,
+     main=paste("Cov=",round(cov(x,y1),digits=2)," Cor=",round(cor(x,y1),digits=2)))
+
+# The association remains 1:1, but higher variance in y
+y2<-x*1 + rnorm(21, mean=0, sd=sqrt(10))
+cov(x, y2)
+plot(x, y2, xlim=c(-10,10), ylim=c(-20, 20), col="blue", pch=19, cex=0.8, 
+     main=paste("Cov=",round(cov(x,y2),digits=2)," Cor=",round(cor(x,y2),digits=2)))
+
+# even bigger variance in y
+y3<- x*1 + rnorm(21, mean=0, sd=sqrt(100))
+cov(x, y3)
+plot(x, y3, xlim=c(-10,10), ylim=c(-20, 20), col="darkgreen", pch=19, cex=0.8,
+     main=paste("Cov=",round(cov(x,y3),digits=2)," Cor=",
+                round(cor(x,y3),digits=2)))
+# cov stays ~same (higher x, higher y still 1:1)
+# correlation decreases - more noise - less clear correlation
+
+
+## calculus for mean, var, cov ----
+rm(list= ls())
+
+#### rules for the mean
+
+## 1. the mean of a constant is the constant
+mean(4)
+
+## 2. adding a constant value to each term increases the mean (or 
+# expected value) by the constant
+y<-c(-3,5,8,-2)
+mean(y)
+mean(y+4)
+mean(y)+4
+
+## 3. multiplying each term by a constant value multiplies the mean 
+# by that constant
+mean(y*4)
+mean(y)*4
+
+## 4. the mean of the sum of 2 vars is the sum of the means
+y1<-runif(n=4)
+mean(y1)
+mean(y)
+mean(y1) + mean(y)
+mean(y1+y)
+
+
+#### rules for the variance
+
+## 1. the variance of a constant is 0
+a<-c(4,4,4,4)
+var(a)
+
+## 2. adding a constant value to the variable does not change the variance,
+# it only shifts the mean
+var(y)
+mean(y)
+var(y+4)
+mean(y+4)
+
+## 3. multiplying a random var by a constant increases the variance by the
+# square of the constant
+var(y)
+var(y*2)
+var(y*4)
+
+## 4. the variance of the sum of 2/more random vars is equal to the sum of 
+# each of their variances only when the random vars are independent
+# independent means their covariance is 0
+var(y)
+y2<-c(-2, -10, 20, 18)
+var(y2)
+var(y+y2)
+var(y) + var(y2)
+
+
+#### rules for covariances
+
+## 1. the covariance of 2 constants, c and k, is 0
+rm(list = ls())
+a<-rep(4,10)
+b<-rep(6,10)
+cov(a,b)
+
+## 2. the covariance of 2 indpendent random vars is 0
+rm(list = ls())
+x<-runif(10)
+y<-runif(10)
+cov(x,y)
+
+## 3. the covariance is a combinative (not affected by order)
+cov(x, y)
+cov(y, x)
+
+## 4. the covariance of a random variable with a constant is 0
+a<-rep(4,10)
+cov(x,a)
+
+## 5. adding a constant to either/both random vars does not change 
+# their covariances
+cov(x,y)
+cov((x+5), y)
+cov((x+5),(y+5))
+
+## 6. multiplying a random var by a constant multiplies the covariance by 
+# that constant
+cov(x,y)
+cov(x*2,y)
+
+## 7. the covariance of a random var with a sum of random vars is just the 
+# sum of the covariances with each of the random variables
+z <- x*0.4+0.1*runif(10)
+cov((x+y),z)
+cov(x,z)+cov(y,z)
+
+
+## SwS 11a - Linear models w categorical predictors ----
+
+# lm(response ~ explanatory)
+
+a <- read.table("../data/SparrowSize.txt", header=TRUE)
+str(a)
+
+# sex: 0 and 1
+catmod1 <- lm(Mass ~ Sex, data=a)
+summary(catmod1)
+
+# yi = b0 + b1xi + epsiloni
+# when xi = 0 (female) b0 will be intercept (yi = b0 + epsiloni)
+# when xi = 1 (male) -- b1xi is the diff between females and males (yi = b0 + b1xi + epsiloni)
+# like a ttest
+
+# so in summary(catmod1) - intercept = mean mass for female, 
+# add ~half a gram -> ave male mass (bit labelled Sex)
+
+# mean of each group:
+# females = intercept
+# males = intercept + b1 (b1 diff between groups)
+
+## intercept is the mean of reference category - R chooses this alphanumerically (can force-add 0 in front!)
+
+catmod2 <- lm(Mass ~ Sex.1, data=a)
+summary(catmod2)
+# values still the same
+
+
+## categorical predictors with more than 2 levels
+
+# year as categorical predictor
+# hypothesis: diff yrs have diff food supply
+# prediction: mass differs between years
+
+# have to tell R to use years as categorical
+
+a$Year.F <- as.factor(a$Year)
+str(a)
+
+catmod3 <- lm(Mass ~ Year.F, data=a)
+summary(catmod3)
+# all categories compared to reference category
+# sig stars against most - doesn't mean all years compleetly diff - only compared to ref
+# have to do post-doc tests to compare each year
+
+plot(a$Mass ~ a$Year.F)
+
+## key points:
+# r chooses ref level alpha numerically
+# intercept = mean of ref level
+# estimates = diff to ref level
+# ttest: diff to ref level
+# using cat vars w many levels - not so good because losing lots of degrees of freedom
+
+
+## SwS 11b - multiple linear models ----
+
+# can have >1 explanatory vars
+# can mix continuous and factorial explanatory vars
+# complexity increases
+# BUT careful - need to be easily explained, presented
+
+# yi = b0 + b1xio + b2xi1 + b3xi2 + epsiloni
+
+## eg w 2 predictor vars
+# yi = b0 + b1xio + b2xi1 + epsiloni
+# b0 = intercept
+# b1 = estimates effect of continuous var x0 (tarsus)
+# b2 = estimates effect of 2-level factor x1 (sex)
+
+# w no effect
+# females (xi2 = 0) -> yi = b0 + b1xi0 + epsiloni 
+# males (xi2 = 1) -> y = b0 + b1xi0 + b2 + epsiloni - males have diff intercept = b0 + b2
+# slope same 
+
+# males heavier than females, still no effect of tarsus
+# estimate sig diff to females (mean is diff)
+
+# effect of tarsus not sex
+# sig effect of slope
+
+
+## interaction of terms
+# what if effect of sex and tarsus (would have diff intercepts and slopes)
+# yi = b0 + b1xi0 + b2xi1 + b3xi0xi1 + epsiloni
+# costs LOTS of degrees of freedom - and MUST have a biological explanation!!!!
+# b3 term has xi0 (sex) and xi1 (tarsus) interacting
+# no new variables - just interacting existing one
+# females: linear function still same (intercept and slope) ( because xi0 = 0)
+# males: -> b0 + b2 + (b1 = b3)xi0 + epsiloni  - both slope and intercept diff from females
+
+# b0 - intercept of ref group
+# b1 - slope of ref group
+# b2 - diff of intercept of group 1 to ref
+# b3 - diff of slope of group 1 to ref
+
+# don't interpret estimates from lm summary by themselves for interactions!!
+
+# t value for intercepts - whether diff from 0
+
+
+## KEY - making models - THINK about which variables biologically meaningful!!!! ----
+## model + vs *
+# if slope is ~ same for all vars - add them
+# if there is BIO JUSTIFICATION for slope being diff for diff vars - then would 
+# be interaction - if not justification - no interaction!!
+# generally not penalised for too simple model - WILL be penalised if too 
+# complex for no reason/cannot be interpreted!!!
+
+
+## SwS 11c ----
+
+# multiple continuous predictors, interactions between continuous predictors, 
+# interactions between categorical predictors
+
+# interactions between continuous predictors
+# main effects cannot be interpreted in isolation 
+# difficult to interpret, visualise
+# only do if meaning behind and relevant to hypothesis
+
+## what to use when:
+## Always think of hypothesis, depends on q
+## do you want to:
+# predict
+# explain
+# explore
+# account for variables
+
+# models 
+# interpretation for continuous vs cat vars differs - know which using
+# know your data
+# do not over-fit
+
+
+## Hand-out work ----
+rm(list=ls())
+
+## Daphnia growth
+# rate of growth in water containing 4 diff detergents and using
+# individuals of 3 diff clones
+
+## load and examine data
+daphnia <- read.delim("../data/daphnia.txt")
+summary(daphnia)
+head(daphnia)
+str(daphnia)
+
+## check for outliers
+# from summary data- categories have sufficient sample sizes - homegeneous dataset
+par(mfrow = c(1, 2))
+plot(Growth.rate ~ as.factor(Detergent), data=daphnia)
+plot(Growth.rate ~ as.factor(Daphnia), data = daphnia)
+# outliers in boxplots would be circles - none here
+
+## homegeneity of variances - important assumption
+# looking at plot - look sort of simialr (rule of thumb: ratio between largest
+# var and smalled should not be much more than 4)
+require(dplyr)
+daphnia %>%
+  group_by(Detergent) %>%
+  summarise (variance=var(Growth.rate))
+# fairly similar
+daphnia %>%
+  group_by(Daphnia) %>%
+  summarise (variance=var(Growth.rate))
+# var for clone 1 more than 4 times smaller than others - borderline but we'll go with it
+# keep this in mind when interpreting results!!!
+# would be explicitly clear about assumptions in report -> (“the	assumption	of	normality	was violated	- the	ratio	between	the	largest	and smallest variance	was	5,	which	is	slightly	too	much	and	might	bias	the	least	square	estimators”)	and	consider	the	consequences	of	this	for	when	you	draw	your	conclusions (also	explicitly	in	your	report).
+
+## are the data normally distributed?
+dev.off()
+hist(daphnia$Growth.rate)
+# Errr.	Well.	This	is	a	good	one.	WHAT	exactly	needs	to	be	normally	distributed?	And	how	close	to	normal	should	it	be?	Linear	regression	assumes	normality,	but it is	reasonably robust	against	violations.	However,	it	assumes	that	the	observations	for	each	x	are	normal.	So,	if	you	measure	something	at	x-2	10	times,	you’d	expect	the	resulting	y	to	be	normally distributed.	Zuur	et	al.	2010	nicely	shows	this.	Really,	we	are	interested	in	the	residuals.	So	we’ll	look	at	that	later	in	more	detail	and	for	now	hope	that	the	growth	rate	is	ok-ish	normally	distributed.
+
+## are there excessively many zeros?
+# from hist, no
+
+## is there co-linearity among the covariates?
+# only have categories here so doesn't apply
+# check if all combinations represented - we know this data homogeneous
+
+## visually inspect relationships
+# done w boxplots above - no continuous covariates, maybe clone 1 has effect-that's about it
+
+## consider interactions?
+# no
+
+
+### Model daphnia
+
+# first make barplots of mean and se for both genotype and detergent
+
+# get means and se
+seFun <- function(x) {
+  sqrt(var(x)/length(x))
+}
+detergentMean <- with(daphnia, tapply(Growth.rate, INDEX = Detergent,
+                                      FUN = mean))
+detergentSEM <- with(daphnia, tapply(Growth.rate, INDEX = Detergent,
+                                     FUN = seFun))
+cloneMean <- with(daphnia, tapply(Growth.rate, INDEX = Daphnia, FUN = mean))
+cloneSEM <- with(daphnia, tapply(Growth.rate, INDEX = Daphnia, FUN = seFun))
+
+# plot
+par(mfrow=c(2,1),mar=c(4,4,1,1))  # plot one above other and reduce size of margins
+barMids <- barplot(detergentMean, xlab = "Detergent type", 
+                   ylab = "Population growth rate", ylim = c(0, 5))
+arrows(barMids, detergentMean - detergentSEM, barMids, detergentMean +
+         detergentSEM, code = 3, angle = 90)
+barMids <- barplot(cloneMean, xlab = "Daphnia clone", 
+                   ylab = "Population growth rate", ylim = c(0, 5))
+arrows(barMids, cloneMean - cloneSEM, barMids, cloneMean + cloneSEM,
+       code = 3, angle = 90)
+# doesn't look like detergents matter but test anyway to see if any 
+# explanatory power
+
+daphniaMod <- lm(Growth.rate ~ Detergent + Daphnia, data=daphnia)
+summary(daphniaMod)
+# intercept is mean for brandA clone1 - this mean is sig diff from 0
+# then next estimate is comparing mean of BrandB Clone1 to the ref (brandA Clone1) - not sig diff
+# etc
+# same difference in means as calculated for barplot
+detergentMean - detergentMean[1]
+cloneMean - cloneMean[1]
+# to get mean of BrandA Clone2 - do intercept + estimate for Clone2
+# to get mean of BrandB Clone3 - do intercept + estimate for BrandB + estimate for Clone3
+
+## can use Tukey HSD to test all pairwise differences:
+# first change model slightly (as Tukey doesn't accept lm input)
+?aov  # v similar but less powerful than lm - can be useful
+daphniaANOVAMod <- aov(Growth.rate ~ Detergent + Daphnia, data = daphnia)
+summary(daphniaANOVAMod)
+# Tukey
+daphniaModHSD <- TukeyHSD(daphniaANOVAMod)
+daphniaModHSD
+# gives upper and lower 95CI (confidence interval)
+
+# 2 tables: detergent (shows none are sig diff)
+# daphnia  - clone1 sig diff from 2 and 3, 2 and 3 not diff to each other
+
+par(mfrow=c(2,1),mar=c(4,4,2,2))
+plot(daphniaModHSD)
+# can see that clone1-clone2 and clone1-clone3 are the only ones that are sig diff from 0
+
+## model validation
+par(mfrow=c(2,2))
+plot(daphniaMod)
+# oh no! -no stars in the sky!
+# QQ plot looks good - no outliers indeed
+# but not too bad -publishable! IF openly explain the tihngs that affect how one interprets the data
+
+
+## multiple regression ----
+
+# dataset on volume of usable timber harvested from trees of known height and girth
+# want to know whether height and girth important inpredicting yield from a tree
+
+timber <- read.delim("../data/timber.txt")
+summary(timber)
+str(timber)
+head(timber)
+
+## outliers
+par(mfrow = c(2, 2))
+boxplot(timber$volume)
+boxplot(timber$girth)
+boxplot(timber$height)
+# 1 outlier in volume - large but not excessively
+# nothing to suggest it's a measurement error or typo - could be biologically true
+# leave it in - remember when looking at leverage
+
+## homogeneity of variances - level of variance of expl vars constant across sample
+var(timber$volume)
+var(timber$girth)
+var(timber$height)
+# violation of homogeneity = hetergeneity/heteroscedasticy
+# interested in volumne (y) so standardize the x's:
+# transform data:
+t2<-as.data.frame(subset(timber, timber$volume!="NA"))
+t2$z.girth<-scale(timber$girth)
+t2$z.height<-scale(timber$height)
+var(t2$z.girth)
+var(t2$z.height)
+plot(t2)
+
+## normally dist?
+par(mfrow = c(2, 2))
+hist(t2$volume)
+hist(t2$girth)
+hist(t2$height)
+
+## excessively many 0s?
+# no
+
+## co-linearity among covariates?
+pairs(timber)
+cor(timber)
+# all variables positively correlated 
+# tree diameter better predictor of yield than height
+# too much correlation among the predictors (height and girth)
+# not good - colinearity - inflates variation (would get larger se)
+# then more difficult to detect an effect - get non-sig even if might be
+# dropping covariates can affect estimates of other covars if colinear
+# SEs inflated w square root of Variance Inflation Factor
+# can use this VIF to see what amount of colinearity is too much
+
+# calculate VIF by running extra linear model in which the covariate of focus (here girth)
+# is y, and all other covars (height) are the covars
+# then:
+# VIF = 1 / (1 - R^2)
+summary(lm(girth ~ height, data = timber))
+VIF<- 1/(1-0.27)
+VIF
+sqrt(VIF)
+# so SEs of girth inflated by 1.17 - not a lot
+# some people - get rid of all covars w VIF > 3, some say >10
+# test for it and keep in mind! (disclose in report) - think biology always
+pairs(timber)
+cor(timber)
+# can see outlier in vol but behaves like all other points - doesn't 
+# influence correlation too much
+# same w scaled predictors - much the same - same correlations (should be!)
+pairs(t2)
+cor(t2)
+
+## visually inspect relationships
+# for covars done
+# pair plot shows relationships w response var (vol) - are some relationships
+
+## interactions?
+# not for now
+
+# if girth has such high corr w vol, do we need height too?
+timberMod <- lm(volume ~ girth + height, data = timber)
+anova(timberMod)
+# yes! height needed as well as girth
+summary(timberMod)
+
+# R^2 shows >90% var in vol comes explained by:
+# vol = -4.2 + 0.08*height + 0.04*girth
+# NOTE: model makes stupid predictions if tree is v small 
+# - 1m sapling w diameter 10cm contains -3.72 tonnes timber...!
+# not sensible to expect model to make good predictions outside of 
+# range of data used to fit it
+
+plot(timberMod)
+# no starry sky!
+# QQ ok
+# leverage not nice - one point esp stands out - 31
+# if wanting to publish - run whole thing without this point and see if 
+# come to same conclusions
+# if so, leave it in, if not - think about why 31 stands out so much
+
+
+# without 31
+timber_subset <- t2[1:30,]
+summary(timber_subset)
+str(timber_subset)
+head(timber_subset)
+
+par(mfrow = c(2, 2))
+boxplot(timber_subset$volume)
+boxplot(timber_subset$girth)
+boxplot(timber_subset$height)
+# no outliers now
+
+plot(timber_subset)
+pairs(timber_subset)
+cor(timber_subset)
+summary(lm(girth ~ height, data = timber_subset))
+VIF<- 1/(1-0.2)
+VIF
+sqrt(VIF)  # smaller VIF
+
+timberMod2 <- lm(volume ~ girth + height, data = timber_subset)
+anova(timberMod2)
+summary(timberMod2)
+plot(timberMod2)
+## conclusions still basically the same
+
+
+#### checklist ----
+# 1. outliers?
+# 2. homogeneity of variances?
+# 3. normally distributed data?
+# 4. excessively many zeros?
+# 5. co-linearity amonf the covariates?
+# 6. visually inspect relationships
+# 7. consider interactions?
+**********************************************************************
+
+Testing Wed_GenStatistics.R...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+[1] 1.385625
+[1] 11.99392
+[1] 81.69799
+polygon                package:graphics                R Documentation
+
+_P_o_l_y_g_o_n _D_r_a_w_i_n_g
+
+_D_e_s_c_r_i_p_t_i_o_n:
+
+     ‘polygon’ draws the polygons whose vertices are given in ‘x’ and
+     ‘y’.
+
+_U_s_a_g_e:
+
+     polygon(x, y = NULL, density = NULL, angle = 45,
+             border = NULL, col = NA, lty = par("lty"),
+             ..., fillOddEven = FALSE)
+     
+_A_r_g_u_m_e_n_t_s:
+
+    x, y: vectors contain
+**********************************************************************
+
+Encountered error (or warning):
+
+***IGNORE IF THIS ERROR IS EXPECTED AS PART OF AN IN-CLASS EXERCISE***
+
+Loading required package: dplyr
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+
+======================================================================
+Inspecting script file Fri_GenStatistics.R...
+
+File contents are:
+
+**********************************************************************
+## Into the wild!
+
+# linear model = this can do everything! (mostly...)
+# aim to collect quantitative data!!!
+
+# IF RESPONSE var factorial, ranked (not continuous numeric)
+# sometimes unavoidable - not good
+
+# people will come to diff results from models - key thing make sure 
+# assumptions robust
+# qualitative meaning of the quantitative data should be similar
+
+# expect:
+# heterogeneous data
+# dirty data
+# data needing restructuring/w missing values
+# data not matching hypothesis (maybe change question...)
+# too small sample size
+## work within yours means and w knowledge of potential limitations
+# to your inference
+
+
+## Rodents
+
+d <- read.csv("../data/rodents.csv", header = TRUE)
+**********************************************************************
+
+Testing Fri_GenStatistics.R...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+
+**********************************************************************
+
+Encountered error (or warning):
+
+***IGNORE IF THIS ERROR IS EXPECTED AS PART OF AN IN-CLASS EXERCISE***
+
+Error in file(file, "rt") : cannot open the connection
+Calls: read.csv -> read.table -> file
+In addition: Warning message:
+In file(file, "rt") :
+  cannot open file '../data/rodents.csv': No such file or directory
+Execution halted
+
+======================================================================
+Inspecting script file Intro_to_Coding.R...
+
+File contents are:
+
+**********************************************************************
+##if Statements##
+sparrows <- 12
+crows <- 5
+if(sparrows>crows){
+  print("Sparrows dominate")
+}
+
+#Example with Logical Variale#
+a <- TRUE
+if(a==TRUE){
+  print("a is TRUE")
+}
+
+#Examples Numeric#
+x <- 5
+if(x > 0){
+  print("Positive number")
+}
+
+##else Statements##
+sparrows<- 5
+crows<-12
+if(sparrows>crows){
+  print("Sparrows dominate")
+} else{
+  print("Crows dominate")
+}
+
+#Example#
+a <- FALSE
+if (a != TRUE){
+  print ("a is FALSE")
+} else {
+  print ("a is TRUE")
+}
+
+#Example#
+x <- 5
+if(x > 0){
+  print("Non-negative number")
+} else {
+  print("Negative number")
+}
+
+#Example#
+b <- c(1, 2, 3, 4, -5, -7)
+if(b>0){
+  print("non-negative number")
+} else {
+  print("negative number")
+}
+
+##ifelse rewrites##
+b <- c(1, 2, 3, 4, -5, -7)
+ifelse(b>0,print(paste("non-negative number")),print(paste("negative number")))
+
+#Simple#
+a<- FALSE
+ifelse(a=="FALSE", print("Is false"), print("Is true"))
+
+x <- -5
+ifelse(x>0, print("Non-negative number"), print("Negative number"))
+
+a <- c("TRUE", "FALSE", "TRUE")
+ifelse(a=="FALSE", print("Is false"), print("Is true"))
+
+#A Quick Test#
+b <- seq(from =1, to=10, by=2)
+result <-ifelse(b!=3, print("No"), print("Yes"))
+result[2]
+b[2]
+
+##for Loops##
+for(i in 1:10){
+  print(i)
+}
+
+#More#
+for (i in 1:10){
+  j <- i * i
+  print(paste(i, " squared is", j ))
+}
+
+
+# For loop over vector of strings#
+for(species in c('Heliodoxa rubinoides',
+                 'Boissonneaua jardini',
+                 'Sula nebouxii')){
+  print(paste('The species is', species))
+}
+
+# for loop using a vector#
+v1 <- c("a","bc","def")
+for (i in v1){
+  print(i) 
+  }
+
+##For, if and else##
+z <- rnorm(10) #rnorm here is a random number generator#
+for(i in z){
+  if(i>0){
+    print("TRUE")}
+    else{
+      print("FALSE")
+    }
+}
+
+output<-ifelse(z>0, print("TRUE"), print("FALSE"))
+
+**********************************************************************
+
+Testing Intro_to_Coding.R...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+[1] "Sparrows dominate"
+[1] "a is TRUE"
+[1] "Positive number"
+[1] "Crows dominate"
+[1] "a is FALSE"
+[1] "Non-negative number"
+
+**********************************************************************
+
+Encountered error (or warning):
+
+***IGNORE IF THIS ERROR IS EXPECTED AS PART OF AN IN-CLASS EXERCISE***
+
+Error in if (b > 0) { : the condition has length > 1
+Execution halted
+
+======================================================================
+Inspecting script file Tue_GenStatistics.R...
+
+File contents are:
+
+**********************************************************************
+## SwS 6a - Error and statistical power ----
+
+# key thing w CI is whether it encompasses 0 - if it does - not stat sig
+
+# even if something sig different, is it relevant? eg males sig bigger than
+# females, but by 0.1mm - does this matter?
+
+## Primary vs secondary stats
+# the effect size - primary statistic - biologically meaningful,
+# eg Cohen's d for differences
+# secondary stats (eg t, F, p) - these to back up primary stat - is it sig etc
+
+# MAKE SURE to include primary stats - eg if found stat sig between 2 means
+# - SAY WHAT THE MEANS ARE
+# BIOLOGY should be centre stage! (stats to back up)
+
+# sample sizes - what size do I need - conduct a power analysis
+# take effect size, alpha (limit to p-value, typically 0.05), power (and then calculate N)
+# do power analysis before planning project!!!
+
+
+## SwS 6b - Degrees of freedom ----
+
+## describing data
+# 1 data point - no estimate of mean - data = mean
+# 2 points - estimate of mean is one data point - one less point than the data
+# 3 data points - the mean estimate is 2 fewer than 3 -> df = 2
+# etc!
+
+## describing differences between 2 groups
+# 2 data points - delta (diff) is calculable - no error -df =0
+# 4 points - estimate 2 means (and find diff of these) - 4-4=2 df
+# 6 points - 2 means - 6-2=4df
+
+## describing relationships
+# 1 point - no relationship
+# 2 points - can describe relationship - no error - it's a line
+# 3 - can describe line w estimate of slope and intercept - 3-2=1df
+# 6 - eg if one line to describe - 6-2=4df
+#   - if describing w 2 lines - 4 estimates (2slope, 2intercept) 6-4=2df
+
+# quantifies how many parameters you can estimate from the data
+# always fewer than the sample size (cannot estaimte more than the data)
+# must be at least 1 left over
+# df = N - #parameters estimated
+
+# parameters = primary stat
+# one sample ttest - 1 mean, 
+# 2 sample ttest - 2 means
+# correlation - 1 cor coef
+# linear model w 1 continuous predictor: 2-1 intercept and 1 slope
+# etc!!!
+
+#### Hand-out work
+
+## Power analysis
+rm(list=ls())
+require(WebPower)
+?WebPower
+
+# diff between male and female horns 30cm (females longer) from 5 dragons, st dev 1.2
+
+# Cohen's d = diff between 2 means divided by st dev (gives ratio of effect size to st dev)
+0.3/1.2
+# so d is 0.25 (effect size)
+# means we want to detect an effect size that is 1/4 of st dev
+# visualise in st dev density plot (w mean 1, st dev 1.3, horns cannot be shorter than 0 so cut off)
+
+y<-rnorm(51, mean=1, sd=1.3)
+x<-seq(from=0, to=5, by=0.1)
+length(x)
+plot(hist(y, breaks=10))
+
+mean(y)
+sd(y)
+
+segments(x0=(mean(y)), y0=(0), x1=(mean(y)), y1=40, lty=1, col="blue")
+# and now 0.25 sd left of the mean (because females are larger)
+segments(x0=(mean(y)+0.25*sd(y)), y0=(0), x1=(mean(y)+0.25*sd(y)), y1=40, lty
+         =1, col="red")
+
+# becomes obvious that it's a quite small effect size given the variability of data
+
+# do we need larger sample size?
+
+?wp.t
+
+# need 2 sample sizes (what we want to work out) -assume the same (easiest)
+# effect size is 0.25, alpha is 0.05, 
+# power - want stat power to be .080 or higher (convention) ~ 20% chance of false negative
+# type = go w two sample as we have 2 samples male and female (not comparing one sample to fixed mean)
+
+wp.t(d=0.25, power=0.8, type="two.sample", alternative="two.sided")
+# results says would need to sample 252 dragons in each group to get a clear answer
+# if sample <504 individuals, unlikely to get satisfactory answer
+
+# can produce power curve - demonstrate effect of sample size on power
+res.1<-wp.t(n1=seq(20,300,20), n2=seq(20,300,20), d=0.25, 
+            type="two.sample.2n", alternative="two.sided")
+res.1
+plot(res.1, xvar="n1", yvar="power")  # NOTE: n1 is ONE group
+
+# only hope for getting away w smaller sample size is if st dev is smaller 
+# than 1.2, or if effect size is actually larger than 0.3m 
+# but cannot know this without more sampling - and to be stat sure - 
+# need to sample > 500!!
+
+## exercise
+
+# growth of 2 groups of bacterial colonies
+# n each group = 300
+# effect size = 0.11
+# p = 0.044
+# want to work out power of this analysis
+wp.t(n1=300, n2=300, d=0.11, alpha=0.044, type="two.sample")
+# power = 0.25 (not v powerful...)
+
+
+## SwS 7 - Linear Algebra ----
+
+rm(list=ls())
+x<-seq(from = -5, to = 5, by = 1)
+x
+x[[1]]
+x[[2]]
+x[[9]]
+x[[length(x)]]
+i<-1
+x[[i]]
+i<- seq(0,10,1)
+i
+x[[i[[2]]]]
+
+# want line y = x + 2
+a<-2
+b<-1
+y<-a+b*x
+plot(x,y)
+# add cartesian axes
+segments(0,-10,0,10, lty=3)
+segments(-10,0,10,0,lty=3)
+# want line not just points
+?abline
+plot(x,y, col="white")  # plotted dots in white so not seen..!
+segments(0,-10,0,10, lty=3)
+segments(-10,0,10,0,lty=3)
+abline(a = 2, b=1)
+# can add points to plots...
+points(4,0, col="red", pch=19)
+points(-2,6, col="green", pch=9)
+points(x,y, pch=c(1,2,3,4,5,6,7,8,9,10,11))
+
+# plot quadratic
+y<-x^2
+plot(x,y)
+segments(0,-30,0,30, lty=3)
+segments(-30,0,30,0,lty=3)
+
+x<-seq(from = -5, to = 5, by = 0.1)
+a<- -2
+y<-a+x^2
+plot(x,y)
+segments(0,-30,0,30, lty=3)
+segments(-30,0,30,0,lty=3)
+
+# give a slope, b
+plot(x,y)
+a<- -2
+b<-3
+y<-a+b*x^2
+points(x,y, pch=19, col="red")
+segments(0,-30,0,30, lty=3)
+segments(-30,0,30,0,lty=3)
+
+# add non-quadratic effect - moves whole curve
+plot(x,y)
+a<- -2
+b1<- 10
+b2<-3
+y<-a+b1*x+b2*x^2
+points(x,y, pch=19, col="green")
+segments(0,-100,0,100, lty=3)
+segments(-100,0,100,0,lty=3)
+
+
+# quiz q3
+x<-seq(from = -5, to = 10, by = 1)
+y <- -1+2*x-0.15*x^2
+plot(x,y)
+points(x,y, pch=19, col="green")
+segments(0,-100,0,100, lty=3)
+segments(-100,0,100,0,lty=3)
+
+segments(x0=-5, x1=10, y0=5, y1=5, col="blue")
+segments(x0=-5, x1=10, y0=5.65, y1=5.65, col="red")
+
+segments(x0=7, x1=7, y0=-15, y1=8, col="blue")
+segments(x0=7.5, x1=7.5, y0=-15, y1=8, col="red")
+
+
+# quiz q4
+x<-seq(from = -5, to = 20, by = 1)
+y <- -1+2*x-0.08*x^2
+plot(x,y)
+points(x,y, pch=19, col="blue")
+segments(0,-100,0,100, lty=3)
+segments(-100,0,100,0,lty=3)
+segments(x0=12, x1=12, y0=-15, y1=15, col="red")
+
+
+## SwS 8 - Linear models ----
+
+# only fit complex model if hypothesis is specific - best to fit most minimal
+# model that answers the question
+
+# y = b0 + b1*xi + ei   ( e is actually epsilon)
+
+# y = response variable, i is an index
+# x is explanatory, w equivalent i (same as y - linked measurements)
+# epsilon - don't know this until model solved (also has index - epsilon for each x and y)
+# b0 and b1: b0 intercept, b1 slope (only one number vs x and y - vectors)
+# aim to estimate b0 and b1
+
+# plot - guestimate line - rough estmimate of b0 and b1
+# epsilon is distance from line to each data point
+
+# compare w straight flat line and compare epsilon using this line vs the guess line
+# square all these resiuduals and sum them (for actaul line and flat line)
+# estimate the goodness of fit
+
+# model fitting - finds line that is best positioned to minnimise
+# the sum of squared residuals
+
+## linear regression
+# minimises sum of squared residuals of line
+# gets b0 and b1 for this 
+
+
+## Hand-out work
+
+rm(list=ls())
+x<-c(1,2,3,4,8)
+y<-c(4,3,5,7,9)
+x
+mean(x)
+var(x)
+y
+mean(y)
+var(y)
+
+?lm
+model1 <- (lm(y~x))
+model1
+summary(model1)
+coefficients(model1)
+resid(model1)
+mean(resid(model1))
+var(resid(model1))
+length(resid(model1))
+
+summary(model1)
+plot(y~x, pch=19)
+
+plot(y~x, pch=19, xlim=c(0,8.5), ylim=c(0,9.5))
+segments(0,-30,0,30, lty=3)
+segments(-30,0,30,0,lty=3)
+coefficients(model1)
+abline(2.62, 0.83)
+
+
+# bigger dataset
+# create x var from -10 to 10
+# random slope, -0.2, choose intercept 7.1
+x<-seq(from=-10, to=10, by=0.2)
+x
+y <- 7.1-0.2*x
+y
+# now run model, expect slope to be -0.1, intercept 7.1
+summary(lm(y~x))
+# estimates excellent, get odd warning message: fit essentially perfect
+plot(y~x)
+# the data is too perfect! - there is no uncertainty: se v small and residuals too
+
+# simulate some uncertainty
+y<- 7.1-0.2 * x + runif(length(x))
+summary(lm(y~x))
+plot(y~x)
+
+
+## SwS 9a - Linear models - practice ----
+
+## SwS 9b - Linear models - interpreting and reporting ----
+
+# why standardize data?
+
+# 1. make the intercept more biologically meaningful
+# eg z-standardize tarsus vs body mass
+# normal tarsus vs body mass - slope is positive - bigger tarsus - heavier bird
+# but intercept not very meaningful, <10g does a bird w no tarsus weigh <10g...no
+# data points all clustered around >15mm tarsus and ~30g mass
+
+# for z-standardized data - the data now has mean of 0 (all points clustered around y axis)
+# slope still shows same relationship (but now for every increase in st dev of tarsus length, increase in mass (rather than increase in mm -> g))
+# but now the intercept is the mean mass - more biologically meaningful
+
+# 2. better for comparing data
+# can compare sparrows, ostriches, etc!!
+# analysis not only relevant to sparrows any more, has some context - much better for a paper!
+
+# 3. units
+# if data standardized -> generally applicable, not so dependent on units
+
+# take home:
+# always consider units - and think of biological meaning
+# standardize to make intercepts meaningful
+
+
+# reporting
+
+# methods
+# repeat hypothesis: to test "x", I used linear model, say response and 
+# explanatory vars and why
+# say if standardized - and why!
+# talk about how assumptions checked eg visual inspection of residual plots...etc
+# what was value of significance p and used R etc
+
+# results
+# use descriptive data first - ease in! -what does data consist of?
+# stats results - effect and stats - w bio meaning
+# emphasis on primary stats
+
+
+## Hand-out work
+rm(list=ls())
+d<-read.table("../data/SparrowSize.txt", header=TRUE)
+
+plot(d$Mass~d$Tarsus, ylab="Mass (g)", xlab="Tarsus (mm)", pch=19, cex=0.4)
+
+x<-c(1:100)
+a<-0.5
+b<-1.5
+y<-b*x+a
+plot(x,y, xlim=c(0,100), ylim=c(0,100), pch=19, cex=0.5)
+
+# yi = b0 + b1*xi + epsiloni
+
+# y1 etc
+d$Mass[1]
+
+# yn (last)
+length(d$Mass)
+d$Mass[1770]
+
+
+plot(d$Mass~d$Tarsus, ylab="Mass (g)", xlab="Tarsus (mm)", pch=19, cex=0.4,
+     ylim=c(-5,38), xlim=c(0,22))
+
+# estimate b0 and b1 (slope and intercept)
+# easier on zoomed in plot
+plot(d$Mass~d$Tarsus, ylab="Mass (g)", xlab="Tarsus (mm)", pch=19, cex=0.4)
+
+# approx: intercept somewhere bwteen -5, 10 and 
+# slope - maybe ~10g diff for 5mm so 10/5 = 2
+
+# equation ish
+# yi = 5 + 1.6xi + epsiloni
+
+# epsilon
+# not only want to quantify the direction and steepness of association but also 
+# the spread - error - noise around line
+# one error term (residual) for each observation - how far point is from line (squared)
+# want to minimise residuals
+# method - least square 
+
+d1<-subset(d, d$Mass!="NA")
+d2<-subset(d1, d1$Tarsus!="NA")
+length(d2$Tarsus)
+model1<-lm(Mass~Tarsus, data=d2)
+summary(model1)
+
+# see residuals
+hist(model1$residuals)
+head(model1$residuals)
+
+# slope is more like 1.2 
+
+# df = 1642 (1644 obs) - 2 estimates - slope and intercept
+
+# R^2 - means 23% var in mass explained by var in tarsus
+# if 100% would mean no deviation from the line, eg
+model2<-lm(y~x)
+summary(model2)
+
+# z transformation
+d2$z.Tarsus<-scale(d2$Tarsus)
+model3<-lm(Mass~z.Tarsus, data=d2)
+summary(model3)
+# now the intercept reflects the mean mass
+plot(d2$Mass~d2$z.Tarsus, pch=19, cex=0.4)
+abline(v = 0, lty = "dotted")
+
+head(d)
+str(d)
+d$Sex<-as.numeric(d$Sex)
+plot(d$Wing ~ d$Sex, xlab="Sex", xlim=c(-0.1,1.1), ylab="")
+abline(lm(d$Wing ~ d$Sex), lwd = 2)
+text(0.15, 76, "intercept")
+text(0.9, 77.5, "slope", col = "red") 
+
+# ttest (tests for stat sig diff from 0 diff between 2 means) can be used 
+# to test linear models
+d4<-subset(d, d$Wing!="NA")
+m4<-lm(Wing~Sex, data=d4)
+t4<-t.test(d4$Wing~d4$Sex, var.equal=TRUE)
+summary(m4)
+t4
+
+# test assumptions - residuals are normally distributed
+par(mfrow=c(2,2))
+plot(model3)
+# first plot - want residuals to be roughly randomly - stars in the sky -
+# don't want to see a trend
+# second - Q-Q plot - standardised residuals plotted against the quantiles
+# they should fall into (assuming they are normally distributed) - should 
+# be straight line - this one is ok
+
+# compare w model 4
+par(mfrow=c(2,2))
+plot(m4)
+
+# third plot - shows residuals in relationship to their leverage (how important
+# some points are in relationship to others)
+**********************************************************************
+
+Testing Tue_GenStatistics.R...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+No documentation for ‘WebPower’ in specified packages and libraries:
+you could try ‘??WebPower’
+[1] 0.25
+[1] 51
+[1] 0.9668773
+[1] 1.252154
+No documentation for ‘wp.t’ in specified packages and libraries:
+you could try ‘??wp.t’
+
+**********************************************************************
+
+Encountered error (or warning):
+
+***IGNORE IF THIS ERROR IS EXPECTED AS PART OF AN IN-CLASS EXERCISE***
+
+Loading required package: WebPower
+Warning message:
+In library(package, lib.loc = lib.loc, character.only = TRUE, logical.return = TRUE,  :
+  there is no package called ‘WebPower’
+Error in wp.t(d = 0.25, power = 0.8, type = "two.sample", alternative = "two.sided") : 
+  could not find function "wp.t"
+Execution halted
+
+======================================================================
+Inspecting script file Intro_to_DataWrangling.R...
+
+File contents are:
+
+**********************************************************************
+#Directories#
+getwd()
+setwd("~/Library/Mobile Documents/com~apple~CloudDocs/Imperial/Teaching/PG/Biological Computing in R/20:21/3. Thursday")
+list.files()
+
+##Dependencies##
+library(dplyr)
+library(tidyr)
+
+#Gather#
+speciesdiversity <- read.csv("speciesdiversity.csv")
+long<-pivot_longer(speciesdiversity, names_to = "Year", values_to = "SpDiv", cols=SpDiv.1991:SpDiv.1992)
+
+long<-pivot_longer(speciesdiversity, names_to = "Year", values_to = "SpDiv", cols=c("SpDiv.1991", "SpDiv.1992"))
+
+##Useful arguments: names_prefix="SpDiv." and values_drop_na=TRUE or FALSE 
+
+long<-pivot_longer(speciesdiversity, names_to = "Year", values_to = "SpDiv", 
+                   cols=SpDiv.1991:SpDiv.1992, names_prefix = "SpDiv.")
+
+#Spread#
+wide<- pivot_wider(long, names_from = "Year",values_from="SpDiv")
+
+fertility<- read.csv("fertility.csv")
+
+##Arrange##
+  #Arrange1#
+  arr1 <- arrange(fertility, Age)
+  head(arr1)
+  tail(arr1)
+  #Arrange 2#
+  arr2 <- arrange(fertility, desc(Age))
+head(arr2)
+  
+##Select##
+  #Select 1#
+  sel1<- select(fertility, Age, FSH, Oocytes, Embryos)
+  #Select 2#
+  sel2<- select(fertility, Age:MeanAFC)
+  #Select 3#
+  sel3 <- select(fertility, -FSH)
+  #Select 4#
+  sel4<- select(fertility, contains("AFC"))
+
+##Filter##
+  #Filter 1#
+  fil1<- filter(fertility, Age<=30&MeanAFC>20)
+
+##Mutate##
+  #Mutate 1#
+  mut1 <- mutate(fertility, ratio=Embryos/Oocytes)
+  str(mut1)
+  
+##Summarise##
+  sum1 <- summarise(fertility, min.FSH = min(FSH), max.FSH =max(FSH))
+
+##Pipe Operator##
+  pip1<- fertility%>%filter(Age<=30)%>%select(Age:MeanAFC)
+
+##group_by##
+  groups <- group_by(fertility, AgeGroup)
+  
+##group_by+summarise##
+  group_summary <- fertility%>%group_by(AgeGroup)%>%summarise(mean.FSH=mean(FSH), sd.FSH=sd(FSH))
+
+groups<- fertility%>%filter(Age<=40)%>%select(Age:FSH)%>%group_by(AgeGroup)%>%summarise(mean.FSH=mean(FSH), sd.FSH=sd(FSH))
+  
+    
+**********************************************************************
+
+Testing Intro_to_DataWrangling.R...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+[1] "/home/mhasoba/Documents/Teaching/IC_CMEE/2022-23/Coursework/StudentRepos/AnqiWang_/week4/code"
+
+**********************************************************************
+
+Encountered error (or warning):
+
+***IGNORE IF THIS ERROR IS EXPECTED AS PART OF AN IN-CLASS EXERCISE***
+
+Error in setwd("~/Library/Mobile Documents/com~apple~CloudDocs/Imperial/Teaching/PG/Biological Computing in R/20:21/3. Thursday") : 
+  cannot change working directory
+Execution halted
+
+======================================================================
+Inspecting script file Mon_GenStatistics.R...
+
+File contents are:
+
+**********************************************************************
+#### Stats w sparrows ----
+#### 24/10/21
+
+rm(list=ls())
+
+require(dplyr)
+require(ggplot2)
+
+setwd("../../week4/code")
+
+## SwS 01 ----
+
+d <- read.table("../data/SparrowSize.txt", header=TRUE)
+str(d)
+head(d)
+summary(d)
+
+table(d$Year)  # from 2000 to 2010
+
+length(d$Tarsus)
+mean(d$Tarsus, na.rm=T)
+
+# mean from a smaller sample
+subset <- sample_n(d, 4)
+mean(subset$Tarsus)
+
+## Demonstrate how sample size affects mean
+x <- 0:length(d$Tarsus)
+x
+y <- mean(d$Tarsus, na.rm=T) + 0*x
+y
+plot(x, y, col="red", cex=0.3, xlab = "Sample size", ylab = "Mean of Tarsus",
+     ylim=c(18, 19.3))
+for (n in 1:length(d$Tarsus)) {
+  new_subset <- sample_n(d, n)
+  points(n, mean(new_subset$Tarsus, na.rm=T), cex=0.3)
+}
+
+
+## same but for var
+y <- var(d$Tarsus, na.rm=T) + 0*x
+y
+plot(x, y, col="red", cex=0.3, xlab = "Sample size", ylab = "Var of Tarsus",
+     ylim=c(0, 1.5))
+for (n in 1:length(d$Tarsus)) {
+  new_subset <- sample_n(d, n)
+  points(n, var(new_subset$Tarsus, na.rm=T), cex=0.3)
+}
+
+
+table(d$BirdID)  # want to summarise this:
+table(table(d$BirdID))  # 2 birds have been caught 12 times!
+# could also do this w dplyr
+BirdIDCount <- d %>% count(BirdID, BirdID, sort=TRUE)
+BirdIDCount %>% count(n)
+
+# repeats per bird per year
+birds_per_year <- d %>% group_by(Year) %>% count(BirdID) 
+head(Repeats)
+tail(Repeats)
+
+plot(birds_per_year$n ~ as.factor(birds_per_year$Year), col=birds_per_year$BirdID)
+
+ggplot(birds_per_year, aes(x = Year, fill = BirdID)) +
+  geom_bar()
+
+# individuals per year for each sex
+sex_per_year <- d %>% group_by(Year) %>% count(Sex.1)
+head(sex_per_year)
+
+ggplot(sex_per_year, aes(x = Year, y = n, col = Sex.1)) +
+  geom_line()
+
+
+## SwS 02 - Centrality and Spread ----
+
+## Measures of centrality = mean, median, mode
+
+names(d)
+
+hist(d$Tarsus)  # looks roughly normally distributed
+
+mean(d$Tarsus, na.rm = T)
+median(d$Tarsus, na.rm = T)
+mode(d$Tarsus)  # mode returned description of the object - here numeric
+# mode is most freq occuring value - difficult for numeric values
+
+par(mfrow = c(2,2))
+hist(d$Tarsus, breaks=3, col="grey")
+hist(d$Tarsus, breaks=10, col="grey")
+hist(d$Tarsus, breaks=30, col="grey")
+hist(d$Tarsus, breaks=100, col="grey")
+
+# mode must be somewhere between 18 and 19
+# no package to calculate more precisely, do it ourselves:
+# first, count how often each value occurs
+head(table(d$Tarsus))
+# some values measured eg 7 times, some only once
+
+# reasonable to round the tarsus values first, too precise!
+# round to 1dp
+d$Tarsus.rounded <- round(d$Tarsus, digits=1)
+head(d$Tarsus.rounded)
+# now find whihc is highest
+TarsusTally <- d %>% 
+  count(Tarsus.rounded, sort=T)
+TarsusTally
+# this works ish
+# the top number is the mode - 19.0
+# but also a row for NAs - in some datasets that might show 
+# up the most (but not the mode!!) - need to remove
+d2 <- subset(d, d$Tarsus!="NA")
+length(d$Tarsus) - length(d2$Tarsus)  # same as num of NAs in Tally - correct
+
+TarsusTally <- d2 %>% 
+  count(Tarsus.rounded, sort=T)
+TarsusTally
+
+TarsusTally[[1]][1]  # this is the first value = mode
+
+## summary stats:
+mean(d$Tarsus, na.rm = T)
+median(d$Tarsus, na.rm = T)
+TarsusTally[[1]][1]  # mode
+
+# in normally dist data mean, median, mode should be similar
+# (if perfectly normal, they should be identical)
+# as skew of distribution increases, these 3 measures diverge
+
+
+## Measures of spread = range, variance and standard deviation
+
+range(d$Tarsus, na.rm = T)
+range(d2$Tarsus, na.rm = T)
+
+var(d$Tarsus, na.rm = T)
+var(d2$Tarsus, na.rm = T)
+
+# calculate variance = sum of squares (SS) over n-1
+sum((d2$Tarsus - mean(d2$Tarsus))^2) / (length(d2$Tarsus) - 1)
+
+# st dev is square root of var
+sqrt(var(d2$Tarsus))
+sd(d2$Tarsus)
+
+
+## z scores and quantiles
+
+# z-scores come form standardized normal dists w mean 0 and st dev 1
+# if st dev 1, var also 1 -> st dev = var
+
+# in stats, often useful to transform data to follow this rule = z transforming
+# do this by dividing the deviation from the mean by the st dev
+# z = (y - ymean)/sigmay
+# sigmay is st ded of y
+
+zTarsus <- (d2$Tarsus - mean(d2$Tarsus)) / sd(d2$Tarsus)
+var(zTarsus)
+sd(zTarsus)
+
+par(mfrow = c(1,1))
+hist(zTarsus)
+
+# normal dist = z dist
+
+# make data set that follows this dist
+znormal <- rnorm(1e+06)
+hist(znormal, breaks = 100)
+summary(znormal)
+
+# qnorm - gets value of given quantile
+qnorm(c(0.025, 0.975))
+# pnorm - probability at a given value
+pnorm(.Last.value)
+
+par(mfrow=c(1,2))
+hist(znormal, breaks = 100)
+abline(v = qnorm(c(0.25, 0.5, 0.75)), lwd = 2)
+abline(v = qnorm(c(0.025, 0.975)), lwd = 2, lty = "dashed")
+plot(density(znormal))
+abline(v = qnorm(c(0.25, 0.5, 0.75)), col = "gray")
+abline(v = qnorm(c(0.025, 0.975)), lty = "dotted", col = "black")
+abline(h = 0, lwd = 3, col = "blue")
+text(2, 0.3, "1.96", col = "red", adj = 0)
+text(-2, 0.3, "-1.96", col = "red", adj = 1)
+
+# 95% confidence interval (CI) - range of values that encompass the
+# pops true value w 95% probability
+# (will make an error 5% of the time)
+# here it means that the true mean of the pop that was sampled lies
+# within the CI interval 95 times out of 100 sampling events
+
+# for the sparrows
+par(mfrow=c(1,1))
+boxplot(d$Tarsus ~ d$Sex.1, col = c("red", "blue"), ylab="Tarsus length (mm)")
+
+# mean vs median vs mode
+# median might be better for v skewed data/w big outliers / for categorical data
+
+# more precise variable - more smaller bins on hist
+
+
+#### SwS 03 - Data types ----
+
+str(d)
+
+# BirdID is numerical but it is a category
+d$BirdIDFact <- as.factor(d$BirdID)
+str(d$BirdIDFact)
+
+mean(d$BirdID)  # this is biologically meaningless - but R doesn't know this!
+# mean(d$BirdIDFact)  # no longer numeric so error - good! There's no such 
+# thing as average BirdID
+
+# Year - tricky variable - maybe every year is independent -> categorical
+# plot year as factor
+plot(d$Mass ~ as.factor(d$Year), xlab="Year", ylab="House sparrow body mass (g)")
+# if don't tell R that Year is categorical
+plot(d$Mass ~ d$Year, xlab="Year", ylab="House sparrow body mass(g)")
+# looks v different
+
+# when to use years as each type of variable, e.g. when thinking
+# about global warming:
+# blue tits rely on caterpillars to feed young, these emerge w tree burst,
+# happening earlier every year - strong selection on early laying dates
+# blue tit data:
+rm(list=ls())
+b<-read.table("../data/BTLD.txt", header=T)
+str(b)
+# LD.in_AprilDays is laying date from 1st Apr onward, 3 = 3rd apr, 32 = 1st May
+# int but is a continuous variable (later egg laying = worse for 
+# chicks - the scale of numbers has meaning)
+# ClutchsizeAge7 - num offspring in clutch seven days after hatching - also continuous
+mean(b$ClutchsizeAge7, na.rm = TRUE)
+# IDFemale (no males -don't lay eggs!) - letter+nums - wants to be categorical
+b$IDFemale <- as.factor(b$IDFemale)
+# Year - we want this to be numerical 
+plot(b$LD.in_AprilDays. ~ b$Year, ylab="Laying date (April days)", xlab="Year",
+     pch=19, cex=0.3)
+# add jitter to see better:
+plot(b$LD.in_AprilDays. ~ jitter(b$Year), ylab="Laying date (April days)",
+     xlab="Year", pch=19, cex=0.3)
+# need to mention this in legend (the jitter is NOT biologically meaningful
+# - just random noise!!!)
+
+# violin plot
+require(ggplot2)
+p <- ggplot(b, aes(x=Year, y=LD.in_AprilDays.)) +
+  geom_violin()
+p
+# no!! R interpreted Year as continuous
+# which is what we want....!!!
+# want to INTERPRET year as continuous - BUT VISUALISE as categorical!!!
+boxplot(b$LD.in_AprilDays. ~ b$Year, ylab="Laying date (April days)",
+        xlab="Year")
+p <- ggplot(b, aes(x=as.factor(Year), y=LD.in_AprilDays.)) +
+  geom_violin()
+p
+# add some descriptive stats
+p + stat_summary(fun.data="mean_sdl", geom="pointrange")
+
+
+#### SwS 4 - Precision and Standard error
+
+# St dev describes spread and variability of a distribution
+# descriptive of data
+# report: mean, st dev
+
+# St error describes the precision of the data - 
+# how precise (how likely correct) the MEAN that is calculated from a sample is
+# dependent on variance 
+# quantifies the precision of an estimate
+# descriptive of mean (or any mean-type estimate)
+# report mean +- SE
+# st error depends on st dev and sample size, SE = sqrt(var/n)
+
+rm(list=ls())
+
+d <- read.table("../data/SparrowSize.txt", header=TRUE)
+str(d)
+
+summary(d$Tarsus)
+mean(d$Tarsus, na.rm = T)
+var(d$Tarsus, na.rm = T)
+
+sd(d$Tarsus, na.rm = T)
+sqrt(var(d$Tarsus, na.rm = T))
+
+ster <- sqrt(var(d$Tarsus, na.rm = T) / (length(d$Tarsus)-85))
+d1 <- subset(d, d$Tarsus!="NA")
+length(d$Tarsus)
+length(d1$Tarsus)
+
+x <- 1:length(d1$Tarsus)
+y <- mean(d1$Tarsus) + 0*x
+
+nn <- c(2, 5, 10, 20, 30, 40,50,60,70,80,90,100,150,200,250,300,350,400,450,500)
+
+plot(x, y, col="red", cex=0.1, xlab = "Sample size", ylab = "Mean of Tarsus",
+     ylim=c(18, 19), xlim=c(0,500))
+
+for (n in 1:length(nn)) {
+  sub <- sample_n(d1, nn[n])
+  points(nn[n], mean(sub$Tarsus), pch=19, cex=0.5)
+  arrows(x0=nn[n], y0=mean(sub$Tarsus) - sqrt(var(sub$Tarsus) / (length(sub$Tarsus))),
+         x1=nn[n], y1=mean(sub$Tarsus) + sqrt(var(sub$Tarsus) / (length(sub$Tarsus))),
+         code=3, angle=90, length=0.1)
+}
+# with small sample size - mean all over the place and large variance
+# more precise w more observations in sample
+
+# to double precision, would need to increase sample size by 4
+
+## 95% confidence interval (CI)
+# encompasses the pop "true" value
+# 95CI = +-1.96 se
+# guesstimate 95CI ~ 2se
+
+## Handout
+rm(list=ls())
+d<-read.table("../data/SparrowSize.txt", header=TRUE)
+d1<-subset(d, d$Tarsus!="NA")
+
+# st err
+seTarsus<-sqrt(var(d1$Tarsus)/length(d1$Tarsus))
+seTarsus
+
+# st err for only 2001:
+d12001<-subset(d1, d1$Year==2001)
+seTarsus2001<-sqrt(var(d12001$Tarsus)/length(d12001$Tarsus))
+seTarsus2001
+# st err much bigger (5x)
+
+# visualising change in precision
+rm(list=ls())
+
+# dragon tail lengths (m)
+TailLength <- rnorm(500, mean=3.8, sd=2)
+summary(TailLength)
+length(TailLength)
+var(TailLength)
+sd(TailLength)
+hist(TailLength)
+
+# Now	to	the	real	exercise.	I	want	to	randomly	draw	a	specified	number	of	observations	from	
+# this	dataset,	and	calculate	the	mean,	and	standard	error,	and	plot	it.	I	actually	want	to	do	
+# that	for	sample	sizes	from	one,	all	the	way	up	to	400.	To	do	that	I	have	multiple	options.	I	
+# chose	here	a	classical,	traditional,	for loop,	and	plot	the	points	while	I’m	looping.	I	first	
+# prepare	the	canvas	of	the	plot.	To	do	that,	I	need	to	know	the	maximum	and	minimum	
+# values	that	need	to	be	displayed.	Obviously,	the	x-axis	will	run	to	400.	The	y-axis	will	run	
+# from	the	minimum	to	the	maximum	mean,	and	I	will	give	it	some	space	for	the	standard	
+# error	bars.	I	want	to	plot	the	grand	total	mean	- as	a	black	line	so	I	can	compare	the	other	
+# means	to	it.	To	do	that	I	need	to	create	a	dataset	with	a	vector	for	x	that	runs	from 1	to	400,	
+# and	a	y	vector	that	holds	500	times	the	grand	total	mean.	I	can	create	y	in	many	ways,	but	
+# by	multiplying	it	with	x	I	make	sure	they	are	both	of	the	same	length.
+
+x<-1:length(TailLength)
+y<-mean(TailLength)+0*x
+min(TailLength)
+max(TailLength)
+plot(x,y, cex=0.03, ylim=c(2,5),xlim=c(0,500), xlab="Sample size n", 
+     ylab="Mean of tail length ±SE (m)", col="red")
+
+# need	to	populate	my	graph	with	means	of	samples	of	this	data.	To	do	this,	I	run	the	for
+# loop.	But	before	I	do	that	I	make	vectors	for	the	means	(mu)	and	the	standard	errors	(SE):
+
+SE<-c(1)
+SE
+mu<-c(1)
+mu
+
+for (n in 1:length(TailLength)) {
+  d<-sample(TailLength, n, replace=FALSE)
+  mu[n]<-mean(TailLength)
+  SE[n]<-sd(TailLength)/sqrt(n)
+}
+
+head(SE)
+head(mu)
+length(SE)
+length(mu)
+
+# plot
+up<-mu+SE
+down<-mu-SE
+x<-1:length(SE)
+segments(x, up, x1=x, y1=down, lty=1)
+
+# make look nicer -500 too long, 200 will do
+rm(list=ls())
+TailLength<-rnorm(201,mean=3.8, sd=2)
+length(TailLength)
+## [1] 201
+x<-1:201
+y<-mean(TailLength)+0*x
+plot(x,y, cex=0.03, ylim=c(3,4.5),xlim=c(0,201), xlab="Sample size n", ylab="
+Mean of tail length ±SE (m)", col="red")
+n<-seq(from=1, to=201, by=10)
+n
+SE<-c(1)
+mu<-c(1)
+for (i in 1:length(n)) {
+  d<-sample(TailLength, n[i], replace=FALSE)
+  mu[i]<-mean(TailLength)
+  SE[i]<-sd(TailLength)/sqrt(n[i])
+}
+up<-mu+SE
+down<-mu-SE
+length(up)
+length(n)
+plot(x,y, cex=0.03, ylim=c(3,4.5),xlim=c(0,201), xlab="Sample size n", ylab="
+Mean of tail length ±SE (m)", col="red")
+points(n,mu,cex=0.3, col="red")
+segments(n, up, x1=n, y1=down, lty=1)
+# clear how st error shrinks w sample size!!!
+
+
+# 1. calculate st err for tarsus, mass, wing and bill length
+# 2. do above but with subset of only 2001
+# 3. and calculate CI
+
+rm(list=ls())
+d<-read.table("../data/SparrowSize.txt", header=TRUE)
+
+# Tarsus
+d1<-subset(d, d$Tarsus!="NA")
+d12001 <- subset(d1, d1$Year==2001)
+seTarsus<-sqrt(var(d1$Tarsus)/length(d1$Tarsus))
+seTarsus
+seTarsus2001<-sqrt(var(d12001$Tarsus)/length(d12001$Tarsus))
+seTarsus2001
+CITarsus <- 1.96 * seTarsus
+CITarsus
+
+# Mass
+d2<-subset(d, d$Mass!="NA")
+d22001 <- subset(d2, d2$Year==2001)
+seMass<-sqrt(var(d2$Mass)/length(d1$Mass))
+seMass
+seMass2001<-sqrt(var(d22001$Mass)/length(d22001$Mass))
+seMass2001
+CIMass <- 1.96 * seMass
+CIMass
+
+# etc!!!!!
+# (no bill measurements in 2001)
+
+
+#### SwS 5 - Comparing means ----
+
+# If sampled sparrow on Lundy in just one year and take mean -
+# is this representative of overall mean
+
+# actual (grand total) mean = mu
+# xi values of subset, xi' is their mean
+
+# mu = 18.52
+# 2001
+# N = 95
+# mean +- se = 18.08 +- 0.1
+# 95CI (mean +- 2*se) = 17.88-18.29
+
+# grand total mean is NOT within CI of 2001 mean
+# 2001 mean sig. lower than grand total
+
+# t-test, gets CI AND quantifies p
+
+# t(meanx1) = (meanx1 - mu) / se(meanx1)
+
+# scenario 1: N is small
+# -> se will be large-ish
+# t = 0ish / largeish = smallish!
+
+# scenario 2: N large
+# se small
+# t = 0ish / smallish = largeish
+
+# if t large -- over on right of plot of tvalues vs p values
+# large t = small p value
+
+# used to be table of critical t values!
+# depends on d.f. = N - #estimates
+
+# p < 0.05 stat sig (not real reason - convention)
+
+# hypothesis 
+# sexual selection leads to larger males than females
+# prediction
+# sparrow males larger than females
+# test
+# male tarsus != female tarsus
+# stat test
+# male tarsus - female tarsus != 0 (difference not equal to 0)
+
+# H0 = diff between male and fem tarsus = 0
+# H1 = not 0
+
+rm(list=ls())
+d<-read.table("../data/SparrowSize.txt", header=TRUE)
+
+t.test(d$Tarsus ~ d$Sex.1)
+# are sig different
+# 95CI does NOT contain 0
+# female tarsus sig smaller
+
+# if had 2 columns eg malestarsus in one femtarsus in another:
+# t.test(FemaleTarsus, MaleTarsus)
+#### V IMPORTANT to use these the right way round - don't use ~ or , in wrong situation
+
+# report results:
+# eg
+# IF NOT sig diff
+# male and female tarsi did not differ in size between male and females 
+# (mean: 18.18, two sample t-test: t=1.23, df=139, p=0.22)
+### JUST report one mean (they're no different!)
+
+# Handout work
+
+rm(list=ls())
+d<-read.table("../data/SparrowSize.txt", header=TRUE)
+
+# test for difference in female and male body mass 
+boxplot(d$Mass ~ d$Sex.1, col = c("red", "blue"), ylab="Body mass (g)")
+
+t.test1 <- t.test(d$Mass ~ d$Sex.1)
+t.test1
+# v high probability that males heavier than females
+
+# Yes,	but	wait,	does	it	actually	make	biological	sense?	The	p-value	is	super	small, most	
+# people	would	be	very	excited. But	I	want	to	teach	you	to	not focus	too	much	on	the	pvalues,	instead	look	at	95%CIs and	the	parameter	estimates.	The	male	mean	is	28.0g and
+# the	female	mean	is	27.5g. The	difference	is	about	half	a	gram.	However,	that’s	the	mean	
+# difference.	But	can	we	say	something	about	the	precision	of	this	effect?	Look	at	the	output,	
+# it	gives us	a	95%CI	of	the	difference	between	males	and	females: 95%	of	the	differences	
+# between	males	and	females	fall	between	-0.77g	and	-0.37g	(males	heavier).	This	gives	us	a	
+# good	indication	about	how	important	this	difference	is	in	biology.
+# 5%	of	the	times,	however,	the	difference	will	be	outside	of	this	interval.	That’s	a	type	1	
+# error.	There	is	a	5%	chance	that	this	data	is	actually	not	representing	the	real	world,	and	
+# that	the	difference	between	the	sexes	is	actually	0.
+# Large	datasets	are	more	likely	to	pick	up	on	small	effect	sizes	(remember	the	square	root law).	
+
+# Let’s	see	if	we	would	reduce	our	dataset	to	the	50	first	rows,
+# could	we	still detect a difference	between	male	and	female	body	mass?
+d1<-as.data.frame(head(d, 50))
+length(d1$Mass)
+
+t.test2 <- t.test(d1$Mass ~ d1$Sex.1)
+t.test2
+# now there is no difference
+# The	lesson	here	is	that	with	large	datasets,	you	are	more	likely	to	encounter	a	statistically	
+# significant	effect,	but	whether	or	not	this	effect	is	actually	meaningful,	is	not	something	you	
+# can	understand	by	looking	at	the	p-value.	In	the	first	t.test,	the	p-value	was	very	significant,	
+# however	the	real difference	(effect	size)	was	very small (0.3g	more	or	less	is	not	a	lot,	i
+
+d<-read.table("../data/SparrowSize.txt", header=TRUE)
+
+d1<-subset(d, d$Mass!="NA")
+d12001 <- subset(d1, d1$Year==2001)
+t.test(d1$Mass, d12001$Mass)
+
+d1<-subset(d, d$Wing!="NA")
+d12001 <- subset(d1, d1$Year==2001)
+t.test(d1$Wing, d12001$Wing)
+**********************************************************************
+
+Testing Mon_GenStatistics.R...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+'data.frame':	1770 obs. of  8 variables:
+ $ BirdID: int  1 2 2 2 2 2 2 2 2 2 ...
+ $ Year  : int  2002 2001 2002 2003 2004 2004 2004 2004 2004 2005 ...
+ $ Tarsus: num  16.9 16.8 17.2 17.5 17.8 ...
+ $ Bill  : num  NA NA NA 13.5 13.4 ...
+ $ Wing  : num  76 76 76 76 77 78 77 77 77 77 ...
+ $ Mass  : num  23.6 27.5 28.1 27.8 26.5 ...
+ $ Sex   : int  0 1 1 1 1 1 1 1 1 1 ...
+ $ Sex.1 : chr  "female" "male" "male" "male" ...
+  BirdID Year Tarsus Bill Wing  Mass Sex  Sex.1
+1      1 2002   16.9   NA   76 23
+**********************************************************************
+
+Encountered error (or warning):
+
+***IGNORE IF THIS ERROR IS EXPECTED AS PART OF AN IN-CLASS EXERCISE***
+
+Loading required package: dplyr
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Loading required package: ggplot2
+Storing counts in `nn`, as `n` already present in input
+ℹ Use `name = "new_name"` to pick a new name.
+Error in head(Repeats) : object 'Repeats' not found
+Execution halted
+
+======================================================================
+======================================================================
+Finished running scripts
+
+Ran into 8 errors
+
+======================================================================
+======================================================================
+
+FINISHED WEEKLY ASSESSMENT
+
+Current Points for the Week = 100
+
+NOTE THAT THESE ARE POINTS, NOT MARKS FOR THE WEEK!

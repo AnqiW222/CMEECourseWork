@@ -1,0 +1,3002 @@
+Starting code feedback for Anqi, Week7
+
+Current Points = 100
+
+Note that: 
+(1) Major sections begin with a double "====" line 
+(2) Subsections begin with a single "====" line 
+(3) Code output or text file content are printed within single "*****" lines 
+
+======================================================================
+======================================================================
+Your Git repo size this week is about 337.88 MiB on disk 
+
+PART 1: Checking project workflow...
+
+Found the following directories in parent directory: .git, MiniProject, week6, week7, week4, week3, week2, Feedback, HPC, week1, week5
+
+Found the following files in parent directory: README.md, .gitignore
+
+Checking for key files in parent directory...
+
+Found .gitignore in parent directory, great! 
+
+Printing contents of .gitignore:
+
+**********************************************************************
+*.tmp
+*.log
+.DS_Store
+*/sandbox
+.vscode
+**********************************************************************
+
+Found README in parent directory, named: README.md
+
+Printing contents of README.md:
+
+**********************************************************************
+# Anqi's CMEE Coursework Repository
+This README file contains details about the modules within Anqi Wang's (aw222@ic.ac.uk) CMEE Coursework. This coursework contributes towards the fulfilment of MSc Computational Methods in Ecology and Evolution (CMEE) at Imperial College London. <br />
+
+Many of the task requirements and information can be found at [The Mulitilingual Quantitative Biologist](https://mhasoba.github.io/TheMulQuaBio/intro.html)
+
+## Installation
+
+To use scripts in this repository, clone and run.
+
+```bash
+git clone git@github.com:AnqiW222/CMEECourseWork.git
+```
+
+## Contents
+### Week 1: UNIX, Shell scription, LaTeX and Version Control with Git
+**Summary:** A brief introduction of the Multilingual Quantitative Biological Methods, UNIX basic knowledge, Introductory shell scripting exercises, Produce scientific documents with LaTeX, and Use version control (Git) to share the files with others<br />
+**Language Use:** Bash, LaTex
+
+---
+
+### Week 2: Basic Python Programming
+**Summary:** Introduction to writing Python scripts/programs<br />
+**Language Use:** Python, Bash
+
+---
+
+### Week 3: R Programming and Data Management & Visualizatio 
+**Summary:** Biological Computing in R, Data management and Visualization with R.<br />
+**Language Use:** R, LaTeX, Bash
+
+---
+
+### Week 4: Statistics in R
+**Summary:** Core Skills Module of PG Life Science, statistical methods that are of wide use in research projects, the different ways of analysing data and the importance of biological interpretation. <br />
+**Language Use:** R
+
+---
+
+### Week 5: Spatial Analyses and GIS
+**Summary:** Core Skills Module of PG Life Science, using and handling GIS data, along with core concepts in GIS and remote sensing. <br />
+**Language Use:** R
+
+---
+
+### Week 6: Genomics and Bioinformatics
+**Summary:** Core Skills Module of PG Life Science, introduce the types of questions that can be addressed with population genomic data, and the theory and computational methodologies that are available for answering these questions. <br />
+**Language Use:** R
+
+---
+
+### Week 7: Advanced Python Programming
+**Summary:** Advanced Python coding skills with introduction of IDE, profiling code, and using computing language flexible. <br />
+**Language Use:** Python, R, Bash
+
+---
+
+### Week 8 + 9: MiniProject
+**Summary:** MSc CMEE Miniproject: i) What mathematical models best fit to an empirical dataset; ii) Based upon bacteria growth, mechanistic vs. phenomenological models, which is the best fit. Using all biological computing tools learned so far, from data pre-processing, model fitting, plotting and analysis results, to coding and academic report writing, solve the ecological modelling question.<br />
+**Language Use:** Python, R, LaTeX, Bash
+
+---
+
+### Week 10 + 11: High Performance Computing and Math Primer
+**Summary:** Using Imperial College's HPC cluster as tools and techniques  to solve biological problems, and dealing with the huge data sets through parallel computing. Introduction to the preliminary requirements for the topics that will be covered during the Maths for Biologists module. <br />
+**Language Use:** R, Bash, HPC
+
+## Language Versions
+**Python:** 3.9.12 <br />
+**R:** 4.2.1 <br />
+**bash:** 3.2 <br />
+**LaTeX:** 3.141592653-2.6-1.40.24 (TeX Live 2022) <br />
+**Jupyter:** Notebook 6.4.8 <br />
+
+All code has been written on a MacOS version 12.6 and any dependencies are detailed below the script names within weekly README files
+
+
+**********************************************************************
+
+======================================================================
+Looking for the weekly directories...
+
+Found 7 weekly directories: week1, week2, week3, week4, week5, week6, week7
+
+The Week7 directory will be assessed 
+
+======================================================================
+======================================================================
+PART 2: Checking weekly code and workflow...
+
+======================================================================
+Assessing WEEK7...
+
+Found the following directories: code, results, data
+
+Found the following files: README.md, .gitignore
+
+Checking for readme file in weekly directory...
+
+Found README in parent directory, named: README.md
+
+Printing contents of README.md:
+
+**********************************************************************
+# CMEE Coursework - week 7:
+
+This README file contains details about the scripts from in-classwork and practicals for the seventh week.
+
+## Description
+More information about the R scripts and programs for coursework in **Biological Computing in Python** section of the Computing Chapter and **Introduction to Jupyter** and **Data analyses with Python & Jupyter** sections of APPENDICES Chapter of [The Mulitilingual Quantitative Biologist](https://mhasoba.github.io/TheMulQuaBio/notebooks/06-Python_II.html)
+
+## Language
+
+Python, R, bash
+
+_Using IDE: Jupyter Notebook/Lab_
+
+## Dependencies
+For some scripts in this directory, packages [SciPy](https://scipy.org), [NumPy](https://numpy.org), [matplotlib.pylab](https://matplotlib.org/stable/tutorials/introductory/pyplot.html), [csv](https://docs.python.org/3/library/csv.html), [networkx](https://networkx.org/documentation/stable/tutorial.html), [sys](https://docs.python.org/3/library/sys.html), [doctest](https://docs.python.org/3/library/doctest.html), [subprocess](https://docs.python.org/3/library/subprocess.html), [timeit](https://docs.python.org/3/library/timeit.html), and [time](https://docs.python.org/3/library/time.html) are required. 
+Please run the following script in **python3/ipython** for package installation: 
+```python3
+pip3 install (c("SciPy", "NumPy", "matplotlib.pylab", "networkx", "csv", "sys", "doctest", "subprocess", "timeit", "time"))
+```
+*****NOTE***** *!!! Not all packages need to be install, variables in environmets!!!*
+
+_The installation commands are used for MacOS, may varied with the different operating system._
+
+## Individual Practicals 
+
+### Python Scripts
+-----------
+#### DrawFW.py
+<font size=2>**Summary:** Plot a food web network and save into .pdf file.<br />
+**Input:** n/a <br />
+**Dependencies:** NumPy, SciPy, matplotlib.pylab, networkx <br />
+**Output:** Result shows as a figure.<br />
+**Running Instructions:** 
+```bash
+python3 DrawFW.py 
+```
+</font><font size=1>
+*****NOTE:***** *Might get a warning. In that case, try upgrading the networkx package.*
+</font>
+
+
+#### LV1.py
+<font size=2>**Summary:** Numerical integration for solving classical models in biology. Return growth rate of consumer and resource population at any given time step and produce relevant figures.<br />
+**Input:** n/a <br />
+**Dependencies:** NumPy, SciPy, matplotlib.pylab <br />
+**Output:** Result saves to */results/LV_model.pdf*.<br />
+**Running Instructions:** 
+```bash
+python3 LV1.py 
+```
+</font>
+
+#### LV2.py
+<font size=2>**Summary:** The Consumer population C goes extinct in the Lotka-Volterra Model.<br />
+**Input:** n/a <br />
+**Dependencies:** NumPy, SciPy, matplotlib.pylab <br />
+**Output:** Result saves to */results/LV_model2.pdf*.<br />
+**Running Instructions:** 
+```bash
+python3 LV2.py 
+```
+</font>
+
+#### Numpy_pra.py
+<font size=2>**Summary:** Introduction and practical to basic NumPy package.<br />
+**Input:** n/a <br />
+**Dependencies:** NumPy <br />
+**Running Instructions:** Running line by line in *ipython*</font>
+
+#### profileme.py
+<font size=2>**Summary:** An illustrstive program to slow down the code.<br />
+**Input:** n/a <br />
+**Output:** Result prints in terminal.<br />
+**Running Instructions:** 
+```bash
+python3 profileme.py 
+```
+</font>
+
+#### profileme2.py
+<font size=2>**Summary:** Alternative approach to write an illustrstive program slowing down the code.<br />
+**Input:** n/a <br />
+**Output:** Result prints in terminal.<br />
+**Running Instructions:** 
+```bash
+python3 profileme2.py 
+```
+</font>
+
+#### run_fmr_R.py
+<font size=2>**Summary:** Using subprocess to run a R script.<br />
+**Input:** n/a <br />
+**Dependencies:** subprocess <br />
+**Output:** *fmr.R* contents prints in terminal.<br />
+**Running Instructions:** 
+```bash
+python3 run_fmr_R.py 
+```
+</font>
+
+#### runLV.py
+<font size=2>**Summary:** Runs both LV1.py and LV2.py with appropriate arguments.<br />
+**Input:** n/a <br />
+**Dependencies:** SciPy, matplotlib.pylab <br />
+**Output:** *LV1.py* and *LV2.py* results show as figures, timeconsuming for both scripts prints in terminal.<br />
+**Running Instructions:** 
+```bash
+python3 runLV.py 
+```
+</font>
+
+#### Scipy_pra.py
+<font size=2>**Summary:** Introduction and practical to basic SciPy package.<br />
+**Input:** n/a <br />
+**Dependencies:** SciPy, matplotlib.pylab <br />
+**Running Instructions:** Running line by line in *ipython*</font>
+
+#### TestR.py
+<font size=2>**Summary:** Using python script runing R code.<br />
+**Input:** n/a <br />
+**Dependencies:** subprocess <br />
+**Output:** *TestR.R* contents prints in terminal.<br />
+**Running Instructions:** 
+```bash
+python3 TestR.py 
+```
+</font>
+
+#### timeitme.py
+<font size=2>**Summary:** Using *timeit* module to test part of *profileme.py* and *profileme2.py*.<br />
+**Input:** n/a <br />
+**Dependencies:** timeit, time <br />
+**Output:** *profileme.py* and *profileme2.py* results and timeconsuming for both scripts prints in terminal.<br />
+**Running Instructions:** 
+```bash
+python3 timeitme.py 
+```
+</font>
+
+#### using_os.py
+<font size=2>**Summary:** Use the *subprocess.os* module to get a list of files and directories 
+in a selected ubuntu home directory.<br />
+**Input:** n/a <br />
+**Dependencies:** subprocess <br />
+**Output:** Results prints in terminal.<br />
+**Running Instructions:** 
+```bash
+python3 using_os.py 
+```
+</font>
+
+#### vect_example.py
+<font size=2>**Summary:** Example of Vectorization revistied of calculating two simple 1D arrays.<br />
+**Input:** n/a <br />
+**Dependencies:** NumPy, matplotlib.pylab, timeit, ipdb <br />
+**Running Instructions:** Running line by line in *ipython*</font>
+
+#### workFlow_pra.py
+<font size=2>**Summary:** Using Subprocess to build workflow in Python.<br />
+**Input:** n/a <br />
+**Dependencies:** subprocess <br />
+**Running Instructions:** Running line by line in *ipython*</font>
+
+### R Scripts
+-----------
+#### fmr.R
+<font size=2>**Summary:** The R script contains ploting of log(field metabolic rate) against log(body mass) for the Nagy et al. Used as the tested R scirpt of *****run_fmr_R.py***** <br /></font>
+
+#### testR.R
+<font size=2>**Summary:** The tested R scirpt of *****TestR.py***** <br /></font>
+
+### Jupyter Notebook
+-----------
+#### MyFirstJupyterNb.ipynb
+<font size=2>**Summary:** The first practice of basic Jupyter Notebook key elements and Data analyses with Python & Jupyter. <br />
+**Dependencies:** *****Python:***** NumPy, pandas, SciPy, matplotlib.pylab; *****R:***** ggplot2, repr <br /></font>
+
+## Groupwork Practicals -- 02_Booming_Bonobos
+Cover 1 groupwork practicals:
+- [Compare R and Python vectorization](https://mhasoba.github.io/TheMulQuaBio/notebooks/06-Python_II.html#groupwork-practical-compare-r-and-python-vectorization)
+
+#### Vectorize1.py
+<font size=2>**Summary:** python version of Vectorize1.R. <br /></font>
+
+#### Vectorize2.py
+<font size=2>**Summary:** python version of Vectorize2.R. <br /></font>
+
+#### compare_vectorization.sh
+<font size=2>**Summary:** Compare the computational speed of four scripts(Vectorize1.R Vectorize2.R Vectorize1.py Vectorize1.py) <br />
+**Output:** Result prints to terminal.<br />
+**Running Instructions:** 
+```bash
+bash compare_vectorization.sh
+```
+</font>
+
+
+## Author & Contact
+
+<font size=2>**Name:** ANQI WANG<br />
+**Email:** aw222@ic.ac.uk</font>
+
+
+
+
+
+
+
+
+**********************************************************************
+
+Results directory is empty - good! 
+
+Found 22 code files: using_os.py, vectorize1.py, TestR.py, LV1.py, LV2.py, vectorize2.py, Vect_example.py, profileme2.py, fmr.R, run_fmr_R.py, vectorize2.r, Scipy_pra.py, profileme.py, DrawFW.py, MyFirstJupyterNb.ipynb, runLV.py, workFlow_pra.py, compare_vectorization.sh, Numpy_pra.py, TestR.R, vectorize1.r, timeitme.py
+
+======================================================================
+Testing script/code files...
+
+======================================================================
+Inspecting script file using_os.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+"""
+Use the subprocess.os module to get a list of files and directories 
+in your ubuntu home directory
+"""
+__appname__ = 'using_os'
+__author__ = 'ANQI WANG (aw222@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = "None"
+
+# Hint: look in subprocess.os and/or subprocess.os.path and/or 
+# subprocess.os.walk for helpful functions
+
+import subprocess
+
+#################################
+#~Get a list of files and 
+#~directories in your home/ that start with an uppercase 'C'
+
+# Type your code here:
+
+# Get the user's home directory.
+home = subprocess.os.path.expanduser("~")
+
+# Create a list to store the results.
+FilesDirsStartingWithC = []
+
+# Use a for loop to walk through the home directory.
+for (dir, subdir, files) in subprocess.os.walk(home):
+    for f in files:
+        if f.startswith("C"):
+            FilesDirsStartingWithC.append(f)
+    if dir.split("/")[-1].startswith("C"):
+        FilesDirsStartingWithC.append(dir.split("/")[-1])
+    for sub in subdir:
+        if sub.startswith("C"):
+            FilesDirsStartingWithC.append(sub)
+
+print(FilesDirsStartingWithC)
+    
+  
+#################################
+# Get files and directories in your home/ that start with either an 
+# upper or lower case 'C'
+
+# Type your code here:
+FilesDirsStartingWithCc = []
+
+for (dir, subdir, files) in subprocess.os.walk(home):
+    for filename in files: 
+        if filename.lower().startswith("c"):
+            FilesDirsStartingWithCc.append(filename)
+    if dir.split("/")[-1].lower().startswith("c"):
+        FilesDirsStartingWithCc.append(dir.split("/")[-1])
+    for subdirectory in subdir:
+        if subdirectory.lower().startswith("c"):
+            FilesDirsStartingWithCc.append(subdirectory)
+
+print(FilesDirsStartingWithCc)
+
+#################################
+# Get only directories in your home/ that start with either an upper or 
+#~lower case 'C' 
+
+# Type your code here:
+DirsStartingWithc = []
+
+for (dir, subdir, files) in subprocess.os.walk(home):
+    if dir.split("/")[-1].lower().startswith("c"):
+        DirsStartingWithc.append(dir.split("/")[-1])
+    for subdirectory in subdir:
+        if subdirectory.lower().startswith("c"):
+            DirsStartingWithc.append(subdirectory)
+
+print(DirsStartingWithc)
+
+**********************************************************************
+
+Testing using_os.py...
+
+using_os.py is a Python script file;
+
+checking for docstrings...
+
+Found no functions, but one docstring for the script, good
+
+Current Points = 100
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 10.00256s
+
+======================================================================
+Inspecting script file vectorize1.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+"""Demonstrates speed differences between script pre and post vectorisation"""
+
+__appname__ = 'vectorize1.py'
+__author__ = 'Jooyoung Ser (jooyoung.ser19@imperial.ac.uk), Elliott Parnell (elliott.parnell22@imperial.ac.uk), Anqi Wang (anqi.wang22@imperial.ac.uk), Linke Feng (l.feng22@imperial.ac.uk)'
+__version__ = '0.0.1'
+
+## imports ##
+import sys  # module to interface our programe with the operating system
+
+#import matplotlib.pylab as p
+import numpy as np
+import scipy as sc
+import timeit
+#import scipy.integrate as integrate
+
+# Set random seed 
+np.random.seed(1234)
+
+## constants ##
+M = np.random.uniform(low=0.0, high=1.0, size= 100) 
+MM = M.reshape(10,10)
+
+## functions ##
+def SumAllElements(MM):
+    """Sums all the elements of a matrix using loops"""
+    dimensions = MM.shape
+    total = 0
+    # for each row 
+    for i in range (0, dimensions[0]) :
+        for j in range (0, dimensions[1]):
+            total = total + MM[i,j]
+
+    return (total)
+
+def VectSum(MM):
+    """Sums all the elemts using vctorisation"""
+    vecttot = MM.sum()
+    return(vecttot)
+
+def main(argv):
+    """ Main entry point of the program """
+    
+    print("Using loops, the time taken is:")
+    print(timeit.timeit(stmt="SumAllElements(MM)", setup="import numpy as np; M = np.random.uniform(low=0.0, high=1.0, size= 100); MM = M.reshape(10,10); from __main__ import SumAllElements"))
+    print("Using the in-built vectorised function, the time taken is:")
+    print(timeit.timeit(stmt="VectSum(MM)", setup="import numpy as np; M = np.random.uniform(low=0.0, high=1.0, size= 100); MM = M.reshape(10,10); from __main__ import VectSum"))
+    return 0 
+
+# This function makes sure the boilerplate in full when called from the terminal, then passes control to main function 
+if __name__ == "__main__":
+    """ Makes sure the "main" function is called from command line """
+    status = main(sys.argv)
+    sys.exit(status)
+**********************************************************************
+
+Testing vectorize1.py...
+
+vectorize1.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Current Points = 100
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 10.00313s
+
+======================================================================
+Inspecting script file TestR.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+"""Using python script runing R code"""
+__appname__ = 'TestR'
+__author__ = 'ANQI WANG (aw222@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = "None"
+
+import subprocess
+p = subprocess.Popen("Rscript --verbose TestR.R > ../results/TestR.Rout 2> ../results/TestR_errFile.Rout", shell=True).wait
+subprocess.Popen("Rscript --verbose NonExistScript.R > ../results/outputFile.Rout 2> ../results/errorFile.Rout", shell=True).wait()
+
+# Handling directory and file paths
+subprocess.os.path.join('directory', 'subdirectory', 'file')
+MyPath = subprocess.os.path.join('directory', 'subdirectory', 'file')
+MyPath
+**********************************************************************
+
+Testing TestR.py...
+
+TestR.py is a Python script file;
+
+checking for docstrings...
+
+Found no functions, but one docstring for the script, good
+
+Current Points = 100
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.19624s
+
+======================================================================
+Inspecting script file LV1.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+# The Lotka - Volterra model
+"""Numerical integration for solving classical models in biology.
+Return growth rate of consumer and resource population at any given time step
+and produce relevant figures"""
+__appname__ = 'LV1'
+__author__ = 'ANQI WANG (aw222@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = "None"
+
+import numpy as np
+import matplotlib.pylab as plt
+from matplotlib.backends.backend_pdf import PdfPages
+import scipy as sc
+from scipy import stats
+import scipy.integrate as integrate
+import sys
+
+def plot_f1(pops, t, r, a, z, e):
+    """Generating the Consumer-Resource population dynamics graph with time"""
+    f1 = plt.figure()
+    plt.plot(t, pops[:,0], 'g-', label='Resource density') # Plot
+    plt.plot(t, pops[:,1]  , 'b-', label='Consumer density')
+    plt.grid()
+    plt.legend(loc='best')
+    plt.xlabel('Time')
+    plt.ylabel('Population density')
+    plt.title('Consumer-Resource population dynamics')
+    plt.show()# To display the figure
+    return f1
+
+
+def plot_f2(pops, r, a, z, e):
+    """Generating the Consumer-Resource population dynamics graph"""
+    f2 = plt.figure()
+    plt.plot(pops[:,1], pops[:,0], 'r-') # Plot
+    plt.show()
+    plt.grid()
+    plt.legend(loc='best')
+    plt.xlabel('Resource density')
+    plt.ylabel('Consumer density')
+    plt.title('Consumer-Resource population dynamics')
+    plt.show()# To display the figure
+    return f2
+
+def save_figs(f1, f2): 
+    """Saving figures """
+    figs = PdfPages('../results/LV_model.pdf')
+    figs.savefig(f1)
+    figs.savefig(f2)
+    figs.close()
+    return 0
+
+# Define parameters:
+def main(argv):
+    """Main entry point of the program"""
+    r = 1. # Resource growth rate
+    a = 0.1 # Consuption rate
+    z = 1.5 # Consumer mortality rate
+    e = 0.75 # Consumer production efficiency
+    
+    def dCR_dt(pops, t=0):
+        """Define a function that returns the growth rate of consumer and resource population"""
+        
+        R = pops[0]
+        C = pops[1]
+        dRdt = r * R - a * R * C 
+        dCdt = -z * C + e * a * R * C
+        
+        return np.array([dRdt, dCdt])
+
+
+    # Define timefrom 0 to 15, using 1000points:
+    t = np.linspace(0, 15, 1000)
+
+    R0 = 10
+    C0 = 5 
+    RC0 = np.array([R0, C0])
+ # initial conditions: 10 consumer and 5 recource per unit area
+# numerically integrate this system forward from starting conditions:
+    pops, infodict = integrate.odeint(dCR_dt, RC0, t, full_output=True)
+
+    infodict['message']
+
+    prey, predictor = pops.T # transposes arrays
+    
+    f1 = plot_f1(pops, t, r, a, z, e)
+    f2 = plot_f2(pops, r, a, z, e)
+    save_figs(f1, f2)
+    return 0
+
+# Original Practice
+#f1 = plt.figure()
+#plt.plot(t, pops[:,0], 'g-', label='Resource density') # Plot
+#plt.plot(t, pops[:,1]  , 'b-', label='Consumer density')
+#plt.grid()
+#plt.legend(loc='best')
+#plt.xlabel('Time')
+#plt.ylabel('Population density')
+#plt.title('Consumer-Resource population dynamics')
+#plt.show()# To display the figure
+
+#f2 = plt.figure()
+#plt.plot(pops[:,1], pops[:,0], 'r-') # Plot
+#plt.show()
+#plt.grid()
+#plt.legend(loc='best')
+#plt.xlabel('Resource density')
+#plt.ylabel('Consumer density')
+#plt.title('Consumer-Resource population dynamics')
+#plt.show()# To display the figure
+
+#f1.savefig('../results/LV1_model_f1.pdf') #Save figure
+#f2.savefig('../results/LV1_model_f2.pdf')
+
+if __name__ == "__main__": 
+    """Makes sure the "main" function is called from the command line"""
+    status = main(sys.argv)
+    sys.exit(status)
+**********************************************************************
+
+Testing LV1.py...
+
+LV1.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Current Points = 100
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 10.01108s
+
+======================================================================
+Inspecting script file LV2.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+# The Lotka - Volterra model
+"""
+The Consumer population C goes extinct in the Lotka-Volterra Model
+Fitting the Lotka-Volterra model and generating population dynamics graphs with input values from the command line
+"""
+__appname__ = 'LV2'
+__author__ = 'ANQI WANG (aw222@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = "None"
+
+import sys
+import numpy as np
+import matplotlib.pylab as plt
+from matplotlib.backends.backend_pdf import PdfPages
+#import scipy as sc
+from scipy import stats
+import scipy.integrate as integrate
+
+def plot_f1(pops, t, r, K, a, z, e): 
+    """Generating the Consumer-Resource population dynamics graph with time"""
+
+    f1 = plt.figure()
+    plt.plot(t, pops[:,0], 'g-', label='Resourse density')
+    plt.plot(t, pops[:,1], 'b-', label='Consumer density')
+    plt.grid()
+    plt.legend(loc='best')
+    plt.xlabel('Time')
+    plt.ylabel('Population density')
+    plt.title('Consumer-Resource population dynamics')
+    box = dict(boxstyle = "Round", facecolor = "white", alpha = 0.7)
+    plt.text(15, max(pops[:, 0]), 'r=%s\nK=%s\na=%s\nz=%s\ne=%s' % (str(round(r,2)), str(round(K,2)), str(round(a,2)), str(round(z,2)), str(round(e,2))), horizontalalignment='right', verticalalignment = "top", bbox = box)
+    return f1
+
+def plot_f2(pops, r, K, a, z, e):
+    """Generating the Consumer-Resource population dynamics graph"""
+
+    f2 = plt.figure()
+    plt.grid()
+    plt.plot(pops[:,0], pops[:,1],'r-')
+    plt.xlabel('Resource density')
+    plt.ylabel('Consumer density')
+    plt.title('Consumer-Resource population dynamics')
+    box = dict(boxstyle = "Round", facecolor = "white", alpha = 0.7)
+    plt.text(max(pops[:, 0]), max(pops[:, 1]), 'r=%s\nK=%s\na=%s\nz=%s\ne=%s' % (str(round(r,2)), str(round(K,2)), str(round(a,2)), str(round(z,2)), str(round(e,2))), horizontalalignment='right', verticalalignment = "top", bbox = box)
+    return f2
+
+def save_figs(f1, f2): 
+    """Saving figures """
+    figs = PdfPages('../results/LV_model2.pdf')
+    figs.savefig(f1)
+    figs.savefig(f2)
+    figs.close()
+    return 0
+
+def main(argv): 
+    """Main entry point of the program"""
+    try:
+        r = float(sys.argv[1])
+        K = float(sys.argv[2])
+        a = float(sys.argv[3])
+        z = float(sys.argv[4])
+        e = float(sys.argv[5])
+    except:
+        r = 1
+        K = 100
+        a = 0.5 
+        z = 1.5
+        e = 0.75
+    
+    def dCR_dt(pops, t=0):
+        """Returns the growth rate of consumer and resource population at any given time step"""
+        R = pops[0]
+        C = pops[1]
+        dRdt = r * R * (1 - R / K) - a * R * C
+        dCdt = -z * C + e * a * R * C
+        return np.array([dRdt, dCdt])
+
+    t = np.linspace(0, 15, 1000)
+    R0 = 10
+    C0 = 5
+    RC0 = np.array([R0, C0])
+    
+    pops, infodict = integrate.odeint(dCR_dt, RC0, t, full_output=True)
+
+    f1 = plot_f1(pops, t, r, K, a, z, e)
+    f2 = plot_f2(pops, r, K, a, z, e)
+    save_figs(f1, f2)
+    return 0
+
+
+if __name__ == "__main__": 
+    """Makes sure the "main" function is called from the command line"""
+    status = main(sys.argv)
+    sys.exit(status)
+
+# Define parameters:
+#if len(sys.argv) == 5: # If correct number of arguments entered, take users arguments
+#		r = float(sys.argv[1]) # Resource growth rate
+#		a = float(sys.argv[2]) # Consumer search rate (determines consumption rate) 
+#		z = float(sys.argv[3]) # Consumer mortality rate
+#		e = float(sys.argv[4]) # Consumer production efficiency
+#		K = float(sys.argv[5]) # (1 - R/K) is the density dependence to the resource population, K is the machanism of competitation
+#	else: # Default arguments if user eters inccorect arguments
+#		r = 1.3 # Resource growth rate
+#		a = 0.4 # Consuption rate
+#		z = 0.3 # Consumer mortality rate
+#		e = 0.2 # Consumer production efficiency
+#		K = 7 # K is the machanism of competitation rate
+
+# Define timefrom 0 to 15, using 1000points:
+#t = np.linspace(0, 15, 1000)
+#R0 = 10
+#C0 = 5 
+#RC0 = np.array([R0, C0])
+# initial conditions: 10 consumer and 5 recource per unit area
+# numerically integrate this system forward from starting conditions:
+#pops, infodict = integrate.odeint(dCR_dt, RC0, t, full_output=True)
+
+#infodict['message']
+
+#prey, predictor = pops.T # transposes arrays
+
+# Original Practice
+#f1 = plt.figure()
+#plt.plot(t, pops[:,0], 'g-', label='Resource density') # Plot
+#plt.plot(t, pops[:,1]  , 'b-', label='Consumer density')
+#plt.grid()
+#plt.legend(loc='best')
+#plt.xlabel('Time')
+#plt.ylabel('Population density')
+#plt.title('Consumer-Resource population dynamics')
+#plt.show()# To display the figure
+
+#f2 = plt.figure()
+#plt.plot(pops[:,1], pops[:,0], 'r-') # Plot
+#plt.show()
+#plt.grid()
+#plt.legend(loc='best')
+#plt.xlabel('Resource density')
+#plt.ylabel('Consumer density')
+#plt.title('Consumer-Resource population dynamics')
+#plt.show()# To display the figure
+
+##f1.savefig('../results/LV2_model_f1.pdf') #Save figure
+#f2.savefig('../results/LV2_model_f2.pdf')
+**********************************************************************
+
+Testing LV2.py...
+
+LV2.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Current Points = 100
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 1.35734s
+
+======================================================================
+Inspecting script file vectorize2.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+"""Demonstrates speed differences between script pre and post vectorisation"""
+
+__appname__ = 'vectorize2.py'
+__author__ = 'Jooyoung Ser (jooyoung.ser19@imperial.ac.uk), Elliott Parnell (elliott.parnell22@imperial.ac.uk), Anqi Wang (anqi.wang22@imperial.ac.uk), Linke Feng (l.feng22@imperial.ac.uk)'
+__version__ = '0.0.1'
+
+## imports ##
+import sys  # module to interface our programe with the operating system
+
+#import matplotlib.pylab as p
+import numpy as np
+import scipy as sc
+import timeit
+import matplotlib.pyplot as plt
+import math
+#import scipy.integrate as integrate
+
+# Set random seed 
+np.random.seed(1234)
+
+## constants ##
+
+
+## functions ##
+def stochrick(p0 = np.random.uniform(low=0.5, high=1.5, size=10), r =1.2, K=1 , sigma =0.2, numyears = 10 ):
+    """stochastic Ricker equation with gaussian fluctuations
+    Gives 1000 random start values between .5 and 1.5 unless specified
+    Sigma is also used later as a upper limit on random noise added"""
+    
+    N = np.empty((int(numyears), int(len(p0)))) #initialize empty matrix, numyear rows, P0 columns
+    N[0,:] = p0 #place )all the random start values into row 1
+
+    for pop in range(0, len(p0)):
+        for yr in range(1, numyears):
+            N[yr, pop ] = N[yr-1, pop] * math.exp(r * (1 - N[yr-1, pop] / K) + np.random.normal(0, sigma))
+    return(N)
+
+def stochrickvect(p0 = np.random.uniform(low=0.5, high=1.5, size=10), r =1.2, K=1 , sigma =0.2, numyears = 10 ):
+    """stochastic Ricker equation with gaussian fluctuations and improved performance
+    Gives 1000 random start values between .5 and 1.5 unless specified
+    Sigma is also used later as a upper limit on random noise added"""
+    
+    N = np.empty((int(numyears), int(len(p0)))) #initialize empty matrix, numyear rows, P0 columns
+    N[0,:] = p0 #place )all the random start values into row 1
+    
+    for yr in range(1, numyears):
+            N[yr, :] = N[yr-1, :] * np.exp(r * (1 - N[yr-1, :] / K) + np.random.normal(0, sigma, len(p0)))
+    return(N)
+
+## MAIN BODY ##
+def main(argv):
+    """ Main entry point of the program """
+    #plt.hist(stochrick(), bins=30)
+    #plt.show()
+    #plt.hist(stochrickvect(), bins=30)
+    #plt.show()
+
+    print("Using loops, the time taken is:")
+    print(timeit.timeit(lambda: stochrick(p0 = np.random.uniform(low=0.5, high=1.5, size=1000), r =1.2, K=1 , sigma =0.2, numyears = 100 ), number=1))
+    print("Using the in-built vectorised function, the time taken is:")
+    print(timeit.timeit(lambda: stochrickvect(p0 = np.random.uniform(low=0.5, high=1.5, size=1000), r =1.2, K=1 , sigma =0.2, numyears = 100 ), number=1))
+    return 0 
+
+# This function makes sure the boilerplate in full when called from the terminal, then passes control to main function 
+if __name__ == "__main__":
+    """ Makes sure the "main" function is called from command line """
+    status = main(sys.argv)
+    sys.exit(status)
+**********************************************************************
+
+Testing vectorize2.py...
+
+vectorize2.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Current Points = 100
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Using loops, the time taken is:
+0.32671033701626584
+Using the in-built vectorised function, the time taken is:
+0.005077264970168471
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.96968s
+
+======================================================================
+Inspecting script file Vect_example.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+# The Lotka - Volterra model
+"""Example of Vectorization revistied of calculating two simple 1D arrays"""
+__appname__ = 'Vect_example'
+__author__ = 'ANQI WANG (aw222@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = "None"
+
+import numpy as np
+import matplotlib.pylab as plt
+import timeit
+
+def loop_product(a, b):
+    """Calculate the entrywise product of two 1D arrays of the same length"""
+    N = len(a)
+    c = np.zeros(N)
+    for i in range(N):
+        c[i] = a[i] * b[i]   
+    return c
+
+def vect_product(a, b):
+    """A vectorized implementation of the elementwise product of the function loop_product"""
+    return np.multiply(a, b)
+
+# Comparing the runtimes of loop_product and vect_product
+
+array_lengths = [1, 100, 10000, 1000000, 10000000]
+t_loop = []
+t_vect = []
+
+for N in array_lengths:
+    print(f"\nSet {N=}")
+    #randomly generate our 1D arrays of length N
+    a = np.random.rand(N)
+    b = np.random.rand(N)
+    
+    # time loop_product 3 times and save the mean execution time.
+    timer = timeit.repeat('loop_product(a, b)', globals=globals().copy(), number=3)
+    t_loop.append(1000 * np.mean(timer))
+    print(f"Loop method took {t_loop[-1]} ms on average.")
+    
+    # time vect_product 3 times and save the mean execution time.
+    timer = timeit.repeat('vect_product(a, b)', globals=globals().copy(), number=3)
+    t_vect.append(1000 * np.mean(timer))
+    print(f"vectorized method took {t_vect[-1]} ms on average.")
+
+#import ipdb; ipdb.set_trace()
+plt.figure()
+#breakpoint()
+plt.plot(array_lengths, t_loop, label="loop method")
+plt.plot(array_lengths, t_vect, label="vect method")
+#breakpoint()
+plt.xlabel("Array length")
+plt.ylabel("Execution time (ms)")
+plt.legend()
+plt.show()
+
+# When there is bigger memory errors:
+N = 1000000000
+
+a = np.random.rand(N)
+b = np.random.rand(N)
+c = vect_product(a, b)
+
+# if no error, remove a, b, c from memory.
+del a
+del b
+del c
+
+**********************************************************************
+
+Testing Vect_example.py...
+
+Vect_example.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Current Points = 100
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 10.01190s
+
+======================================================================
+Inspecting script file profileme2.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+"""
+Alternative approach to write an illustrstive program slowing down the code
+
+Try: run -p profileme2.py or,
+     run -s cumtime -p profileme2.py (to order by cumulative time)
+"""
+__appname__ = 'profileme2'
+__author__ = 'ANQI WANG (aw222@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = "None"
+
+def my_squares(iters):
+    """Takes a number, returns the squares of the numbers up to this number in a list"""
+    out = [i ** 2 for i in range(iters)]
+    return out
+
+def my_join(iters, string):
+    """
+    Takes a number, iters, and a string; 
+    returns a new string which contains the orginal string repeated iters times, 
+    each spearated by a comma and space
+    """
+    out = ''
+    for i in range(iters):
+        out += ", " + string
+    return out
+
+def run_my_funcs(x,y):
+    """
+    Takes a number and string; passes these to my_squares() and my_join().
+    When finished, returns 0
+    """
+    print(x,y)
+    my_squares(x)
+    my_join(x,y)
+    return 0
+
+run_my_funcs(10000000,"My string")
+
+**********************************************************************
+
+Testing profileme2.py...
+
+profileme2.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Current Points = 100
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+10000000 My string
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 3.27002s
+
+======================================================================
+Inspecting script file fmr.R...
+
+File contents are:
+
+**********************************************************************
+# Plots log(field metabolic rate) against log(body mass) for the Nagy et al 
+# 1999 dataset to a file fmr.pdf.
+
+cat("Reading CSV\n")
+
+nagy <- read.csv('../data/NagyEtAl1999.csv', stringsAsFactors = FALSE)
+
+cat("Creating graph\n")
+pdf('../results/fmr_plot.pdf', 11, 8.5)
+col <- c(Aves='purple3', Mammalia='red3', Reptilia='green3')
+plot(log10(nagy$M.g), log10(nagy$FMR.kJ.day.1), pch=19, col=col[nagy$Class], 
+     xlab=~log[10](M), ylab=~log[10](FMR))
+for(class in unique(nagy$Class)){
+    model <- lm(log10(FMR.kJ.day.1) ~ log10(M.g), data=nagy[nagy$Class==class,])
+    abline(model, col=col[class])
+}
+dev.off()
+
+cat("Finished in R!\n")
+
+**********************************************************************
+
+Testing fmr.R...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Reading CSV
+Creating graph
+null device 
+          1 
+Finished in R!
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.24451s
+
+======================================================================
+Inspecting script file run_fmr_R.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+"""Using subprocess to run a R script"""
+__appname__ = 'run_fmr_R'
+__author__ = 'ANQI WANG (aw222@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = "None"
+
+import subprocess
+
+# Method 1
+#p1 = subprocess.Popen("Rscript --verbose fmr.R > ../results/fmr.Rout 2> ../results/fmr_errFile.Rout", shell=True).wait
+#subprocess.Popen("Rscript --verbose NonExistScript.R > ../results/outputFile.Rout 2> ../results/errorFile.Rout", shell=True).wait()
+#return(p1)
+
+# Method 2
+subprocess.call(["Rscript", "fmr.R"])
+
+p2 = subprocess.Popen(["Rscript", "fmr.R"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+output, error = p2.communicate()
+if p2.returncode != 0: 
+   print("\nUnsuccessful!\n %d Error occurred:\n %s" % (p2.returncode, error.decode()))
+**********************************************************************
+
+Testing run_fmr_R.py...
+
+run_fmr_R.py is a Python script file;
+
+checking for docstrings...
+
+Found no functions, but one docstring for the script, good
+
+Current Points = 100
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Reading CSV
+Creating graph
+null device 
+          1 
+Finished in R!
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.54976s
+
+======================================================================
+Inspecting script file vectorize2.r...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env R
+
+# Title: vectorize1.2
+# Author: Jooyoung Ser (jooyoung.ser19@imperial.ac.uk), Elliott Parnell (elliott.parnell22@imperial.ac.uk), Anqi Wang (anqi.wang22@imperial.ac.uk), Linke Feng (l.feng22@imperial.ac.uk)
+# Date: Nov 2022
+
+# Runs the stochastic Ricker equation with gaussian fluctuations
+
+#clear workspace
+rm(list = ls())
+
+#stockrick function
+stochrick <- function(p0 = runif(1000, .5, 1.5), r = 1.2, K = 1, sigma = 0.2,numyears = 100)
+{
+
+  N <- matrix(NA, numyears, length(p0))  #initialize empty matrix
+
+  N[1, ] <- p0
+
+  for (pop in 1:length(p0)) { #loop through the populations
+
+    for (yr in 2:numyears){ #for each pop, loop through the years
+
+      N[yr, pop] <- N[yr-1, pop] * exp(r * (1 - N[yr - 1, pop] / K) + rnorm(1, 0, sigma)) # add one fluctuation from normal distribution
+    
+     }
+  
+  }
+ return(N)
+
+}
+
+
+
+#vectorized stockrick function
+stochrickvect <- function(p0 = runif(1000, .5, 1.5), r = 1.2, K = 1, sigma = 0.2,numyears = 100)
+{
+  
+  N <- matrix(NA, numyears, length(p0))  #initialize empty matrix
+  
+  N[1, ] <- p0
+    
+    for (yr in 2:numyears){ #for each pop, loop through the years
+      
+      N[yr, (1:length(p0))] <- N[yr-1, (1:length(p0))] * exp(r * (1 - N[yr - 1, (1:length(p0))] / K) + rnorm(1, 0, sigma)) # add one fluctuation from normal distribution
+      
+    
+  }
+  return(N)
+  
+}
+
+#compare run times
+print("Non Vectorized Stochastic Ricker takes:")
+print(system.time(res2<-stochrick()))
+print("Vectorized Stochastic Ricker takes:")
+print(system.time(res2<-stochrickvect()))
+
+
+
+
+**********************************************************************
+
+Testing vectorize2.r...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+[1] "Non Vectorized Stochastic Ricker takes:"
+   user  system elapsed 
+  0.250   0.022   0.271 
+[1] "Vectorized Stochastic Ricker takes:"
+   user  system elapsed 
+  0.016   0.001   0.016 
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.52816s
+
+======================================================================
+Inspecting script file Scipy_pra.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+"""Introduction for Scipy package"""
+__appname__ = 'scipy-pra'
+__author__ = 'ANQI WANG (aw222@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = "None"
+
+import numpy as np
+import matplotlib.pylab as plt
+import scipy as sc
+from scipy import stats
+import scipy.integrate as integrate
+
+# generate 10 samples from the normal distribution 
+sc.stats.norm.rvs(size = 10)
+np.random.seed(1234) # seed is used to locked the ramdom sequence number
+sc.stats.norm.rvs(size = 10)
+sc.stats.norm.rvs(size=5, random_state=1234)
+# generating random integers between 0 and 10
+sc.stats.randint.rvs(0, 10, size = 7)
+sc.stats.randint.rvs(0, 10, size = 7, random_state=1234)
+sc.stats.randint.rvs(0, 10, size = 7, random_state=3445) # a different seed
+
+# Numerical integration using scipy
+
+# Area under a curve
+y = np.array([5, 20, 18, 19, 18, 7, 4]) # The y values; can also use a python list here
+plt.plot(y)
+plt.show()
+
+# using composite trapezoidal rule to compute the area
+area = integrate.trapz(y, dx = 2)
+print("area =", area)
+
+area = integrate.trapz(y, dx = 1) # dx defines the spacing between points of the cureve
+print("area =", area)
+area = integrate.trapz(y, dx = 3)
+print("area =", area)
+
+# using Simpson's rule to comulte the area
+area = integrate.simps(y, dx = 2)
+print("area =", area)
+area = integrate.simps(y, dx = 1)
+print("area =", area)
+area = integrate.simps(y, dx = 3)
+print("area =", area)
+
+# The Lotka - Volterra model
+def dCR_dt(pops, t=0):
+    """Define a function that returns the growth rate of consumer and resource population"""
+    
+    R = pops[0]
+    C = pops[1]
+    dRdt = r * R - a * R * C 
+    dCdt = -z * C + e * a * R * C
+    
+    return np.array([dRdt, dCdt])
+
+type(dCR_dt)
+
+r = 1.
+a = 0.1 
+z = 1.5
+e = 0.75
+
+t = np.linspace(0, 15, 1000)
+R0 = 10
+C0 = 5 
+RC0 = np.array([R0, C0])
+# numerically integrate this system forward from starting conditions:
+pops, infodict = integrate.odeint(dCR_dt, RC0, t, full_output=True)
+pops
+
+type(infodict)
+infodict.keys()
+infodict['message']
+
+import matplotlib.pylab as p
+f1 = p.figure()
+p.plot(t, pops[:,0], 'g-', label='Resource density') # Plot
+p.plot(t, pops[:,1]  , 'b-', label='Consumer density')
+p.grid()
+p.legend(loc='best')
+p.xlabel('Time')
+p.ylabel('Population density')
+p.title('Consumer-Resource population dynamics')
+p.show()# To display the figure
+
+f1.savefig('../results/LV_model.pdf') #Save figure
+
+**********************************************************************
+
+Testing Scipy_pra.py...
+
+Scipy_pra.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Current Points = 100
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+area = 173.0
+area = 86.5
+area = 259.5
+area = 176.66666666666666
+area = 88.33333333333333
+area = 265.0
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 5.71664s
+
+======================================================================
+Inspecting script file profileme.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+"""An illustrstive program to slow down the code"""
+__appname__ = 'profileme'
+__author__ = 'ANQI WANG (aw222@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = "None"
+
+# profiling = locate sections of code where speed bottlenecks exist
+# in general: run -p function/script_name
+
+def my_squares(iters):
+    """Takes a number, returns the squares of the numbers up to this number in a list"""
+    out = []
+    for i in range(iters):
+        out.append(i ** 2)
+    return out
+
+def my_join(iters, string):
+    """
+    Takes a number, iters, and a string; 
+    returns a new string which contains the orginal string repeated iters times, 
+    each spearated by a comma and space
+    """
+    out = ''
+    for i in range(iters):
+        out += string.join(", ")
+    return out
+
+def run_my_funcs(x,y):
+    """
+    Takes a number and string; passes these to my_squares() and my_join().
+    When finished, returns 0
+    """
+    print(x,y)
+    my_squares(x)
+    my_join(x,y)
+    return 0
+
+run_my_funcs(10000000,"My string")
+**********************************************************************
+
+Testing profileme.py...
+
+profileme.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Current Points = 100
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+10000000 My string
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 4.85031s
+
+======================================================================
+Inspecting script file DrawFW.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+"""
+Plot a food web network and save into .pdf file
+
+Needs: Adjacency list of who eats whom (consumer name/id in 1st 
+	column, resource name/id in 2nd column), and list of species 
+	names/ids and properties such as biomass (node abundance), or average 
+	body mass. 
+"""
+__appname__ = 'DrawFW'
+__author__ = 'ANQI WANG (aw222@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = "None"
+
+# The best way to store a food web dataset is as an “adjacency list” of who eats whom: 
+# a matrix with consumer name/id in 1st column, and resource name/id in 2nd column, 
+# and a separate matrix of species names/ids and properties such as biomass (node’s abundance), or average body mass. 
+
+# Import the required packages
+import networkx as nx
+import scipy as sc
+import numpy as np
+import matplotlib.pylab as plt
+
+# generate a “synthetic” food web
+def GenRdmAdjList(N = 2, C = 0.5):
+    """ 
+    A random adjaceny list of a N-species food web with 'connectance probability'
+    C: the probability of having a link between any pair of species in the food web
+    to calculate the 'synthenic' food web
+    """
+    Ids = range(N)
+    ALst = []
+    for i in Ids:
+        if np.random.uniform(0,1,1) < C:
+            Lnk = np.random.choice(Ids,2).tolist()
+            if Lnk[0] != Lnk[1]: #avoid self (e.g., cannibalistic) loops
+                ALst.append(Lnk)
+    return ALst
+
+
+# Assign number of species(MaxN) and connectance (C)
+MaxN = 30
+C = 0.75
+
+# Generate an adjacency list representing a random food web
+AdjL = np.array(GenRdmAdjList(MaxN, C))
+#AdjL
+
+# Generate species (node) data
+Sps = np.unique(AdjL) # get species ids
+
+# Generate body sizes for the species, species body sizes tend to be log-normally distributed,
+# log-transformation is required
+SizRan = ([-10,10]) #use log10 scale
+Sizs = np.random.uniform(SizRan[0],SizRan[1],MaxN)
+#Sizs
+
+# Visualize the size distribution we have generated
+plt.hist(Sizs) #log10 scale
+#plt.show()
+
+plt.hist(10 ** Sizs) #raw scale
+#plt.show()
+
+# Plot the network, with node sizes proportional to (log) body size
+plt.close('all') # close all open plot objects
+
+# use a circular configuration with netwoekx
+pos = nx.circular_layout(Sps)
+
+# Generate a networkx graph object
+G = nx.Graph()
+# Add the nodes and links (edges) to it
+G.add_nodes_from(Sps)
+G.add_edges_from(tuple(AdjL))
+
+# Generate node sizes that are proportional to (log) body sizes
+NodSizs= 1000 * (Sizs-min(Sizs))/(max(Sizs)-min(Sizs)) 
+# Render (plot) the graph
+nx.draw_networkx(G, pos, node_size = NodSizs)
+
+# Or
+#NodSizs= 10**-32 + (Sizs-min(Sizs))/(max(Sizs)-min(Sizs)) #node sizes in proportion to body sizes
+#nx.draw(G, pos, node_size = NodSizs*1000)
+**********************************************************************
+
+Testing DrawFW.py...
+
+DrawFW.py is a Python script file;
+
+checking for docstrings...
+
+Found one or more docstrings and functions
+
+Current Points = 100
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+
+**********************************************************************
+
+Encountered error (or warning):
+
+***IGNORE IF THIS ERROR IS EXPECTED AS PART OF AN IN-CLASS EXERCISE***
+
+Traceback (most recent call last):
+  File "/home/mhasoba/Documents/Teaching/IC_CMEE/2022-23/Coursework/StudentRepos/AnqiWang_/week7/code/DrawFW.py", line 82, in <module>
+    nx.draw_networkx(G, pos, node_size = NodSizs)
+  File "/usr/lib/python3/dist-packages/networkx/drawing/nx_pylab.py", line 274, in draw_networkx
+    node_collection = draw_networkx_nodes(G, pos, **kwds)
+  File "/usr/lib/python3/dist-packages/networkx/drawing/nx_pylab.py", line 407, in draw_networkx_nodes
+    node_collection = ax.scatter(xy[:, 0], xy[:, 1],
+  File "/usr/lib/python3/dist-packages/matplotlib/__init__.py", line 1416, in inner
+    return func(ax, *map(sanitize_sequence, args), **kwargs)
+  File "/usr/lib/python3/dist-packages/matplotlib/axes/_axes.py", line 4378, in scatter
+    raise ValueError(
+ValueError: s must be a scalar, or float array-like with the same size as x and y
+
+======================================================================
+Inspecting script file MyFirstJupyterNb.ipynb...
+
+File contents are:
+
+**********************************************************************
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "f18967e5-74cd-4e9b-bfbc-e102c4c526ba",
+   "metadata": {},
+   "source": [
+    "# MY FIRST JUPYTER NOTEBOOK SCRIPT"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "dde16b04-9572-429a-8cb9-17c87fdd2499",
+   "metadata": {},
+   "source": [
+    "$$\n",
+    "    \\frac{dN}{dt} = rN \\left( 1-\\frac{N}{K}\\right)\n",
+    "$$"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "7114f081-1e00-4285-a779-248fe37ee896",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "this is python!\n"
+     ]
+    }
+   ],
+   "source": [
+    "a = \"this is python!\"; print(a)"
+   ]
+  },
+  {
+   "attachments": {},
+   "cell_type": "markdown",
+   "id": "b757fe97-63f7-4957-8e86-fab8171feb97",
+   "metadata": {},
+   "source": [
+    "```r\n",
+    "a <- \"this is R!\"; print(a) \n",
+    "```\n",
+    "###### need to change to r kernel"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "19c8be7f-e393-492c-b45f-3fc51190119e",
+   "metadata": {},
+   "source": [
+    "## Graphics -- plotting with Python"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "be42931d-e359-4685-a494-2dab4fbc106e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/var/folders/yw/r2lnbrrd7rn794tknncmhknm0000gn/T/ipykernel_25136/2344994519.py:4: DeprecationWarning: scipy.arange is deprecated and will be removed in SciPy 2.0.0, use numpy.arange instead\n",
+      "  x = sc.arange(0, 5, 0.1); y = sc.sin(x)\n",
+      "/var/folders/yw/r2lnbrrd7rn794tknncmhknm0000gn/T/ipykernel_25136/2344994519.py:4: DeprecationWarning: scipy.sin is deprecated and will be removed in SciPy 2.0.0, use numpy.sin instead\n",
+      "  x = sc.arange(0, 5, 0.1); y = sc.sin(x)\n"
+     ]
+    },
+    {
+     "data": {
+      "image/png": "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",
+      "text/plain": [
+       "<Figure size 432x288 with 1 Axes>"
+      ]
+     },
+     "metadata": {
+      "needs_background": "light"
+     },
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "import matplotlib.pyplot as p\n",
+    "import scipy as sc\n",
+    "x = sc.arange(0, 5, 0.1); y = sc.sin(x)\n",
+    "p.plot(x, y); p.show()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "aa989176-a21f-45f6-a87d-61376836fdcc",
+   "metadata": {},
+   "source": [
+    "## Graphics -- plotting with R"
+   ]
+  },
+  {
+   "attachments": {},
+   "cell_type": "markdown",
+   "id": "720550d7-c9e7-4132-b559-37a5ff103b5d",
+   "metadata": {},
+   "source": [
+    "##### Need to be changed to R kernel\n",
+    "```r\n",
+    "require(ggplot2)\n",
+    "library(repr) # to resize plot within jupyter - this package is part of IRKernel\n",
+    "options(repr.plot.width=3.3,repr.plot.height=2.5)\n",
+    "\n",
+    "x <- seq(0, 5, 0.1); y <- sin(x)\n",
+    "qplot(x, y, geom = \"line\") # large figure\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "e4314903-3815-493e-89c3-ec08db788c92",
+   "metadata": {},
+   "source": [
+    "# Data analyses with Python & Jupyter"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "74aeb28d-efcd-4bfe-b09c-c2eb08d7916b",
+   "metadata": {},
+   "source": [
+    "#### Installing Pandas"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "9352af7a-3bd1-4dd0-9add-36c45d9fc3be",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'1.4.2'"
+      ]
+     },
+     "execution_count": 1,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import pandas as pd\n",
+    "pd.__version__"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "c904e6de-174e-4e4c-bf0b-a4da86a14ff5",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import scipy as sc # install SciPy"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "266a7179-a76b-4a24-ab2b-4d4d0489be42",
+   "metadata": {},
+   "source": [
+    "#### Import Data"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "9148b9ec-ea50-47ad-aef6-e4dd623b6a61",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>Species</th>\n",
+       "      <th>Infraorder</th>\n",
+       "      <th>Family</th>\n",
+       "      <th>Distribution</th>\n",
+       "      <th>Body mass male (Kg)</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>Daubentonia_madagascariensis</td>\n",
+       "      <td>Chiromyiformes</td>\n",
+       "      <td>Daubentoniidae</td>\n",
+       "      <td>Madagascar</td>\n",
+       "      <td>2.700</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>Allocebus_trichotis</td>\n",
+       "      <td>Lemuriformes</td>\n",
+       "      <td>Cheirogaleidae</td>\n",
+       "      <td>Madagascar</td>\n",
+       "      <td>0.100</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>Avahi_laniger</td>\n",
+       "      <td>Lemuriformes</td>\n",
+       "      <td>Indridae</td>\n",
+       "      <td>America</td>\n",
+       "      <td>1.030</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>Avahi_occidentalis</td>\n",
+       "      <td>Lemuriformes</td>\n",
+       "      <td>Indridae</td>\n",
+       "      <td>Madagascar</td>\n",
+       "      <td>0.814</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>Avahi_unicolor</td>\n",
+       "      <td>Lemuriformes</td>\n",
+       "      <td>Indridae</td>\n",
+       "      <td>America</td>\n",
+       "      <td>0.830</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>5</th>\n",
+       "      <td>Cheirogaleus_adipicaudatus</td>\n",
+       "      <td>Lemuriformes</td>\n",
+       "      <td>Cheirogaleidae</td>\n",
+       "      <td>Madagascar</td>\n",
+       "      <td>0.200</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>6</th>\n",
+       "      <td>Cheirogaleus_crossleyi</td>\n",
+       "      <td>Lemuriformes</td>\n",
+       "      <td>Cheirogaleidae</td>\n",
+       "      <td>Madagascar</td>\n",
+       "      <td>0.400</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>7</th>\n",
+       "      <td>Cheirogaleus_major</td>\n",
+       "      <td>Lemuriformes</td>\n",
+       "      <td>Cheirogaleidae</td>\n",
+       "      <td>Madagascar</td>\n",
+       "      <td>0.450</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>8</th>\n",
+       "      <td>Cheirogaleus_medius</td>\n",
+       "      <td>Lemuriformes</td>\n",
+       "      <td>Cheirogaleidae</td>\n",
+       "      <td>Madagascar</td>\n",
+       "      <td>0.217</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "                        Species       Infraorder          Family Distribution  \\\n",
+       "0  Daubentonia_madagascariensis  Chiromyiformes   Daubentoniidae   Madagascar   \n",
+       "1           Allocebus_trichotis     Lemuriformes  Cheirogaleidae   Madagascar   \n",
+       "2                 Avahi_laniger     Lemuriformes        Indridae      America   \n",
+       "3            Avahi_occidentalis     Lemuriformes        Indridae   Madagascar   \n",
+       "4                Avahi_unicolor     Lemuriformes        Indridae      America   \n",
+       "5    Cheirogaleus_adipicaudatus     Lemuriformes  Cheirogaleidae   Madagascar   \n",
+       "6        Cheirogaleus_crossleyi     Lemuriformes  Cheirogaleidae   Madagascar   \n",
+       "7            Cheirogaleus_major     Lemuriformes  Cheirogaleidae   Madagascar   \n",
+       "8           Cheirogaleus_medius     Lemuriformes  Cheirogaleidae   Madagascar   \n",
+       "\n",
+       "   Body mass male (Kg)  \n",
+       "0                2.700  \n",
+       "1                0.100  \n",
+       "2                1.030  \n",
+       "3                0.814  \n",
+       "4                0.830  \n",
+       "5                0.200  \n",
+       "6                0.400  \n",
+       "7                0.450  \n",
+       "8                0.217  "
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "MyDF = pd.read_csv('../data/testcsv.csv', sep=',')\n",
+    "MyDF"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "1c4fa8e2-11ff-4c53-babc-1694132ffc33",
+   "metadata": {},
+   "source": [
+    "#### Creating Dataframe"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "acff47a1-1d36-4997-8378-054e28e72c26",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>col1</th>\n",
+       "      <th>col2</th>\n",
+       "      <th>col3</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>Var1</td>\n",
+       "      <td>Grass</td>\n",
+       "      <td>1.0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>Var2</td>\n",
+       "      <td>Rabbit</td>\n",
+       "      <td>2.0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>Var3</td>\n",
+       "      <td>Fox</td>\n",
+       "      <td>NaN</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>Var4</td>\n",
+       "      <td>Wolf</td>\n",
+       "      <td>4.0</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   col1    col2  col3\n",
+       "0  Var1   Grass   1.0\n",
+       "1  Var2  Rabbit   2.0\n",
+       "2  Var3     Fox   NaN\n",
+       "3  Var4    Wolf   4.0"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "MyDF = pd.DataFrame({\n",
+    "   'col1': ['Var1', 'Var2', 'Var3', 'Var4'],\n",
+    "   'col2': ['Grass', 'Rabbit', 'Fox', 'Wolf'],\n",
+    "   'col3': [1, 2, sc.nan, 4]\n",
+    "})\n",
+    "\n",
+    "MyDF"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "f70e24c6-f433-45c1-9583-ff9b6999e293",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>col1</th>\n",
+       "      <th>col2</th>\n",
+       "      <th>col3</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>Var1</td>\n",
+       "      <td>Grass</td>\n",
+       "      <td>1.0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>Var2</td>\n",
+       "      <td>Rabbit</td>\n",
+       "      <td>2.0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>Var3</td>\n",
+       "      <td>Fox</td>\n",
+       "      <td>NaN</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>Var4</td>\n",
+       "      <td>Wolf</td>\n",
+       "      <td>4.0</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   col1    col2  col3\n",
+       "0  Var1   Grass   1.0\n",
+       "1  Var2  Rabbit   2.0\n",
+       "2  Var3     Fox   NaN\n",
+       "3  Var4    Wolf   4.0"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Displays the top 5 rows. Accepts an optional int parameter - num. of rows to show\n",
+    "MyDF.head()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "9a4146ad-f6da-4dd2-b851-436e247e51e1",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>col1</th>\n",
+       "      <th>col2</th>\n",
+       "      <th>col3</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>Var1</td>\n",
+       "      <td>Grass</td>\n",
+       "      <td>1.0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>Var2</td>\n",
+       "      <td>Rabbit</td>\n",
+       "      <td>2.0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>Var3</td>\n",
+       "      <td>Fox</td>\n",
+       "      <td>NaN</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>Var4</td>\n",
+       "      <td>Wolf</td>\n",
+       "      <td>4.0</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   col1    col2  col3\n",
+       "0  Var1   Grass   1.0\n",
+       "1  Var2  Rabbit   2.0\n",
+       "2  Var3     Fox   NaN\n",
+       "3  Var4    Wolf   4.0"
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Similar to head, but displays the last rows\n",
+    "MyDF.tail()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "f49d48eb-de03-477a-bcc1-bfbe333b5b4c",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(4, 3)"
+      ]
+     },
+     "execution_count": 8,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# The dimensions of the dataframe as a (rows, cols) tuple\n",
+    "MyDF.shape"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "d3a8b82c-04c9-4bf8-be85-fd2f1b5d5577",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "4"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# The number of columns. Equal to df.shape[0]\n",
+    "len(MyDF) "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "705cc712-9ab2-4d13-9a7d-65f0ce7e813e",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "Index(['col1', 'col2', 'col3'], dtype='object')"
+      ]
+     },
+     "execution_count": 10,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# An array of the column names\n",
+    "MyDF.columns "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "81af6f78-c923-4a80-baea-b19c4f389be5",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "col1     object\n",
+       "col2     object\n",
+       "col3    float64\n",
+       "dtype: object"
+      ]
+     },
+     "execution_count": 11,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Columns and their types\n",
+    "MyDF.dtypes"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "1d4e5650-d23a-4239-a00a-12c86e18a1c2",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "array([['Var1', 'Grass', 1.0],\n",
+       "       ['Var2', 'Rabbit', 2.0],\n",
+       "       ['Var3', 'Fox', nan],\n",
+       "       ['Var4', 'Wolf', 4.0]], dtype=object)"
+      ]
+     },
+     "execution_count": 12,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Converts the frame to a two-dimensional table\n",
+    "MyDF.values "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "aa71d157-4c90-47de-ba34-d6beba6da4c6",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>col3</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>count</th>\n",
+       "      <td>3.000000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>mean</th>\n",
+       "      <td>2.333333</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>std</th>\n",
+       "      <td>1.527525</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>min</th>\n",
+       "      <td>1.000000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>25%</th>\n",
+       "      <td>1.500000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>50%</th>\n",
+       "      <td>2.000000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>75%</th>\n",
+       "      <td>3.000000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>max</th>\n",
+       "      <td>4.000000</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "           col3\n",
+       "count  3.000000\n",
+       "mean   2.333333\n",
+       "std    1.527525\n",
+       "min    1.000000\n",
+       "25%    1.500000\n",
+       "50%    2.000000\n",
+       "75%    3.000000\n",
+       "max    4.000000"
+      ]
+     },
+     "execution_count": 13,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Displays descriptive stats for all columns\n",
+    "MyDF.describe()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "e6947b94-f9c0-42c3-b810-8a2be814edd9",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.8"
+  },
+  "vscode": {
+   "interpreter": {
+    "hash": "b0fa6594d8f4cbf19f97940f81e996739fb7646882a419484c72d19e05852a7e"
+   }
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
+
+**********************************************************************
+
+Testing MyFirstJupyterNb.ipynb...
+
+======================================================================
+Inspecting script file runLV.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+# The Lotka - Volterra model running code
+"""Runs both LV1.py and LV2.py with appropriate arguments"""
+__appname__ = 'runLV'
+__author__ = 'ANQI WANG (aw222@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = "None"
+
+from LV1 import main as lv1run
+from LV2 import main as lv2run
+import cProfile
+import pstats
+
+lv1run([])
+lv2run([1,5000,0.5,1.5,0.75])
+
+prof = cProfile.Profile() #creating a new profile
+
+prof.enable() #enabling the profile
+lv1run([]) #run the program for profiling 
+prof.disable() #disabling the profile
+ps = pstats.Stats(prof)
+ps.sort_stats('cumtime').print_stats(15)   # Sort by cumulative time spent in the function
+
+prof.enable()
+lv2run([])
+prof.disable()
+ps = pstats.Stats(prof)
+ps.sort_stats('cumtime').print_stats(15)   # Sort by cumulative time spent in the function
+
+**********************************************************************
+
+Testing runLV.py...
+
+runLV.py is a Python script file;
+
+checking for docstrings...
+
+Found no functions, but one docstring for the script, good
+
+Current Points = 100
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+
+**********************************************************************
+
+Encountered error (or warning):
+
+***IGNORE IF THIS ERROR IS EXPECTED AS PART OF AN IN-CLASS EXERCISE***
+
+No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+
+======================================================================
+Inspecting script file workFlow_pra.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+"""Using Subprocess to build workflow in python"""
+__appname__ = 'WorkFlow_pra'
+__author__ = 'ANQI WANG (aw222@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = "None"
+
+import subprocess
+
+p = subprocess.Popen(["echo", "I'm talkin' to you, bash!"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+stdout, stderr = p.communicate()
+stderr
+
+# check what in stdout
+stdout
+# encode and print
+print(stdout.decode())
+
+p = subprocess.Popen(["ls","-l"], stdout=subprocess.PIPE)
+stdout, stderr = p.communicate()
+p = subprocess.Popen(["python3", "boilerplate.py"], stdout=subprocess.PIPE, stderr=subprocess.PIPE) # A bit silly! 
+stdout, stderr = p.communicate()
+
+print(stdout.decode())
+**********************************************************************
+
+Testing workFlow_pra.py...
+
+workFlow_pra.py is a Python script file;
+
+checking for docstrings...
+
+Found no functions, but one docstring for the script, good
+
+Current Points = 100
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+I'm talkin' to you, bash!
+
+
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.06809s
+
+======================================================================
+Inspecting script file compare_vectorization.sh...
+
+File contents are:
+
+**********************************************************************
+#!/bin/sh
+# Author: Jooyoung Ser (jooyoung.ser19@imperial.ac.uk), Elliott Parnell (elliott.parnell22@imperial.ac.uk), Anqi Wang (anqi.wang22@imperial.ac.uk), Linke Feng (l.feng22@imperial.ac.uk)
+# Script: compare_vectorization.sh
+# Desc: A script that runs vectorize1.py, vectorize2.py, vectorize1.R and vectorize2.R, then compares speeds
+# Arguments: none
+# Date: 17/11/2022
+
+#Running python scripts
+echo "Running the python Vectorize 1  script"
+python3 ../code/vectorize1.py
+
+echo ""
+echo "Running the python Vectorize 2  script"
+python3 ../code/vectorize2.py
+#python3 ../code/vectorize2.py
+
+echo ""
+#Running R scripts
+echo "Running the R Vectorize 1  script"
+Rscript ../code/vectorize1.r
+
+echo ""
+echo "Running the R Vectorize 2  script"
+Rscript ../code/vectorize2.r
+
+#!/usr/bin/env R
+
+
+**********************************************************************
+
+Testing compare_vectorization.sh...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+Running the python Vectorize 1  script
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 10.00354s
+
+======================================================================
+Inspecting script file Numpy_pra.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+"""Introduction for Numpy package"""
+__appname__ = 'numpy-pra'
+__author__ = 'ANQI WANG (aw222@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = "None"
+
+import numpy as np
+
+# A one-dimensional array
+a = np.array(range(5))
+a
+print(type(a))
+print(type(a[0]))
+
+# Specify the data type of the array
+a = np.array(range(5), float)
+a
+a.dtype #Check type
+
+# A 1-D arrays
+x = np.arange(5)
+x
+# Directly specify float using decimal
+x = np.arange(5.)
+x
+# to see dimensions of x
+x.shape
+
+# Convert to and from Python lists
+b = np.array([i for i in range(10) if i%2 == 1]) #odd numbers between 1 and 10
+b
+
+c = b.tolist() #convert back to list
+c
+
+# A 2-D numpy array to make a matrix
+mat = np.array([[0,1],[2,3]])
+mat
+mat.shape
+
+# Indexing and accessing arrays
+mat[1] #accessing whole 2nd row, remember starts at 0
+mat[:,1] #accessing whole second colum
+mat[0,0] # 1st row, 1st colum element
+mat[1,0] # 2nd row, 1st colum element
+mat[:,0] #accessing whole first colum
+# Python indexing acceps negative values for going back to the start from the end of an array
+mat[0,1]
+mat[0,-1]
+mat[-1,0]
+mat[0,-2]
+
+# Manipulating arrays
+# Replacing, adding or deleting elements
+mat[0,0] = -1 # replace a single element
+mat
+mat[:,0] = [12,12] #replace whole column
+mat
+np.append(mat, [[12,12]], axis = 0) #append row, note axis specification
+np.append(mat, [[12],[12]], axis = 1) #append column
+newRow = [[12,12]] #create new row
+mat = np.append(mat, newRow, axis = 0) #append that existing row
+mat
+np.delete(mat, 2, 0) #Delete 3rd row
+#concatenation
+mat = np.array([[0,1],[2,3]])
+mat0 = np.array([[0,10],[-1,3]])
+np.concatenate((mat, mat0), axis = 0)
+
+# Flattening or reshaping arrays
+mat.ravel()
+mat.reshape((4,1))
+mat.reshape((1,4))
+mat.reshape((3,1)) # the total elements must remain the same
+
+# Pre-allocating arrays
+np.ones((4,2)) #(4,2) are the (row,col) array dimensions
+np.zeros((4,2)) # oe zeros
+m = np. identity(4)
+m
+m.fill(16) # fill the matrix with 16
+m
+
+# numpy matrices
+# Matrix-vector operations
+mm = np.arange(16)
+mm = mm.reshape(4,4) #Convert to matrix
+mm
+mm.transpose()
+mm + mm.transpose()
+mm - mm.transpose()
+mm * mm.transpose() # an element-wise multiplication
+mm // mm.transpose() # warning of zero division
+mm // (mm + 1).transpose()
+mm * np.pi
+mm.dot(mm) # No this is matric multiplication, or the dot product
+mm = np.matrix(mm) # Convert to scipy/numpy matrix class
+mm
+print(type(mm))
+mm * mm #instead of mm.dot(mm)
+
+**********************************************************************
+
+Testing Numpy_pra.py...
+
+Numpy_pra.py is a Python script file;
+
+checking for docstrings...
+
+Found no functions, but one docstring for the script, good
+
+Current Points = 100
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+<class 'numpy.ndarray'>
+<class 'numpy.int64'>
+
+**********************************************************************
+
+Encountered error (or warning):
+
+***IGNORE IF THIS ERROR IS EXPECTED AS PART OF AN IN-CLASS EXERCISE***
+
+Traceback (most recent call last):
+  File "/home/mhasoba/Documents/Teaching/IC_CMEE/2022-23/Coursework/StudentRepos/AnqiWang_/week7/code/Numpy_pra.py", line 76, in <module>
+    mat.reshape((3,1)) # the total elements must remain the same
+ValueError: cannot reshape array of size 4 into shape (3,1)
+
+======================================================================
+Inspecting script file TestR.R...
+
+File contents are:
+
+**********************************************************************
+print("Hello, this is R!")
+
+**********************************************************************
+
+Testing TestR.R...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+[1] "Hello, this is R!"
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.17676s
+
+======================================================================
+Inspecting script file vectorize1.r...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env R
+
+# Title: vectorize1.r
+# Author: Jooyoung Ser (jooyoung.ser19@imperial.ac.uk), Elliott Parnell (elliott.parnell22@imperial.ac.uk), Anqi Wang (anqi.wang22@imperial.ac.uk), Linke Feng (l.feng22@imperial.ac.uk)
+# Date: Nov 2022
+
+# This script sums a matrix using a looping method and a vectorised method, then compares run time
+
+#Create matrix
+M <- matrix(runif(1000000),1000,1000)
+
+#Function to sum elements line by line
+SumAllElements <- function(M) {
+  Dimensions <- dim(M)
+  Tot <- 0
+  for (i in 1:Dimensions[1]) {
+    for (j in 1:Dimensions[2]) {
+      Tot <- Tot + M[i,j]
+    }
+  }
+  return (Tot)
+}
+
+print("Using loops, the time taken is:")
+print(system.time(SumAllElements(M)))
+
+print("Using the in-built vectorized function, the time taken is:")
+print(system.time(sum(M)))
+**********************************************************************
+
+Testing vectorize1.r...
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+[1] "Using loops, the time taken is:"
+   user  system elapsed 
+  0.071   0.003   0.074 
+[1] "Using the in-built vectorized function, the time taken is:"
+   user  system elapsed 
+  0.001   0.000   0.001 
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 0.33224s
+
+======================================================================
+Inspecting script file timeitme.py...
+
+File contents are:
+
+**********************************************************************
+#!/usr/bin/env python3
+
+"""Using timeit module to test part of a larger program"""
+__appname__ = 'timeitme'
+__author__ = 'ANQI WANG (aw222@ic.ac.uk)'
+__version__ = '0.0.1'
+__license__ = "None"
+
+##############################################################################
+# loops vs. list comprehensions: which is faster?
+##############################################################################
+
+iters = 1000000
+
+import timeit
+
+from profileme import my_squares as my_squares_loops
+
+from profileme2 import my_squares as my_squares_lc
+
+##############################################################################
+# loops vs. the join method for strings: which is faster?
+##############################################################################
+
+mystring = "my string"
+
+from profileme import my_join as my_join_join
+
+from profileme2 import my_join as my_join
+
+# Simple approach with time
+import time
+start = time.time()
+my_squares_loops(iters)
+print(f"my_squares_loops takes {time.time() - start} s to run.")
+
+start = time.time()
+my_squares_lc(iters)
+print(f"my_squares_lc takes {time.time() - start} s to run.")
+
+**********************************************************************
+
+Testing timeitme.py...
+
+timeitme.py is a Python script file;
+
+checking for docstrings...
+
+Found no functions, but one docstring for the script, good
+
+Current Points = 100
+
+Output (only first 500 characters): 
+
+
+**********************************************************************
+10000000 My string
+10000000 My string
+my_squares_loops takes 0.25048041343688965 s to run.
+my_squares_lc takes 0.2332608699798584 s to run.
+
+**********************************************************************
+
+Code ran without errors
+
+Time consumed = 9.01390s
+
+======================================================================
+======================================================================
+Finished running scripts
+
+Ran into 3 errors
+
+======================================================================
+======================================================================
+
+FINISHED WEEKLY ASSESSMENT
+
+Current Points for the Week = 100
+
+NOTE THAT THESE ARE POINTS, NOT MARKS FOR THE WEEK!
